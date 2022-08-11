@@ -176,8 +176,8 @@ button {
 
 .dashboard-projects {
     display: grid;
-    grid-template-rows: 10% 85%;
-    row-gap: 5%;
+    grid-template-rows: 10% 82%;
+    row-gap: 8%;
     padding: 7% 5% 4%;
     overflow-y: scroll;
 }
