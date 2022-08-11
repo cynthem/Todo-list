@@ -447,9 +447,9 @@ h2 {
 
 .add-info {
     display: grid;
-    grid-template-columns: 70% 28%;
-    column-gap: 2%;
-    padding: 0 5%;
+    grid-template-columns: 57% 40%;
+    column-gap: 3%;
+    padding: 0 2% 0 5%;
 }
 
 .add-text {
@@ -469,19 +469,20 @@ textarea {
 
 .add-textarea {
     font-size: 1.1vw;
+    resize: none;
 }
 
 .add-details {
     display: grid;
-    grid-template-rows: 40% 50%;
-    row-gap: 10%;
+    grid-template-rows: 40% 40%;
+    row-gap: 20%;
 }
 
 .details-date,
 .details-priority {
     display: flex;
     flex-direction: column;
-    gap: 10%;
+    gap: 20%;
     align-items: center;
 }
 
@@ -502,6 +503,46 @@ textarea {
 
 .priority-radios {
     display: flex;
+    width: 13vw;
+    justify-content: space-between;
+    align-items: center;
+}
+
+input[type="radio"] {
+    position: relative;
+    left: 2.2rem;
+    height: 1px;
+    width: 1px;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+}
+
+.priority-label {
+    display: inline-block;
+    border: 1px solid #542344;
+    font-size: 1vw;
+    padding: 5px 10px 2px;
+    border-radius: 4px;
+}
+
+.low {
+    border: 1px solid #c8b2c1;
+    background-color: #c8b2c1;
+    color: #EBF5EE;
+}
+
+.medium {
+    padding: 5px 4px 2px;
+    border: 1px solid #99728c;
+    background-color: #99728c;
+    color: #EBF5EE;
+}
+
+.high {
+    border: 1px solid #542344;
+    background-color: #542344;
+    color: #EBF5EE;
 }
 
 .add-submit {
