@@ -242,15 +242,15 @@ h2 {
 }
 
 .low-priority {
-    border-left: 8px solid rgb(13, 132, 13);
+    border-left: 8px solid #cfbdc9;
 }
 
 .medium-priority {
-    border-left: 8px solid rgb(230, 230, 48);
+    border-left: 8px solid #99728c;
 }
 
 .high-priority {
-    border-left: 8px solid rgb(181, 37, 37);
+    border-left: 8px solid #542344;
 }
 
 .item-left,
