@@ -133,7 +133,7 @@ body {
 .dashboard-filters,
 .dashboard-projects,
 .list {
-    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: -2px 10px 10px rgba(0, 0, 0, 0.3);
     border-radius: 25px;
 }
 
@@ -158,26 +158,28 @@ button {
     border: none;
     outline: none;
     background-color: #EBF5EE;
-    font-size: 20px;
+    font-size: 1.5vw;
 }
 
-.filters-counter {
-    background-color: #542344;
+.filters-counter,
+.projects-counter {
+    background-color: #808080;
     width: 1.75rem;
     height: 1.75rem;
     border-radius: 50%;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: #EBF5EE;
+    color: white;
     font-weight: 800;
 }
 
 .dashboard-projects {
     display: grid;
-    grid-template-rows: 10% 87%;
-    row-gap: 3%;
-    padding: 5% 5%;
+    grid-template-rows: 10% 86%;
+    row-gap: 4%;
+    padding: 7% 5% 4%;
+    overflow-y: scroll;
 }
 
 .projects-title {
@@ -200,4 +202,19 @@ h2 {
     box-shadow: 0.2rem 0.5rem 1rem rgba(0, 0, 0, 0.4);
     color: #EBF5EE;
     font-size: 3vw;
+}
+
+.projects-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.projects-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.projects-name {
+    font-size: 1.25vw;
 }
