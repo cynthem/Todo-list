@@ -116,5 +116,88 @@ body {
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
     display: grid;
-    grid-template-columns: 25% 75%;
+    grid-template-columns: 25% 72%;
+    column-gap: 3%;
+    padding: 2% 2% 1%;
+}
+
+
+/* DASHBOARD */
+
+.dashboard {
+    display: grid;
+    grid-template-rows: 25% 72%;
+    row-gap: 3%;
+}
+
+.dashboard-filters,
+.dashboard-projects,
+.list {
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 25px;
+}
+
+.dashboard-filters {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0 20%;
+}
+
+.dashboard-filters > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+button {
+    font-family: 'Overpass', serif;
+}
+
+.filters-btn {
+    border: none;
+    outline: none;
+    background-color: #EBF5EE;
+    font-size: 20px;
+}
+
+.filters-counter {
+    background-color: #542344;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #EBF5EE;
+    font-weight: 800;
+}
+
+.dashboard-projects {
+    display: grid;
+    grid-template-rows: 10% 87%;
+    row-gap: 3%;
+    padding: 5% 5%;
+}
+
+.projects-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+h2 {
+    font-size: 2vw;
+}
+
+.projects-btn {
+    border: none;
+    outline: none;
+    background-color: #542344;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    box-shadow: 0.2rem 0.5rem 1rem rgba(0, 0, 0, 0.4);
+    color: #EBF5EE;
+    font-size: 3vw;
 }
