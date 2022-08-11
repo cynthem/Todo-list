@@ -3,78 +3,78 @@
     font-family: 'Fraunces';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/fraunces-v23-latin-regular.eot'); /* IE9 Compat Modes */
+    src: url('./resources/fraunces/fraunces-v23-latin-regular.eot'); /* IE9 Compat Modes */
     src: local(''),
-         url('../fonts/fraunces-v23-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('../fonts/fraunces-v23-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-         url('../fonts/fraunces-v23-latin-regular.woff') format('woff'), /* Modern Browsers */
-         url('../fonts/fraunces-v23-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-         url('../fonts/fraunces-v23-latin-regular.svg#Fraunces') format('svg'); /* Legacy iOS */
+         url('./resources/fraunces/fraunces-v23-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('./resources/fraunces/fraunces-v23-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('./resources/fraunces/fraunces-v23-latin-regular.woff') format('woff'), /* Modern Browsers */
+         url('./resources/fraunces/fraunces-v23-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('./resources/fraunces/fraunces-v23-latin-regular.svg#Fraunces') format('svg'); /* Legacy iOS */
 }
 /* fraunces-700 - latin */
 @font-face {
     font-family: 'Fraunces';
     font-style: normal;
     font-weight: 700;
-    src: url('../fonts/fraunces-v23-latin-700.eot'); /* IE9 Compat Modes */
+    src: url('./resources/fraunces/fraunces-v23-latin-700.eot'); /* IE9 Compat Modes */
     src: local(''),
-         url('../fonts/fraunces-v23-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('../fonts/fraunces-v23-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
-         url('../fonts/fraunces-v23-latin-700.woff') format('woff'), /* Modern Browsers */
-         url('../fonts/fraunces-v23-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
-         url('../fonts/fraunces-v23-latin-700.svg#Fraunces') format('svg'); /* Legacy iOS */
+         url('./resources/fraunces/fraunces-v23-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('./resources/fraunces/fraunces-v23-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+         url('./resources/fraunces/fraunces-v23-latin-700.woff') format('woff'), /* Modern Browsers */
+         url('./resources/fraunces/fraunces-v23-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('./resources/fraunces/fraunces-v23-latin-700.svg#Fraunces') format('svg'); /* Legacy iOS */
 }
 /* fraunces-italic - latin */
 @font-face {
     font-family: 'Fraunces';
     font-style: italic;
     font-weight: 400;
-    src: url('../fonts/fraunces-v23-latin-italic.eot'); /* IE9 Compat Modes */
+    src: url('./resources/fraunces/fraunces-v23-latin-italic.eot'); /* IE9 Compat Modes */
     src: local(''),
-         url('../fonts/fraunces-v23-latin-italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('../fonts/fraunces-v23-latin-italic.woff2') format('woff2'), /* Super Modern Browsers */
-         url('../fonts/fraunces-v23-latin-italic.woff') format('woff'), /* Modern Browsers */
-         url('../fonts/fraunces-v23-latin-italic.ttf') format('truetype'), /* Safari, Android, iOS */
-         url('../fonts/fraunces-v23-latin-italic.svg#Fraunces') format('svg'); /* Legacy iOS */
+         url('./resources/fraunces/fraunces-v23-latin-italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('./resources/fraunces/fraunces-v23-latin-italic.woff2') format('woff2'), /* Super Modern Browsers */
+         url('./resources/fraunces/fraunces-v23-latin-italic.woff') format('woff'), /* Modern Browsers */
+         url('./resources/fraunces/fraunces-v23-latin-italic.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('./resources/fraunces/fraunces-v23-latin-italic.svg#Fraunces') format('svg'); /* Legacy iOS */
 }
 /* overpass-regular - latin */
 @font-face {
     font-family: 'Overpass';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/overpass-v12-latin-regular.eot'); /* IE9 Compat Modes */
+    src: url('./resources/overpass/overpass-v12-latin-regular.eot'); /* IE9 Compat Modes */
     src: local(''),
-         url('../fonts/overpass-v12-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('../fonts/overpass-v12-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-         url('../fonts/overpass-v12-latin-regular.woff') format('woff'), /* Modern Browsers */
-         url('../fonts/overpass-v12-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-         url('../fonts/overpass-v12-latin-regular.svg#Overpass') format('svg'); /* Legacy iOS */
+         url('./resources/overpass/overpass-v12-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('./resources/overpass/overpass-v12-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('./resources/overpass/overpass-v12-latin-regular.woff') format('woff'), /* Modern Browsers */
+         url('./resources/overpass/overpass-v12-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('./resources/overpass/overpass-v12-latin-regular.svg#Overpass') format('svg'); /* Legacy iOS */
 }
 /* overpass-800 - latin */
 @font-face {
     font-family: 'Overpass';
     font-style: normal;
     font-weight: 800;
-    src: url('../fonts/overpass-v12-latin-800.eot'); /* IE9 Compat Modes */
+    src: url('./resources/overpass/overpass-v12-latin-800.eot'); /* IE9 Compat Modes */
     src: local(''),
-         url('../fonts/overpass-v12-latin-800.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('../fonts/overpass-v12-latin-800.woff2') format('woff2'), /* Super Modern Browsers */
-         url('../fonts/overpass-v12-latin-800.woff') format('woff'), /* Modern Browsers */
-         url('../fonts/overpass-v12-latin-800.ttf') format('truetype'), /* Safari, Android, iOS */
-         url('../fonts/overpass-v12-latin-800.svg#Overpass') format('svg'); /* Legacy iOS */
+         url('./resources/overpass/overpass-v12-latin-800.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('./resources/overpass/overpass-v12-latin-800.woff2') format('woff2'), /* Super Modern Browsers */
+         url('./resources/overpass/overpass-v12-latin-800.woff') format('woff'), /* Modern Browsers */
+         url('./resources/overpass/overpass-v12-latin-800.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('./resources/overpass/overpass-v12-latin-800.svg#Overpass') format('svg'); /* Legacy iOS */
 }
 /* overpass-italic - latin */
 @font-face {
     font-family: 'Overpass';
     font-style: italic;
     font-weight: 400;
-    src: url('../fonts/overpass-v12-latin-italic.eot'); /* IE9 Compat Modes */
+    src: url('./resources/overpass/overpass-v12-latin-italic.eot'); /* IE9 Compat Modes */
     src: local(''),
-         url('../fonts/overpass-v12-latin-italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('../fonts/overpass-v12-latin-italic.woff2') format('woff2'), /* Super Modern Browsers */
-         url('../fonts/overpass-v12-latin-italic.woff') format('woff'), /* Modern Browsers */
-         url('../fonts/overpass-v12-latin-italic.ttf') format('truetype'), /* Safari, Android, iOS */
-         url('../fonts/overpass-v12-latin-italic.svg#Overpass') format('svg'); /* Legacy iOS */
+         url('./resources/overpass/overpass-v12-latin-italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('./resources/overpass/overpass-v12-latin-italic.woff2') format('woff2'), /* Super Modern Browsers */
+         url('./resources/overpass/overpass-v12-latin-italic.woff') format('woff'), /* Modern Browsers */
+         url('./resources/overpass/overpass-v12-latin-italic.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('./resources/overpass/overpass-v12-latin-italic.svg#Overpass') format('svg'); /* Legacy iOS */
 }
 
 *,
@@ -91,24 +91,30 @@ html {
 
 body {
     background-color: #542344;
+    font-family: 'Overpass', serif;
 }
 
 #content {
     display: grid;
-    grid-template-rows: 10% 90%;
+    grid-template-rows: 12% 88%;
     height: 100vh;
 }
 
 .header {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding-left: 4%;
+    gap: 15px;
+    padding-left: 3%;
     color: #EBF5EE;
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 1.75vw;
 }
 
 .main {
     background-color: #EBF5EE;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
+    display: grid;
+    grid-template-columns: 25% 75%;
 }
