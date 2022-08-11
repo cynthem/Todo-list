@@ -227,7 +227,7 @@ h2 {
 .list {
     display: flex;
     flex-direction: column;
-    gap: 5%;
+    gap: 4%;
     padding: 5% 5% 2%;
     overflow-y: scroll;
 }
@@ -236,8 +236,8 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #BFD1E5;
-    padding: 1% 1%;
+    background-color: #cedceb;
+    padding: 1.25% 1.5%;
     border-radius: 5px;
 }
 
@@ -257,6 +257,11 @@ h2 {
 .item-right {
     display: flex;
     align-items: center;
+    gap: 15px;
+}
+
+.item-right {
+    gap: 20px;
 }
 
 .item-check,
@@ -264,8 +269,32 @@ h2 {
 .item-delete {
     border: none;
     outline: none;
-    background-color: #BFD1E5;
+    background-color: #cedceb;
     font-size: 1.5vw;
+    display: flex;
+    align-items: center;
+}
+
+.item-edit,
+.item-delete {
+    font-size: 1.25vw;
+}
+
+.item-description {
+    font-size: 1.25vw;
+}
+
+.item-notes {
+    background-color: #cedceb;
+    border: 1px solid #542344;
+    outline: none;
+    padding: 0.25rem 0.6rem 0.2rem;
+    border-radius: 3px;
+    color: #542344;
+}
+
+.item-date {
+    font-size: 0.9vw;
 }
 
 
