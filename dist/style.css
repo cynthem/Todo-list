@@ -261,7 +261,7 @@ h2 {
 }
 
 .item-right {
-    gap: 20px;
+    gap: 25px;
 }
 
 .item-check,
@@ -280,6 +280,12 @@ h2 {
     font-size: 1.25vw;
 }
 
+.fa-square,
+.fa-square-check,
+.fa-trash-can {
+    color: #696969;
+}
+
 .item-description {
     font-size: 1.25vw;
 }
@@ -295,6 +301,19 @@ h2 {
 
 .item-date {
     font-size: 0.9vw;
+}
+
+.checked {
+    color: #808080;
+}
+
+.strike {
+    text-decoration: line-through;
+}
+
+.done {
+    color: #99728c;
+    border: 1px solid #99728c;
 }
 
 
