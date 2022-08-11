@@ -288,6 +288,11 @@ h2 {
     border-radius: 5px;
 }
 
+.list-item:hover {
+    box-shadow: -2px 5px 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.01);
+}
+
 .low-priority {
     border-left: 8px solid #cfbdc9;
 }
@@ -333,8 +338,21 @@ h2 {
     color: #696969;
 }
 
+.fa-square:hover,
+.fa-square-check:hover,
+.fa-pen-to-square:hover,
+.fa-trash-can:hover {
+    color:#99728c;
+    cursor: pointer;
+}
+
 .item-description {
     font-size: 1.25vw;
+}
+
+.item-description:hover,
+.item-date:hover {
+    cursor: default;
 }
 
 .item-notes {
@@ -344,6 +362,13 @@ h2 {
     padding: 0.25rem 0.6rem 0.1rem;
     border-radius: 3px;
     color: #542344;
+}
+
+.item-notes:hover {
+    cursor: pointer;
+    background-color: #542344;
+    border: 1px solid #542344;
+    color: #e8e6e7;
 }
 
 .item-date {
