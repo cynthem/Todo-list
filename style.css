@@ -236,7 +236,7 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #D8BFAA;
+    background-color: #BFD1E5;
 }
 
 .item-left,
@@ -250,7 +250,7 @@ h2 {
 .item-delete {
     border: none;
     outline: none;
-    background-color: #D8BFAA;
+    background-color: #BFD1E5;
     font-size: 1.5vw;
 }
 
