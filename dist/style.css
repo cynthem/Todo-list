@@ -237,6 +237,20 @@ h2 {
     align-items: center;
     justify-content: space-between;
     background-color: #BFD1E5;
+    padding: 1% 1%;
+    border-radius: 5px;
+}
+
+.low-priority {
+    border-left: 8px solid rgb(13, 132, 13);
+}
+
+.medium-priority {
+    border-left: 8px solid rgb(230, 230, 48);
+}
+
+.high-priority {
+    border-left: 8px solid rgb(181, 37, 37);
 }
 
 .item-left,
