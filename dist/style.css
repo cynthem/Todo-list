@@ -121,6 +121,20 @@ body {
     padding: 2% 2% 1%;
 }
 
+.fa-thumbtack {
+    color: #EBF5EE;
+}
+
+.fa-thumbtack:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+h1:hover,
+h2:hover {
+    cursor: default;
+}
+
 
 /* DASHBOARD */
 
@@ -161,6 +175,22 @@ button {
     font-size: 1.5vw;
 }
 
+.filters-btn:hover,
+.projects-name:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.filters-btn:active,
+.projects-name:active {
+    transform: translate(-1px, 1px);
+}
+
+.clicked {
+    font-weight: 800;
+    text-decoration: underline;
+}
+
 .filters-counter,
 .projects-counter {
     background-color: #808080;
@@ -172,6 +202,11 @@ button {
     justify-content: center;
     color: white;
     font-weight: 800;
+}
+
+.filters-counter:hover,
+.projects-counter:hover {
+    cursor: default;
 }
 
 .dashboard-projects {
@@ -204,6 +239,15 @@ h2 {
     font-size: 3vw;
 }
 
+.projects-btn:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.projects-btn:active {
+    transform: translate(-3px, 5px);
+}
+
 .projects-list {
     display: flex;
     flex-direction: column;
@@ -219,6 +263,9 @@ h2 {
 
 .projects-name {
     font-size: 1.25vw;
+    background-color: #EBF5EE;
+    border: none;
+    outline: none;
 }
 
 
@@ -294,7 +341,7 @@ h2 {
     background-color: #e8e6e7;
     border: 1px solid #542344;
     outline: none;
-    padding: 0.25rem 0.6rem 0.2rem;
+    padding: 0.25rem 0.6rem 0.1rem;
     border-radius: 3px;
     color: #542344;
 }
