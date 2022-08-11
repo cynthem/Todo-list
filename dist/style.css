@@ -87,6 +87,7 @@
 
 html {
   min-height: 100%;
+  position: relative;
 }
 
 body {
@@ -388,6 +389,27 @@ h2 {
     border: 1px solid #99728c;
 }
 
+
+/* POP-UP CARDS */
+
+.add-new-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #EBF5EE;
+    border: 2px solid black;
+}
+
+.add-form {}
+
+.add-type {}
+
+.add-text {}
+
+.add-details {}
+
+.add-submit {}
 
 
 
