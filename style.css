@@ -376,7 +376,7 @@ h2 {
     font-size: 0.9vw;
 }
 
-.checked {
+.selected {
     color: #808080;
 }
 
@@ -404,6 +404,7 @@ h2 {
     height: 60vh;
     box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.3);
     border-radius: 25px;
+    display: none;
 }
 
 .add-form {
@@ -428,6 +429,11 @@ h2 {
     font-size: 2.5vw;
 }
 
+.type-title:hover,
+.priority-title:hover {
+    cursor: default;
+}
+
 .type-btns {
     display: flex;
     align-items: flex-end;
@@ -445,6 +451,41 @@ h2 {
     font-family: 'Fraunces', serif;
 }
 
+.add-btn-todo:hover,
+.add-btn-project:hover,
+input[type="date"]:hover,
+.priority-label:hover,
+input[type="submit"]:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.add-btn-todo:active,
+.add-btn-project:active,
+input[type="date"]:active,
+.priority-label:active,
+input[type="submit"]:active {
+    transform: translate(-1px, 1px);
+}
+
+.add-submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type="submit"] {
+    border: none;
+    outline: none;
+    background-color: #542344;
+    color: #EBF5EE;
+    font-size: 1.5vw;
+    padding: 1% 4%;
+    border-radius: 5px;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* To-do Add */
 .add-info {
     display: grid;
     grid-template-columns: 57% 40%;
@@ -520,46 +561,51 @@ input[type="radio"] {
 
 .priority-label {
     display: inline-block;
-    border: 1px solid #542344;
     font-size: 1vw;
     padding: 5px 10px 2px;
     border-radius: 4px;
+    background-color: #EBF5EE;
 }
 
 .low {
-    border: 1px solid #c8b2c1;
-    background-color: #c8b2c1;
-    color: #EBF5EE;
+    border: 1px solid #c4a9bb;
+    color: #c4a9bb;
 }
 
 .medium {
     padding: 5px 4px 2px;
     border: 1px solid #99728c;
-    background-color: #99728c;
-    color: #EBF5EE;
+    color: #99728c;
 }
 
 .high {
     border: 1px solid #542344;
+    color: #542344;
+}
+
+.low-checked {
+    background-color: #c4a9bb;
+    color: #EBF5EE;
+}
+
+.medium-checked {
+    background-color: #99728c;
+    color: #EBF5EE;
+}
+
+.high-checked {
     background-color: #542344;
     color: #EBF5EE;
 }
 
-.add-submit {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Project Add */
+
+.add-project {
+    display: none;
 }
 
-input[type="submit"] {
-    border: none;
-    outline: none;
-    background-color: #542344;
-    color: #EBF5EE;
-    font-size: 1.5vw;
-    padding: 1% 4%;
-    border-radius: 5px;
-    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+#add-project {
+    width: 60%;
 }
 
 
