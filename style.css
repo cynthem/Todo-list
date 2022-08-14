@@ -415,6 +415,15 @@ h2 {
     padding: 3% 3% 0 0;
 }
 
+.add-cancel:hover,
+.fa-xmark:hover {
+    cursor: pointer;
+}
+
+.add-cancel:active {
+    color: yellow;
+}
+
 .add-form {
     display: grid;
     grid-template-rows: 1fr 3fr 1fr;
