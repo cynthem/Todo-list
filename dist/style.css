@@ -641,6 +641,7 @@ input[type="radio"] {
     display: flex;
     flex-direction: column;
     padding-bottom: 1%;
+    display: none;
 }
 
 .notes-cancel {
