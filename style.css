@@ -664,7 +664,7 @@ input[type="radio"] {
     display: flex;
     flex-direction: column;
     padding-bottom: 1%;
-    
+    display: none;
 }
 
 .notes-cancel {
@@ -728,7 +728,7 @@ input[type="radio"] {
     border-radius: 25px;
     display: flex;
     flex-direction: column;
-    display: none;
+    
 }
 
 .edit-cancel {
@@ -848,6 +848,23 @@ input[type="radio"] {
 @media (max-height: 550px) {
     .header {
         font-size: 3vh;
+    }
+}
+
+@media (max-width: 700px) {
+    .edit-priority > .priority-radios {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+@media (max-height: 400px) {
+    .edit-card {
+        height: 70vh;
+    }
+    .edit-priority {
+        gap: 2%;
     }
 }
 
