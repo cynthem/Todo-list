@@ -191,28 +191,28 @@
             <form class="edit-form">
                 <div class="edit-info">
                     <div class="edit-text">
-                        <textarea class="edit-name">Build cabinets</textarea>
-                        <textarea class="edit-details">details shmetails</textarea>
+                        <textarea name="edit-todo" class="edit-name" maxlength="30">Build cabinets</textarea>
+                        <textarea name="edit-todo" class="edit-details">details shmetails</textarea>
                     </div>
                     <div class="edit-other">
                         <div class="edit-date">
                             <label class="date-title">Due date:</label>
-                            <input class="date-input" type="date">
+                            <input type="date" name="edit-todo" class="date-input">
                         </div>
                         <div class="edit-priority">
                             <p class="priority-title">Priority:</p>
                             <div class="priority-radios">
                                 <div class="radios-low">
-                                    <input type="radio">
-                                    <label class="priority-label low">Low</label>
+                                    <input type="radio" name="edit-todo-priority" id="edit-low" value="low">
+                                    <label for="edit-low" class="priority-label low">Low</label>
                                 </div>
                                 <div class="radios-medium">
-                                    <input type="radio">
-                                    <label class="priority-label medium">Medium</label>
+                                    <input type="radio" name="edit-todo-priority" id="edit-medium" value="medium">
+                                    <label for="edit-medium" class="priority-label medium">Medium</label>
                                 </div>
                                 <div class="radios-high">
-                                    <input type="radio">
-                                    <label class="priority-label high">High</label>
+                                    <input type="radio" name="edit-todo-priority" id="edit-high" value="high">
+                                    <label for="edit-high" class="priority-label high">High</label>
                                 </div>
                             </div>
                         </div>
