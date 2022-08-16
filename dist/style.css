@@ -816,18 +816,39 @@ input[type="radio"] {
 
 @media (max-width: 1000px) {
     html {
-      font-size: 60%;
+      font-size: 90%;
     }
   }
   
   @media (max-width: 800px) {
     html {
-      font-size: 50%;
+      font-size: 80%;
+    }
+    .add-new-card {
+        border-radius: 15px;
+    }
+    .add-cancel {
+        padding: 4% 4% 0 0;
+    }
+    .fa-xmark {
+        font-size: 90%;
+    }
+    .priority-label {
+        padding: 1px 3px 1px;
     }
   }
-  
+
   @media (max-width: 500px) {
     html {
-      font-size: 40%;
+      font-size: 70%;
+    }
+    .add-new-card {
+        border-radius: 10px;
+    }
+    .add-cancel {
+        padding: 5% 5% 0 0;
+    }
+    .fa-xmark {
+        font-size: 80%;
     }
   }
