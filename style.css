@@ -708,6 +708,85 @@ input[type="radio"] {
 }
 
 
+/* EDIT CARD */
+
+.edit-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #EBF5EE;
+    width: 45vw;
+    height: 45vh;
+    box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-cancel {
+    display: flex;
+    justify-content: flex-end;
+    color: #542344;
+    padding: 4% 4% 0 0;
+}
+
+.edit-cancel:active {
+    color: yellow;
+}
+
+.edit-form {
+    display: grid;
+    grid-template-rows: 3fr 1fr;
+    height: 100%;
+    row-gap: 10%;
+    padding: 2% 5% 2% 2%;
+}
+
+.edit-info {
+    display: grid;
+    grid-template-columns: 57% 40%;
+    column-gap: 3%;
+    padding: 0 2% 0 5%;
+}
+
+.edit-text {
+    display: grid;
+    grid-template-rows: 15% 65%;
+    row-gap: 20%;
+}
+
+.edit-name {
+    font-family: 'Fraunces', serif;
+    color: #542344;
+    font-size: 2vw;
+    height: 3rem;
+}
+
+.edit-name,
+.edit-details {
+    resize: none;
+}
+
+.edit-other {
+    display: grid;
+    grid-template-rows: 40% 40%;
+    row-gap: 20%;
+}
+
+.edit-date,
+.edit-priority {
+    display: flex;
+    flex-direction: column;
+    gap: 20%;
+    align-items: center;
+}
+
+.edit-submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
 
