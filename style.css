@@ -406,7 +406,7 @@ h2 {
     border-radius: 25px;
     display: flex;
     flex-direction: column;
-    display: none;
+   
 }
 
 .add-cancel {
@@ -425,9 +425,9 @@ h2 {
     color: yellow;
 }
 
-.add-form {
+.add-container {
     display: grid;
-    grid-template-rows: 1fr 3fr 1fr;
+    grid-template-rows: 1fr 4fr;
     height: 100%;
     row-gap: 10%;
     padding: 2% 5% 3%;
@@ -486,12 +486,6 @@ input[type="submit"]:active {
     transform: translate(-1px, 1px);
 }
 
-.add-submit {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 input[type="submit"] {
     border: none;
     outline: none;
@@ -504,10 +498,11 @@ input[type="submit"] {
 }
 
 /* Create-new: To-do Add */
-.add-info {
+.add-todo-form {
     display: grid;
-    grid-template-columns: 57% 40%;
+    grid-template: 70% 20% / 57% 40%;
     column-gap: 3%;
+    row-gap: 10%;
     padding: 0 2% 0 5%;
 }
 
@@ -614,6 +609,12 @@ input[type="radio"] {
 .high-checked {
     background-color: #542344;
     color: #EBF5EE;
+}
+
+.add-todo-submit {
+    grid-column: span 2;
+    text-align: center;
+    align-self: center;
 }
 
 /* Create-New: Project Add */
