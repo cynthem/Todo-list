@@ -103,6 +103,12 @@ body {
 
 .header {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-title {
+    display: flex;
     align-items: center;
     gap: 15px;
     padding-left: 3%;
@@ -110,16 +116,6 @@ body {
     font-family: 'Fraunces', serif;
     font-weight: 700;
     font-size: 1.75vw;
-}
-
-.main {
-    background-color: #EBF5EE;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
-    display: grid;
-    grid-template-columns: 25% 72%;
-    column-gap: 3%;
-    padding: 2% 2% 1%;
 }
 
 .fa-thumbtack {
@@ -134,6 +130,24 @@ body {
 h1:hover,
 h2:hover {
     cursor: default;
+}
+
+.header-menu {
+    display: none;
+    padding-right: 3%;
+    color: #EBF5EE;
+    cursor: pointer;
+    font-size: 3vw;
+}
+
+.main {
+    background-color: #EBF5EE;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    display: grid;
+    grid-template-columns: 25% 72%;
+    column-gap: 3%;
+    padding: 2% 2% 1%;
 }
 
 
@@ -728,7 +742,7 @@ input[type="radio"] {
     border-radius: 25px;
     display: flex;
     flex-direction: column;
-    
+    display: none;
 }
 
 .edit-cancel {
@@ -869,9 +883,56 @@ input[type="radio"] {
 }
 
 @media (max-width: 650px) {
+    .header-menu {
+        display: block;
+    }
+    .main {
+        display: flex;
+    }
+    .dashboard {
+        position: absolute;
+        top: 15%;
+        right: 3%;
+        width: 24vw;
+        height: 84vh;
+    }
+    .dashboard-filters,
+    .dashboard-projects {
+        background-color: #EBF5EE;
+    }
+    .filters-btn {
+        font-size: 2.3vw;
+    }
+    .filters-counter,
+    .projects-counter {
+        font-size: 2vw;
+    }
+    .projects-title > h2 {
+        font-size: 2.5vw;
+    }
     .projects-btn {
         width: 1.5rem;
         height: 1.5rem;
+    }
+    .projects-name {
+        font-size: 2vw;
+        white-space: nowrap;
+        overflow-x: scroll;
+    }
+    .list {
+        width: 95vw;
+    }
+    .item-check,
+    .item-description {
+        font-size: 3vw;
+    }
+    .item-notes,
+    .item-date {
+        font-size: 2vw;
+    }
+    .item-edit,
+    .item-delete {
+        font-size: 2.5vw;
     }
     .add-new-card,
     .notes-card,
