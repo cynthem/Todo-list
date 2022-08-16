@@ -118,42 +118,42 @@
                 </div>
                 <form class="add-todo-form">
                     <div class="add-text">
-                        <input type="text" placeholder="Title: e.g. Reading homework">
-                        <textarea class="add-textarea" placeholder="Details: e.g. Read Spanish chapter 2."></textarea>
+                        <input type="text" name="new-todo" placeholder="Title: e.g. Reading homework" maxlength="40" required>
+                        <textarea class="add-textarea" name="new-todo" placeholder="Details: e.g. Read Spanish chapter 2."></textarea>
                     </div>
                     <div class="add-details">
                         <div class="details-date">
-                            <label class="date-title">Due date:</label>
-                            <input class="date-input" type="date">
+                            <label for="new-date" class="date-title">Due date:</label>
+                            <input type="date" name="new-todo" id="new-date" class="date-input" required>
                         </div>
                         <div class="details-priority">
                             <p class="priority-title">Priority:</p>
                             <div class="priority-radios">
                                 <div class="radios-low">
-                                    <input type="radio">
-                                    <label class="priority-label low">Low</label>
+                                    <input type="radio" name="new-priority" id="new-low" value="low" required>
+                                    <label for="new-low" class="priority-label low">Low</label>
                                 </div>
                                 <div class="radios-medium">
-                                    <input type="radio">
-                                    <label class="priority-label medium">Medium</label>
+                                    <input type="radio" name="new-priority" id="new-medium" value="medium">
+                                    <label for="new-medium" class="priority-label medium">Medium</label>
                                 </div>
                                 <div class="radios-high">
-                                    <input type="radio">
-                                    <label class="priority-label high">High</label>
+                                    <input type="radio" name="new-priority" id="new-high" value="high">
+                                    <label for="new-high" class="priority-label high">High</label>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="add-todo-submit">
-                        <input type="submit" value="Add">
+                        <input type="submit" class="new-todo-submit" value="Add">
                     </div>
                 </form>
                 <form class="add-project-form">
                     <div class="add-project-title">
-                        <input id="add-project" type="text" placeholder="Title: e.g. Reading homework">
+                        <input type="text" name="new-project" id="add-project" placeholder="Title: e.g. Reading homework" maxlength="30" required>
                     </div>
                     <div class="add-project-submit">
-                        <input type="submit" value="Add">
+                        <input type="submit" class="new-project-submit" value="Add">
                     </div>
                 </form>
             </div>
