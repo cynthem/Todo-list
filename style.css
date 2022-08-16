@@ -176,8 +176,7 @@ button {
     font-size: 1.5vw;
 }
 
-.filters-btn:hover,
-.projects-name:hover {
+.filters-btn:hover {
     cursor: pointer;
     transform: scale(1.1);
 }
@@ -229,15 +228,23 @@ h2 {
 }
 
 .projects-btn {
-    border: none;
-    outline: none;
+    position: relative;
     background-color: #542344;
     border-radius: 50%;
-    width: 3rem;
-    height: 3rem;
+    width: 15%;
+    padding-bottom: 15%;
     box-shadow: 0.2rem 0.5rem 1rem rgba(0, 0, 0, 0.4);
     color: #EBF5EE;
     font-size: 3vw;
+    cursor: pointer;
+}
+
+.projects-btn p {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
 }
 
 .projects-btn:hover {
@@ -246,7 +253,7 @@ h2 {
 }
 
 .projects-btn:active {
-    transform: translate(-3px, 5px);
+    transform: translate(-2px, 3px);
 }
 
 .projects-list {
@@ -267,6 +274,11 @@ h2 {
     background-color: #EBF5EE;
     border: none;
     outline: none;
+}
+
+.projects-name:hover {
+    color:#7c4d6d;
+    cursor: pointer;
 }
 
 
@@ -363,6 +375,7 @@ h2 {
     padding: 0.25rem 0.6rem 0.1rem;
     border-radius: 3px;
     color: #542344;
+    font-size: 1vw;
 }
 
 .item-notes:hover {
@@ -406,7 +419,7 @@ h2 {
     border-radius: 25px;
     display: flex;
     flex-direction: column;
-   
+    display: none;
 }
 
 .add-cancel {
@@ -814,15 +827,16 @@ input[type="radio"] {
 
 /* RESPONSIVE STYLES */
 
-@media (max-width: 1000px) {
-    html {
-      font-size: 90%;
+@media (max-width: 900px), (max-height: 550px) {
+    .filters-counter,
+    .projects-counter {
+        width: 1.2rem;
+        height: 1.2rem;
+        font-size: 1.3vw;
     }
-  }
-  
-  @media (max-width: 800px) {
-    html {
-      font-size: 80%;
+    .projects-btn {
+        width: 1.7rem;
+        height: 1.7rem;
     }
     .add-new-card {
         border-radius: 15px;
@@ -836,11 +850,18 @@ input[type="radio"] {
     .priority-label {
         padding: 1px 3px 1px;
     }
-  }
+}
 
-  @media (max-width: 500px) {
-    html {
-      font-size: 70%;
+@media (max-height: 550px) {
+    .header {
+        font-size: 3vh;
+    }
+}
+
+@media (max-width: 650px) {
+    .projects-btn {
+        width: 1.5rem;
+        height: 1.5rem;
     }
     .add-new-card {
         border-radius: 10px;
@@ -851,4 +872,4 @@ input[type="radio"] {
     .fa-xmark {
         font-size: 80%;
     }
-  }
+}
