@@ -722,6 +722,7 @@ input[type="radio"] {
     border-radius: 25px;
     display: flex;
     flex-direction: column;
+    display: none;
 }
 
 .edit-cancel {
