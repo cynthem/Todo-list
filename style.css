@@ -619,12 +619,20 @@ input[type="radio"] {
 
 /* Create-New: Project Add */
 
-.add-project {
+.add-project-form {
+    display: grid;
+    grid-template-rows: 70% 20%;
+    row-gap: 10%;
     display: none;
 }
 
 #add-project {
     width: 60%;
+}
+
+.add-project-submit {
+    text-align: center;
+    align-self: center;
 }
 
 
