@@ -658,12 +658,13 @@ input[type="radio"] {
     transform: translate(-50%, -50%);
     background-color: #EBF5EE;
     width: 40vw;
+    height: 30vh;
     box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.3);
     border-radius: 25px;
     display: flex;
     flex-direction: column;
     padding-bottom: 1%;
-    display: none;
+    
 }
 
 .notes-cancel {
@@ -686,8 +687,8 @@ input[type="radio"] {
 .notes-info {
     display: grid;
     height: 100%;
-    flex-direction: column;
-    gap: 20%;
+    grid-template-rows: 20% 50%;
+    row-gap: 30%;
     padding: 1% 6% 3%;
 }
 
@@ -699,35 +700,18 @@ input[type="radio"] {
 
 .notes-text {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    gap: 4px;
-    width: 99%;
+    gap: 5%;
     padding-bottom: 4%;
 }
 
-.notes-text > div {
-    font-size: 1.25vw;
-    cursor: default;
+.notes-descriptors,
+.notes-descriptions {
     display: flex;
-    width: 100%;
+    flex-direction: column;
+    gap: 3%;
+    font-size: 1.25vw;
 }
 
-.notes-project {
-    gap: 1.85rem;
-}
-
-.notes-date {
-    gap: 1rem;
-}
-
-.notes-priority {
-    gap: 1.75rem;
-}
-
-.notes-details {
-    gap: 2.05rem;
-}
 
 
 /* EDIT CARD */
@@ -838,7 +822,9 @@ input[type="radio"] {
         width: 1.7rem;
         height: 1.7rem;
     }
-    .add-new-card {
+    .add-new-card,
+    .notes-card,
+    .edit-card {
         border-radius: 15px;
     }
     .add-cancel {
@@ -849,6 +835,13 @@ input[type="radio"] {
     }
     .priority-label {
         padding: 1px 3px 1px;
+    }
+}
+
+@media (max-height: 700px) {
+    .notes-descriptors,
+    .notes-descriptions {
+        font-size: 2vh;
     }
 }
 
@@ -863,7 +856,9 @@ input[type="radio"] {
         width: 1.5rem;
         height: 1.5rem;
     }
-    .add-new-card {
+    .add-new-card,
+    .notes-card,
+    .edit-card {
         border-radius: 10px;
     }
     .add-cancel {
