@@ -205,9 +205,9 @@ export const changeDOM = (() => {
         notesPriority.innerHTML = '';
         notesDetails.innerHTML = '';
 
-        const day = format(new Date(todos[item].date), 'do');
-        const month = format(new Date(todos[item].date), 'MMM');
-        const year = format(new Date(todos[item].date), 'yyyy');
+        const day = format(new Date(todos[item].dueDate), 'do');
+        const month = format(new Date(todos[item].dueDate), 'MMM');
+        const year = format(new Date(todos[item].dueDate), 'yyyy');
         notesDueDate.textContent = `${month} ${day}, ${year}`;
 
         notesTitle.textContent = todos[item].title;
@@ -235,7 +235,16 @@ export const changeDOM = (() => {
         const editTitle = document.querySelector('.edit-name');
         const editDetails = document.querySelector('.edit-details');
         const editDueDate = document.getElementById('edit-date');
-        const editPriority = document.
+        const editPriority = document.querySelector('');
+
+        editTitle.innerHTML = '';
+        editDetails.innerHTML = '';
+
+        editTitle.textContent = todos[item].title;
+        editDetails.textContent = todos[item].details;
+        editDueDate.setAttribute('value', todos[item].dueDate);
+
+        
     }
 
 })
