@@ -183,7 +183,46 @@ export const changeDOM = (() => {
         /*localStorage.setItem("todos", JSON.stringify(todos));*/
     }
 
-    function toggleTodoCheckbox() {}
+    function toggleTodoCheckbox(e, todoObject, /*display*/) {
+        
+        let checkedTodo;
+        let checkbox;
+
+        if (e.target.tagName === 'button') {
+            checkedTodo = e.target.parentElement.parentElement;
+            checkbox = e.target.children[0];
+        } else if (e.target.tagName === 'i') {
+            checkedTodo = e.target.parentElement.parentElement.parentElement;
+            checkbox = e.target;
+        }
+
+        const todoItems = checkedTodo.children;
+        const itemsLeft = todoItems[0];
+        const itemTitle = itemsLeft[1];
+        const itemsRight = todoItems[1];
+        const itemNotes = itemsRight[0];
+        const itemDate = itemsRight[1];
+        const itemEdit = itemsRight[2];
+
+        if (checkbox.classList.contains('fa-square')) {
+            checkbox.classList.remove('fa-square');
+            checkbox.classList.add('fa-square-check');
+        } else if (checkbox.classList.contains('fa-square-check')) {
+            checkbox.classList.remove('fa-square-check');
+            checkbox.classList.add('fa-square');
+        }
+
+        itemTitle.classList.toggle('selected');
+        itemTitle.classList.toggle('strike');
+        itemNotes.classList.toggle('done');
+        itemDate.classList.toggle('selected');
+        itemEdit.classList.toggle('selected');
+
+        const item = checkbox.dataset.index;
+        const project = checkbox.dataset.project;
+
+        
+    }
 
     function highlightAddCardType() {}
 
