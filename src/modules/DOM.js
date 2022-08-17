@@ -235,16 +235,55 @@ export const changeDOM = (() => {
         const editTitle = document.querySelector('.edit-name');
         const editDetails = document.querySelector('.edit-details');
         const editDueDate = document.getElementById('edit-date');
-        const editPriority = document.querySelector('');
+        const editPriorityLow = document.getElementById('edit-low-label');
+        const editPriorityMedium = document.getElementById('edit-medium-label');
+        const editPriorityHigh = document.getElementById('edit-high-label');
 
         editTitle.innerHTML = '';
         editDetails.innerHTML = '';
+
+        editTitle.dataset.index = item;
+        editTitle.dataset.project = project;
 
         editTitle.textContent = todos[item].title;
         editDetails.textContent = todos[item].details;
         editDueDate.setAttribute('value', todos[item].dueDate);
 
-        
-    }
+        if (editPriorityLow.classList.contains('low-checked')) {
+            editPriorityLow.classList.remove('low-checked');
+            editPriorityLow.classList.add('low');
+        }
+        if (editPriorityMedium.classList.contains('medium-checked')) {
+            editPriorityMedium.classList.remove('medium-checked');
+            editPriorityMedium.classList.add('medium');
+        }
+        if (editPriorityHigh.classList.contains('high-checked')) {
+            editPriorityHigh.classList.remove('high-checked');
+            editPriorityHigh.classList.add('high');
+        }
 
+        if (todos[item].priority === 'low') {
+            editPriorityLow.checked = true;
+            editPriorityLow.classList.remove('low');
+            editPriorityLow.classList.add('low-checked');
+        } else if (todos[item].priority === 'medium') {
+            editPriorityMedium.checked = true;
+            editPriorityMedium.classList.remove('medium');
+            editPriorityMedium.classList.add('medium-checked');
+        } else if (todos[item].priority === 'high') {
+            editPriorityHigh.checked = true;
+            editPriorityHigh.classList.remove('high');
+            editPriorityHigh.classList.add('high-checked');
+        }
+
+        editCard.style.display = 'flex';
+
+        /*//listener that changes the highlighted priority button
+        const priorityBtns = document.querySelectorAll('.edit-popup__priority-btn');
+        priorityBtns.forEach(btn => {
+            btn.addEventListener('click', e =>{
+                editPriority(e);
+            });
+        })*/
+    }
 })
