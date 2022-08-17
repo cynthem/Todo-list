@@ -435,6 +435,7 @@ h2 {
 .empty-project > p {
     font-size: 1.4vw;
     width: 60%;
+    cursor: default;
 }
 
 .empty-delete {
@@ -444,6 +445,19 @@ h2 {
     font-size: 1.3vw;
     border-radius: 3px;
     padding: 0.4rem 0.6rem 0.1rem;
+    cursor: pointer;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.empty-delete:hover {
+    cursor: pointer;
+    background-color: #542344;
+    border: 1px solid #542344;
+    color: #e8e6e7;
+}
+
+.empty-delete:active {
+    box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 
