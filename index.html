@@ -196,19 +196,19 @@
             <form class="edit-form">
                 <div class="edit-info">
                     <div class="edit-text">
-                        <textarea name="edit-todo" class="edit-name" maxlength="30">Build cabinets</textarea>
+                        <textarea name="edit-todo" class="edit-name" maxlength="30" required>Build cabinets</textarea>
                         <textarea name="edit-todo" class="edit-details">details shmetails</textarea>
                     </div>
                     <div class="edit-other">
                         <div class="edit-date">
                             <label for="edit-date" class="date-title">Due date:</label>
-                            <input type="date" name="edit-todo" class="date-input" id="edit-date">
+                            <input type="date" name="edit-todo" class="date-input" id="edit-date" value="2022-08-20" required>
                         </div>
                         <div class="edit-priority">
                             <p class="priority-title">Priority:</p>
                             <div class="priority-radios">
                                 <div class="radios-low">
-                                    <input type="radio" name="edit-todo-priority" id="edit-low" value="low">
+                                    <input type="radio" name="edit-todo-priority" id="edit-low" value="low" required>
                                     <label for="edit-low" class="priority-label low">Low</label>
                                 </div>
                                 <div class="radios-medium">
