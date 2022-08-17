@@ -133,12 +133,88 @@ export const manageData = (() => {
 
         e.preventDefault();
 
-        const item = e.target.firstElementChild.dataset.index;
+        /*const item = e.target.firstElementChild.dataset.index;
         const project = e.target.firstElementChild.dataset.project;
 
         todoList[project][item].title = (document.querySelector('.edit-name')).value;
         todoList[project][item].details = (document.querySelector('.edit-details')).value;
         todoList[project][item].dueDate = (document.querySelector('#edit-date')).value;
-        todoList[project][item].priority = (document.querySelector('.edit-name')).value;
+        todoList[project][item].priority = (document.querySelector('[name="edit-todo-priority"]:checked')).value;*/
+
+        if (getSelectedProject() === 'initial') {
+            /*domManipulator.renderAllToDos(toDoList, display);
+            console.log(toDoList);*/
+        } else {
+            /*domManipulator.renderToDos(toDoList, display);*/
+        }
+
+        /*overlay.classList.toggle('overlay-edit-invisible');
+        form.classList.toggle('edit-popup-open');*/
     }
-})
+
+    function deleteTodo(e, todoList, /*display*/) {
+
+        let item;
+        let project;
+
+        if (e.target.tagName === 'button') {
+            /*item = e.target.parentElement.dataset.index;
+            project = e.target.parentElement.dataset.project;*/
+        } else if (e.target.tagName === 'i') {
+            /*item = e.target.parentElement.parentElement.dataset.index;
+            project = e.target.parentElement.parentElement.dataset.project;*/
+        }
+
+        if (getSelectedProject() === 'initial') {
+            todoList[project].splice(item, 1);
+            /*domManipulator.renderAllToDos(toDoList, display);*/
+        } else {
+            todoList[manageData.getSelectedProject()].splice(item, 1);
+            /*domManipulator.renderToDos(toDoList, display);*/
+        }
+
+        checkIfProjectEmpty(todoList, /*display*/);
+
+        /*localStorage.setItem("todos", JSON.stringify(toDoList));
+        // update project name counter 
+        domManipulator.renderProjectNames(toDoList, display);*/
+    }
+
+    function checkIfProjectEmpty(todos, /*display*/) {
+
+        /*// get an object of only the custom projects
+        const projectsObject = Object.assign({}, todos);
+        delete projectsObject.home;
+        delete projectsObject.today;
+        delete projectsObject.week;
+
+        // only delete empty custom projects
+        if (!['home', 'week', 'today'].includes(getCurrentProject())) {
+            // deletes only the current empty project
+            if (projectsObject[getCurrentProject()].length < 1) {
+                
+                delete todos[getCurrentProject()];
+                domManipulator.renderProjectNames(todos, display);
+                
+                // change folder to home
+                
+                changeCurrentProject('home');
+                domManipulator.renderAllToDos(todos, display);
+
+                // update nave link to show home active
+                document.querySelector('.nav').children.item(0).classList.add('nav__selected');
+                console.log(document.querySelector('.nav').children.item(0));
+            }*/
+    }
+
+    return {
+        setSelectedProject,
+        getSelectedProject,
+        createTodo,
+        addProject,
+        addTodo,
+        editTodo,
+        deleteTodo,
+        checkIfProjectEmpty
+    }
+})();
