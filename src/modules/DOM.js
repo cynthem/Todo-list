@@ -191,9 +191,51 @@ export const changeDOM = (() => {
 
     function renderNotesCard(e, todos) {
         
-        const item = e.target.parentElement.d
+        const item = e.target.parentElement.dataset.index;
+        const notesCard = document.querySelector('.notes-card');
+        const notesTitle = document.querySelector('.notes-header');
+        const notesProject = document.querySelector('.notes-todo');
+        const notesDueDate = document.querySelector('.notes-date');
+        const notesPriority = document.querySelector('.notes-priority');
+        const notesDetails = document.querySelector('.notes-details');
+
+        notesTitle.innerHTML = '';
+        notesProject.innerHTML = '';
+        notesDueDate.innerHTML = '';
+        notesPriority.innerHTML = '';
+        notesDetails.innerHTML = '';
+
+        const day = format(new Date(todos[item].date), 'do');
+        const month = format(new Date(todos[item].date), 'MMM');
+        const year = format(new Date(todos[item].date), 'yyyy');
+        notesDueDate.textContent = `${month} ${day}, ${year}`;
+
+        notesTitle.textContent = todos[item].title;
+        notesProject.textContent = todos[item].project;
+        notesPriority.textContent = todos[item].priority;
+        notesDetails.textContent = todos[item].details;
+
+        notesCard.style.display = 'flex';
     }
 
-    function renderEditCard() {}
+    function renderEditCard(e, todos) {
+
+        let item;
+        let project;
+
+        if (e.target.tagName === 'button') {
+            item = element.parentElement.dataset.index;
+            project = element.parentElement.dataset.project;
+        } else if (e.target.tagName === 'i') {
+            item = element.parentElement.parentElement.dataset.index;
+            project = element.parentElement.parentElement.dataset.project;
+        }
+
+        const editCard = document.querySelector('.edit-card');
+        const editTitle = document.querySelector('.edit-name');
+        const editDetails = document.querySelector('.edit-details');
+        const editDueDate = document.getElementById('edit-date');
+        const editPriority = document.
+    }
 
 })
