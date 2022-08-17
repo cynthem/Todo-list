@@ -434,6 +434,7 @@ h2 {
     border-radius: 25px;
     display: flex;
     flex-direction: column;
+    display: none;
 }
 
 #empty-cancel {
