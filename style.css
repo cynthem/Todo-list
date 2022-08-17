@@ -417,36 +417,67 @@ h2 {
 }
 
 
-/* EMPTY PROJECT */
 
-.empty-project {
+/* POP-UP CARDS */
+
+/* EMPTY PROJECT CARD */
+
+.empty-project-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #EBF5EE;
+    width: 45vw;
+    height: 50vh;
+    box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 25px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 10%;
-    display: none;
 }
 
 .empty-title,
-.empty-project > p {
+.empty-project-card > p {
     text-align: center;
 }
 
-.empty-project > p {
+.empty-project-card > p {
     font-size: 1.4vw;
     width: 60%;
     cursor: default;
 }
 
+.empty-btns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.empty-add,
 .empty-delete {
-    background-color: #EBF5EE;
     border: 1px solid #542344;
-    color: #542344;
     font-size: 1.3vw;
     border-radius: 3px;
     padding: 0.4rem 0.6rem 0.1rem;
     cursor: pointer;
     box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.empty-add {
+    background-color: #542344;
+    color: #e8e6e7;
+}
+
+.empty-delete {
+    background-color: #EBF5EE;
+    color: #542344;
+}
+
+.empty-add:hover {
+    cursor: pointer;
+    background-color: #EBF5EE;
+    color: #542344;
 }
 
 .empty-delete:hover {
@@ -456,13 +487,12 @@ h2 {
     color: #e8e6e7;
 }
 
+.empty-add:active,
 .empty-delete:active {
     box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 
-
-/* POP-UP CARDS */
 
 /* CREATE-NEW CARD */
 
