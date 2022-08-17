@@ -418,6 +418,35 @@ h2 {
 }
 
 
+/* EMPTY PROJECT */
+
+.empty-project {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10%;
+}
+
+.empty-title,
+.empty-project > p {
+    text-align: center;
+}
+
+.empty-project > p {
+    font-size: 1.4vw;
+    width: 60%;
+}
+
+.empty-delete {
+    background-color: #EBF5EE;
+    border: 1px solid #542344;
+    color: #542344;
+    font-size: 1.3vw;
+    border-radius: 3px;
+    padding: 0.4rem 0.6rem 0.1rem;
+}
+
+
 /* POP-UP CARDS */
 
 /* CREATE-NEW CARD */
