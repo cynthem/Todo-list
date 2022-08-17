@@ -7,9 +7,66 @@ export const changeDOM = (() => {
     todoList
     todoProject
 
-    function renderProjectList() {}
+    function renderProjectList(todos, /*display*/) {
 
-    function renderProjectsCount() {}
+        const projectContainer = document.querySelector('.projects-list');
+        projectContainer.innerHTML = '';
+
+        const projectsObject = Object.assign({}, todos);
+        delete projectsObject.all;
+        delete projectsObject.today;
+        delete projectsObject.week;
+
+        for (const project in projectsObject) {
+
+            const projectItem = document.createElement('div');
+            projectItem.classList.add('projects-item');
+
+            const projectTitle = document.createElement('button');
+            projectTitle.classList.add('projects-name');
+            projectTitle.textContent = project;
+            projectTitle.addEventListener('click', e => manageTodosRender(e, todos, /*display*/));
+            projectTitle.addEventListener('click', e => highlightSelectedFilter(e));
+
+            let uncheckedTodos = 0;
+            projectsObject[project].forEach(todo => {
+                if (!todo.checked) {
+                    uncheckedTodos++;
+                }
+            });
+
+            const projectCounter = document.createElement('p');
+            projectCounter.classList.add('projects-counter');
+            projectCounter.textContent = uncheckedTodos;
+
+            projectItem.appendChild(projectTitle);
+            projectItem.appendChild(projectCounter);
+        };
+
+        let allUncheckedTodos = 0;
+        for (const todoList in todos) {
+            todos[todoList].forEach(todo => {
+                if (!todo.checked) {
+                    allUncheckedTodos++;
+                }
+            })
+        };
+
+        const allCount = document.querySelector('.all');
+        allCount.textContent = allUncheckedTodos;
+
+        const todayCount = document.querySelector('.today');
+        const todayUncheckedTodos = todos.today.reduce((total, value) => {
+            return total + !value.checked;
+        }, 0);
+        todayCount.textContent = todayUncheckedTodos;
+
+        const weekCount = document.querySelector('.week');
+        const weekUncheckedTodos = todos.week.reduce((total, value) => {
+            return total + !value.checked;
+        })
+        weekCount.textContent = weekUncheckedTodos;
+    }
 
     function highlightSelectedFilter() {}
 
