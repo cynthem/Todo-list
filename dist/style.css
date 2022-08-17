@@ -436,22 +436,45 @@ h2 {
     flex-direction: column;
 }
 
+#empty-cancel {
+    display: flex;
+    justify-content: flex-end;
+    color: #542344;
+    padding: 4% 4% 0 0;
+}
+
+#empty-cancel:hover {
+    cursor: pointer;
+}
+
+#empty-cancel:active {
+    color: yellow;
+}
+
+.empty-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4% 5% 3%;
+}
+
 .empty-title,
-.empty-project-card > p {
+.empty-text > p {
     text-align: center;
 }
 
-.empty-project-card > p {
+.empty-text > p {
     font-size: 1.4vw;
     width: 60%;
     cursor: default;
+    padding-top: 8%;
 }
 
 .empty-btns {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    padding-top: 10%;
 }
 
 .empty-add,
@@ -472,6 +495,7 @@ h2 {
 .empty-delete {
     background-color: #EBF5EE;
     color: #542344;
+    margin-top: 5%;
 }
 
 .empty-add:hover {
@@ -972,7 +996,7 @@ input[type="radio"] {
         position: absolute;
         top: 15%;
         right: 3%;
-        width: 24vw;
+        width: 30vw;
         height: 84vh;
     }
     .dashboard-filters,
@@ -1015,23 +1039,32 @@ input[type="radio"] {
     }
     .add-new-card,
     .notes-card,
-    .edit-card {
+    .edit-card,
+    .empty-project-card {
         border-radius: 10px;
-    }
-    .add-cancel {
-        padding: 5% 5% 0 0;
     }
     .fa-xmark {
         font-size: 80%;
     }
-    .empty-project {
-        width: 95vw;
+    .empty-project-card {
+        height: 30vh;
     }
     .empty-title {
         font-size: 3vw;
     }
-    .empty-project > p,
+    .empty-text > p {
+        font-size: 2vw;
+        width: 90%;
+    }
+    .empty-add,
     .empty-delete {
-        font-size: 2.5vw;
+        padding-top: 0.2rem;
+        font-size: 1.7vw;
+    }
+    .empty-delete {
+        margin-top: 3%;
+    }
+    .add-cancel {
+        padding: 5% 5% 0 0;
     }
 }
