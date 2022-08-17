@@ -2,7 +2,7 @@ import changeDOM from './DOM';
 
 export const manageData = (() => {
 
-    let selectedProject = 'initial';
+    let selectedProject = 'all';
 
     function setSelectedProject(currentProject) {
         selectedProject = currentProject;
@@ -54,7 +54,7 @@ export const manageData = (() => {
             // scrolls to bottom of custom projects div
             domManipulator.projectNamesScrollBottom();*/
         } else if (newProject && (newProject.toLowerCase() in todos)) {
-            if (newProject.toLowerCase() === 'initial') {
+            if (newProject.toLowerCase() === 'all') {
                 /*console.log(`${newProject} already exists. changing folder to ${newProject}`);
                 changeCurrentProject(newProject.toLowerCase());
                 domManipulator.renderAllToDos(todos, display);*/
@@ -104,7 +104,7 @@ export const manageData = (() => {
         const newTodo = createTodo(todoTitle, todoDetails, todoDueDate, todoPriority, todoProject);
         //todoList[todoProject].push(newTodo);
 
-        if (getSelectedProject() === 'initial') {
+        if (getSelectedProject() === 'all') {
             changeDOM/*.renderAllTodos(todoList, display);*/
         } else {
             changeDOM/*.renderProjectTodos(todoList, display);*/
@@ -141,7 +141,7 @@ export const manageData = (() => {
         todoList[project][item].dueDate = (document.querySelector('#edit-date')).value;
         todoList[project][item].priority = (document.querySelector('[name="edit-todo-priority"]:checked')).value;*/
 
-        if (getSelectedProject() === 'initial') {
+        if (getSelectedProject() === 'all') {
             /*domManipulator.renderAllToDos(toDoList, display);
             console.log(toDoList);*/
         } else {
@@ -165,7 +165,7 @@ export const manageData = (() => {
             project = e.target.parentElement.parentElement.dataset.project;*/
         }
 
-        if (getSelectedProject() === 'initial') {
+        if (getSelectedProject() === 'all') {
             todoList[project].splice(item, 1);
             /*domManipulator.renderAllToDos(toDoList, display);*/
         } else {
