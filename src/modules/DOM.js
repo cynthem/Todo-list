@@ -70,7 +70,15 @@ export const changeDOM = (() => {
 
     function highlightSelectedFilter() {}
 
-    function renderEmptyProjectMessage() {}
+    function renderEmptyProject(e, todos, /*display*/) {
+
+        const emptyTitle = document.querySelector('.empty-name');
+        emptyTitle.innerHTML = '';
+        emptyTitle.textContent = e.target.textContent;
+
+        const emptyContainer = document.querySelector('.empty-project');
+        emptyContainer.style.display = 
+    }
 
     function manageTodosRender(e, todos, /*display*/) {
 
