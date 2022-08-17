@@ -461,6 +461,7 @@ h2 {
 }
 
 
+
 /* POP-UP CARDS */
 
 /* CREATE-NEW CARD */
@@ -689,7 +690,6 @@ input[type="radio"] {
 }
 
 /* Create-New: Project Add */
-
 .add-project-form {
     display: grid;
     grid-template-rows: 70% 20%;
@@ -705,6 +705,7 @@ input[type="radio"] {
     text-align: center;
     align-self: center;
 }
+
 
 
 /* NOTES CARD */
@@ -864,10 +865,13 @@ input[type="radio"] {
 }
 
 
-
-
-
 /* RESPONSIVE STYLES */
+
+@media (max-width: 1200px) {
+    .empty-delete {
+        padding-top: 0.3rem;
+    }
+}
 
 @media (max-width: 900px), (max-height: 550px) {
     .filters-counter,
@@ -988,5 +992,15 @@ input[type="radio"] {
     }
     .fa-xmark {
         font-size: 80%;
+    }
+    .empty-project {
+        width: 95vw;
+    }
+    .empty-title {
+        font-size: 3vw;
+    }
+    .empty-project > p,
+    .empty-delete {
+        font-size: 2.5vw;
     }
 }
