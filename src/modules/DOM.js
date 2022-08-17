@@ -7,13 +7,33 @@ export const changeDOM = (() => {
     todoList
     todoProject
 
-    function renderProjects() {}
+    function renderProjectList() {}
 
     function renderProjectsCount() {}
 
     function highlightSelectedFilter() {}
 
     function renderEmptyProjectMessage() {}
+
+    function manageTodosRender(e, todos, /*display*/) {
+
+        manageData.setSelectedProject(e.target.textContent.toLowerCase());
+
+        if (manageData.getSelectedProject() === 'all') {
+            renderAllTodos(todos, /*display*/);
+            highlightSelectedFilter(e);
+        } else {
+            renderProjectTodos(todos, /*display*/);
+            highlightSelectedFilter(e);
+        }
+
+        /*// if changing to a new empty custom project, display placeholder screen
+        if (!['home', 'week', 'today'].includes(toDosManager.getCurrentProject())) {
+            if (todos[toDosManager.getCurrentProject()].length < 1) {
+                renderEmptyProjectPlaceholder(todos, display);
+            }
+        }*/
+    }
 
     function renderAllTodos(todoObject, element) {
 
@@ -95,8 +115,6 @@ export const changeDOM = (() => {
         }
         /*localStorage.setItem("todos", JSON.stringify(toDoObject));*/
     }
-
-    function renderFilteredTodos() {}
 
     function renderProjectTodos(todos, element) {
 
@@ -180,6 +198,7 @@ export const changeDOM = (() => {
 
             element.appendChild(todoItem);
         });
+
         /*localStorage.setItem("todos", JSON.stringify(todos));*/
     }
 
@@ -221,7 +240,13 @@ export const changeDOM = (() => {
         const item = checkbox.dataset.index;
         const project = checkbox.dataset.project;
 
-        
+        todoObject[project][item].checked = !todoObject[project][item].checked;
+
+        /*// save todos to local storage
+        localStorage.setItem("todos", JSON.stringify(toDoObject));
+
+        // update project count
+        renderProjectNames(toDoObject, display)*/
     }
 
     function highlightAddCardType() {}
