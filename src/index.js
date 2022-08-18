@@ -101,7 +101,16 @@ emptyAdd.addEventListener('click', () => {
 })
 
 emptyDelete.addEventListener('click', () => {
-    
+    delete todos[manageData.getSelectedProject()];
+    localStorage.setItem('todos', JSON.stringify(todos));
+    changeDOM.renderProjectList(todos, listContainer);
+    changeDOM.renderAllTodos(todos, listContainer);
+
+    const allProjects = document.querySelector('.all-btn');
+    allProjects.classList.add('clicked');
+
+    emptyCard.style.display = 'none';
+    contentContainer.classList.remove('blur');
 })
 
 addNew.addEventListener('click', () => {

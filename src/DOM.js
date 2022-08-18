@@ -90,22 +90,30 @@ export const changeDOM = (() => {
         const emptyContainer = document.querySelector('.empty-project-card');
         emptyContainer.style.display = 'flex';
 
-        const addTodo = document.querySelector('.empty-add');
-        addTodo.addEventListener('click', () => {
-            /*render add new todo card?*/
+        const contentContainer = document.getElementById('content');
+        const emptyExit = document.getElementById('empty-cancel');
+        emptyExit.addEventListener('click', () => {
             emptyContainer.style.display = 'none';
+            contentContainer.classList.remove('blur');
         });
+
+        const addNewCard = document.querySelector('.add-new-card');
+        const emptyAdd = document.querySelector('.empty-add');
+        emptyAdd.addEventListener('click', () => {
+            emptyContainer.style.display = 'none';
+            addNewCard.style.display = 'grid';
+        })
 
         const deleteProject = document.querySelector('.empty-delete');
         deleteProject.addEventListener('click', () => {
-
             delete todos[manageData.getSelectedProject()];
             localStorage.setItem('todos', JSON.stringify(todos));
             renderProjectList(todos, listContainer);
             renderAllTodos(todos, listContainer);
-
             const allProjects = document.querySelector('.all-btn');
             allProjects.classList.add('clicked');
+            emptyContainer.style.display = 'none';
+            contentContainer.classList.remove('blur');
         });
     }
 
