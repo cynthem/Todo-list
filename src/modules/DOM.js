@@ -7,7 +7,7 @@ export const changeDOM = (() => {
     todoList
     todoProject
 
-    function renderProjectList(todos, /*display*/) {
+    function renderProjectList(todos, listContainer) {
 
         const projectContainer = document.querySelector('.projects-list');
         projectContainer.innerHTML = '';
@@ -25,7 +25,7 @@ export const changeDOM = (() => {
             const projectTitle = document.createElement('button');
             projectTitle.classList.add('projects-name');
             projectTitle.textContent = project;
-            projectTitle.addEventListener('click', e => manageTodosRender(e, todos, /*display*/));
+            projectTitle.addEventListener('click', e => manageTodosRender(e, todos, listContainer));
             projectTitle.addEventListener('click', e => highlightSelectedFilter(e));
 
             let uncheckedTodos = 0;
@@ -84,7 +84,7 @@ export const changeDOM = (() => {
         e.target.classList.add('clicked');
     }
 
-    function renderEmptyProject(e, todos, /*display*/) {
+    function renderEmptyProject(e, todos, listContainer) {
 
         const emptyTitle = document.querySelector('.empty-name');
         emptyTitle.innerHTML = '';
@@ -95,7 +95,7 @@ export const changeDOM = (() => {
 
         const addTodo = document.querySelector('.empty-add');
         addTodo.addEventListener('click', () => {
-            /*render add new todo card*/
+            /*render add new todo card?*/
             emptyContainer.style.display = 'none';
         });
 
@@ -103,41 +103,40 @@ export const changeDOM = (() => {
         deleteProject.addEventListener('click', () => {
 
             delete todos[manageData.getSelectedProject()];
-            /*localStorage.setItem('todos', JSON.stringify(todos));
-            renderProjectList(todos, display);*/
-            renderAllTodos(todos /*display*/);
+            localStorage.setItem('todos', JSON.stringify(todos));
+            renderProjectList(todos, listContainer);
+            renderAllTodos(todos, listContainer);
 
             const allProjects = document.querySelector('.all-btn');
             allProjects.classList.add('clicked');
         });
     }
 
-    function manageTodosRender(e, todos, /*display*/) {
+    function manageTodosRender(e, todos, listContainer) {
 
         manageData.setSelectedProject(e.target.textContent.toLowerCase());
 
         if (manageData.getSelectedProject() === 'all') {
-            renderAllTodos(todos, /*display*/);
+            renderAllTodos(todos, listContainer);
             highlightSelectedFilter(e);
         } else {
-            renderProjectTodos(todos, /*display*/);
+            renderProjectTodos(todos, listContainer);
             highlightSelectedFilter(e);
         }
 
-        /*// if changing to a new empty custom project, display placeholder screen
-        if (!['home', 'week', 'today'].includes(toDosManager.getCurrentProject())) {
-            if (todos[toDosManager.getCurrentProject()].length < 1) {
-                renderEmptyProjectPlaceholder(todos, display);
+        if (!['all', 'week', 'today'].includes(manageData.getSelectedProject())) {
+            if (todos[manageData.getSelectedProject()].length < 1) {
+                renderEmptyProject(todos, listContainer);
             }
-        }*/
+        }
     }
 
-    function renderAllTodos(todoObject, listContainer) {
+    function renderAllTodos(todos, listContainer) {
 
         listContainer.innerHTML = '';
 
-        for (const project in todoObject) {
-            todoObject[project].forEach((todo, i) => {
+        for (const project in todos) {
+            todos[project].forEach((todo, i) => {
 
                 const todoItem = document.createElement('div');
                 todoItem.classList.add('list-item');
@@ -150,11 +149,11 @@ export const changeDOM = (() => {
 
                 const checkboxBtn = document.createElement('button');
                 checkboxBtn.classList.add('item-check');
-                checkboxBtn.addEventListener('click', e => toggleTodoCheckbox(e, todoObject, listContainer));
+                checkboxBtn.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));
 
                 const checkboxIcon = document.createElement('i');
                 checkboxIcon.classList.add('fa-regular', 'fa-square');
-                checkboxIcon.addEventListener('click', e => toggleTodoCheckbox(e, todoObject, listContainer));
+                checkboxIcon.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));
                 checkboxBtn.appendChild(checkboxIcon);
 
                 const itemName = document.createElement('p');
@@ -169,7 +168,7 @@ export const changeDOM = (() => {
                 const notesBtn = document.createElement('button');
                 notesBtn.classList.add('item-notes');
                 notesBtn.textContent = 'NOTES';
-                notesBtn.addEventListener('click', e => renderNotesCard(e, todoObject[project]));
+                notesBtn.addEventListener('click', e => renderNotesCard(e, todos[project]));
 
                 const dateText = document.createElement('p');
                 dateText.classList.add('item-date');
@@ -180,20 +179,20 @@ export const changeDOM = (() => {
 
                 const editBtn = document.createElement('button');
                 editBtn.classList.add('item-edit');
-                editBtn.addEventListener('click', e => renderEditCard(e, todoObject[project], listContainer));
+                editBtn.addEventListener('click', e => renderEditCard(e, todos[project], listContainer));
 
                 const editIcon = document.createElement('i');
                 editIcon.classList.add('fa-solid', 'fa-pen-to-square');
-                editIcon.addEventListener('click', e => renderEditCard(e, todoObject[project], listContainer));
+                editIcon.addEventListener('click', e => renderEditCard(e, todos[project], listContainer));
                 editBtn.appendChild(editIcon);
 
                 const deleteBtn = document.createElement('button');
                 deleteBtn.classList.add('item-delete');
-                deleteBtn.addEventListener('click', e => manageData.deleteTodo(e, todoObject, listContainer));
+                deleteBtn.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
 
                 const deleteIcon = document.createElement('i');
                 deleteIcon.classList.add('fa-solid', 'fa-trash-can');
-                deleteIcon.addEventListener('click', e => manageData.deleteTodo(e, todoObject, listContainer));
+                deleteIcon.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
                 deleteBtn.appendChild(deleteIcon);
                 itemRight.appendChild(notesBtn);
                 itemRight.appendChild(dateText);
@@ -210,14 +209,14 @@ export const changeDOM = (() => {
                 listContainer.appendChild(todoItem);
             });
         }
-        localStorage.setItem("todos", JSON.stringify(todoObject));
+        localStorage.setItem('todos', JSON.stringify(todos));
     }
 
-    function renderProjectTodos(todos, element) {
+    function renderProjectTodos(todos, listContainer) {
 
         const todoList = todos[manageData.getSelectedProject()];
 
-        element.innerHTML = '';
+        listContainer.innerHTML = '';
 
         if (todoList.length === 0) {
             return;
@@ -236,11 +235,11 @@ export const changeDOM = (() => {
 
             const checkboxBtn = document.createElement('button');
             checkboxBtn.classList.add('item-check');
-            checkboxBtn.addEventListener('click', e => toggleTodoCheckbox(e, todos, element));
+            checkboxBtn.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));
 
             const checkboxIcon = document.createElement('i');
             checkboxIcon.classList.add('fa-regular', 'fa-square');
-            checkboxIcon.addEventListener('click', e => toggleTodoCheckbox(e, todos, element));
+            checkboxIcon.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));
             checkboxBtn.appendChild(checkboxIcon);
 
             const itemName = document.createElement('p');
@@ -266,20 +265,20 @@ export const changeDOM = (() => {
 
             const editBtn = document.createElement('button');
             editBtn.classList.add('item-edit');
-            editBtn.addEventListener('click', e => renderEditCard(e, todoList, element));
+            editBtn.addEventListener('click', e => renderEditCard(e, todoList, listContainer));
 
             const editIcon = document.createElement('i');
             editIcon.classList.add('fa-solid', 'fa-pen-to-square');
-            editIcon.addEventListener('click', e => renderEditCard(e, todoList, element));
+            editIcon.addEventListener('click', e => renderEditCard(e, todoList, listContainer));
             editBtn.appendChild(editIcon);
 
             const deleteBtn = document.createElement('button');
             deleteBtn.classList.add('item-delete');
-            deleteBtn.addEventListener('click', e => manageData.deleteTodo(e, todos, element));
+            deleteBtn.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
 
             const deleteIcon = document.createElement('i');
             deleteIcon.classList.add('fa-solid', 'fa-trash-can');
-            deleteIcon.addEventListener('click', e => manageData.deleteTodo(e, todos, element));
+            deleteIcon.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
             deleteBtn.appendChild(deleteIcon);
             itemRight.appendChild(notesBtn);
             itemRight.appendChild(dateText);
@@ -293,13 +292,13 @@ export const changeDOM = (() => {
                 toggleTodoCheckbox(todoItem);
             };
 
-            element.appendChild(todoItem);
+            listContainer.appendChild(todoItem);
         });
 
-        /*localStorage.setItem("todos", JSON.stringify(todos));*/
+        localStorage.setItem('todos', JSON.stringify(todos));
     }
 
-    function toggleTodoCheckbox(e, todoObject, /*display*/) {
+    function toggleTodoCheckbox(e, todos, listContainer) {
         
         let checkedTodo;
         let checkbox;
@@ -337,13 +336,11 @@ export const changeDOM = (() => {
         const item = checkbox.dataset.index;
         const project = checkbox.dataset.project;
 
-        todoObject[project][item].checked = !todoObject[project][item].checked;
+        todos[project][item].checked = !todos[project][item].checked;
 
-        /*// save todos to local storage
-        localStorage.setItem("todos", JSON.stringify(toDoObject));
+        localStorage.setItem('todos', JSON.stringify(todos));
 
-        // update project count
-        renderProjectNames(toDoObject, display)*/
+        renderProjectList(todos, listContainer);
     }
 
     function manageAddCard() {}
