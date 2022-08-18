@@ -139,4 +139,8 @@ addProjectSubmit.addEventListener('submit', e => {
     addTodoDisplay.style.display = 'grid';
     addProject.classList.remove('clicked');
     addProjectDisplay.style.display = 'none';
+});
+
+editSubmit.addEventListener('submit', e => {
+    manageData.editTodo(e, todos, listContainer);
 })
