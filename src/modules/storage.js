@@ -187,8 +187,9 @@ export const manageData = (() => {
 
                 filterBtns[0].classList.add('clicked');
             }
+        }
     }
-
+    
     return {
         setSelectedProject,
         getSelectedProject,
