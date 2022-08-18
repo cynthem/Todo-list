@@ -399,6 +399,9 @@ export const changeDOM = (() => {
         const editPriorityLow = document.getElementById('edit-low-label');
         const editPriorityMedium = document.getElementById('edit-medium-label');
         const editPriorityHigh = document.getElementById('edit-high-label');
+        const editLow = document.getElementById('edit-low');
+        const editMedium = document.getElementById('edit-medium');
+        const editHigh = document.getElementById('edit-high');
 
         editTitle.innerHTML = '';
         editDetails.innerHTML = '';
@@ -439,13 +442,20 @@ export const changeDOM = (() => {
 
         editCard.style.display = 'flex';
 
-        /*//listener that changes the highlighted priority button
-        const priorityBtns = document.querySelectorAll('.edit-popup__priority-btn');
-        priorityBtns.forEach(btn => {
-            btn.addEventListener('click', e =>{
-                editPriority(e);
-            });
-        })*/
+        editLow.addEventListener('click', () => {
+            editPriorityLow.classList.remove('low');
+            editPriorityLow.classList.add('low-checked');
+        });
+
+        editMedium.addEventListener('click', () => {
+            editPriorityMedium.classList.remove('medium');
+            editPriorityMedium.classList.add('medium-checked');
+        });
+
+        editHigh.addEventListener('click', () => {
+            editPriorityHigh.classList.remove('high');
+            editPriorityHigh.classList.add('high-checked');
+        });
     }
 
     return {
