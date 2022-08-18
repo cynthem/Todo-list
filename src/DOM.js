@@ -340,8 +340,6 @@ export const changeDOM = (() => {
         renderProjectList(todos, listContainer);
     }
 
-    function manageAddCard() {}
-
     function renderNotesCard(e, todos) {
         
         const item = e.target.parentElement.dataset.index;
