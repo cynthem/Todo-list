@@ -68,7 +68,21 @@ export const changeDOM = (() => {
         weekCount.textContent = weekUncheckedTodos;
     }
 
-    function highlightSelectedFilter() {}
+    function highlightSelectedFilter(e) {
+
+        const filterBtns = document.querySelectorAll('.filters-btn');
+        const projectBtns = document.querySelectorAll('.projects-name');
+
+        filterBtns.forEach(item => {
+            item.classList.remove('clicked');
+        });
+
+        projectBtns.forEach(item => {
+            item.classList.remove('clicked');
+        });
+
+        e.target.classList.add('clicked');
+    }
 
     function renderEmptyProject(e, todos, /*display*/) {
 
@@ -332,9 +346,7 @@ export const changeDOM = (() => {
         renderProjectNames(toDoObject, display)*/
     }
 
-    function highlightAddCardType() {}
-
-    function resetAddCardType() {}
+    function manageAddCard() {}
 
     function renderNotesCard(e, todos) {
         
@@ -433,4 +445,16 @@ export const changeDOM = (() => {
             });
         })*/
     }
-})
+
+    return {
+        renderProjectList,
+        highlightSelectedFilter,
+        renderEmptyProject,
+        manageTodosRender,
+        renderAllTodos,
+        renderProjectTodos,
+        toggleTodoCheckbox,
+        renderNotesCard,
+        renderEditCard
+    };
+})();
