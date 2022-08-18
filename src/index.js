@@ -37,9 +37,6 @@ const notesExit = document.querySelector('.notes-cancel');
     // Edit card
 const editCard = document.querySelector('.edit-card');
 const editExit = document.querySelector('.edit-cancel');
-const editLowPriority = document.getElementById('edit-low');
-const editMediumPriority = document.getElementById('edit-medium');
-const editHighPriority = document.getElementById('edit-high');
 const editSubmit = document.querySelector('.edit-submit');
 
 const todos = JSON.parse(localStorage.getItem('todos')) || {
@@ -144,4 +141,6 @@ editExit.addEventListener('click', () => {
 
 editSubmit.addEventListener('submit', e => {
     manageData.editTodo(e, todos, listContainer);
+    editCard.style.display = 'none';
+    contentContainer.classList.remove('blur');
 });
