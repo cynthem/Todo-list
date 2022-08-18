@@ -23,7 +23,7 @@ export const manageData = (() => {
         };
     }
 
-    function addProject(e, todos, listContainer /*overlay, form*/) {
+    function addProject(e, todos, listContainer) {
 
         const newProject = (document.querySelector('#add-project')).value;
 
@@ -108,7 +108,7 @@ export const manageData = (() => {
         }
     }
 
-    function deleteTodo(e, todoList, /*display*/) {
+    function deleteTodo(e, todos, listContainer) {
 
         let item;
         let project;
@@ -122,21 +122,21 @@ export const manageData = (() => {
         }
 
         if (getSelectedProject() === 'all') {
-            todoList[project].splice(item, 1);
-            changeDOM.renderAllToDos(todoList, /*display*/);
+            todos[project].splice(item, 1);
+            changeDOM.renderAllToDos(todos, listContainer);
         } else {
-            todoList[getSelectedProject()].splice(item, 1);
-            changeDOM.renderToDos(todoList, /*display*/);
+            todos[getSelectedProject()].splice(item, 1);
+            changeDOM.renderToDos(todos, listContainer);
         }
 
-        checkIfProjectEmpty(todoList, /*display*/);
+        checkIfProjectEmpty(todos, listContainer);
 
-        localStorage.setItem("todos", JSON.stringify(todoList));
+        localStorage.setItem('todos', JSON.stringify(todos));
 
-        changeDOM.renderProjectList(todoList, /*display*/);
+        changeDOM.renderProjectList(todos, listContainer);
     }
 
-    function checkIfProjectEmpty(todos, /*display*/) {
+    function checkIfProjectEmpty(todos, listContainer) {
 
         const projectsObject = Object.assign({}, todos);
         delete projectsObject.all;
@@ -147,10 +147,10 @@ export const manageData = (() => {
             if (projectsObject[getSelectedProject()].length < 1) {
                 
                 delete todos[getSelectedProject()];
-                changeDOM.renderProjectList(todos, /*display*/);
+                changeDOM.renderProjectList(todos, listContainer);
                 
                 setSelectedProject('all');
-                changeDOM.renderAllTodos(todos, /*display*/);
+                changeDOM.renderAllTodos(todos, listContainer);
 
                 const filterBtns = document.querySelectorAll('.filters-btn');
                 const projectBtns = document.querySelectorAll('.projects-name');
