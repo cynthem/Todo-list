@@ -441,6 +441,7 @@ h2 {
     flex-direction: column;
     z-index: 2;    
     backdrop-filter: blur(10px);
+    display: none;
 }
 
 #empty-cancel {
