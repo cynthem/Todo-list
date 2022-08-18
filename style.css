@@ -1012,6 +1012,7 @@ input[type="radio"] {
         right: 3%;
         width: 30vw;
         height: 84vh;
+        display: none;
     }
     .dashboard-filters,
     .dashboard-projects {
