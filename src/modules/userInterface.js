@@ -73,6 +73,12 @@ allExit.addEventListener('click', () => {
     if (allExit.parentElement.classList.contains('add-cancel')) {
         addNewCard.style.display = 'none';
         contentContainer.classList.remove('blur');
+        addTodoDisplay.reset();
+        addProjectDisplay.reset();
+        addTodo.classList.add('clicked');
+        addTodoDisplay.style.display = 'grid';
+        addProject.classList.remove('clicked');
+        addProjectDisplay.style.display = 'none';
     } else if (allExit.parentElement.classList.contains('empty-project-card')) {
         emptyCard.style.display = 'none';
         contentContainer.classList.remove('blur');
@@ -93,6 +99,12 @@ addNew.addEventListener('click', () => {
 addExit.addEventListener('click', () => {
     addNewCard.style.display = 'none';
     contentContainer.classList.remove('blur');
+    addTodoDisplay.reset();
+    addProjectDisplay.reset();
+    addTodo.classList.add('clicked');
+    addTodoDisplay.style.display = 'grid';
+    addProject.classList.remove('clicked');
+    addProjectDisplay.style.display = 'none';
 })
 
 addTodo.addEventListener('click', () => {
@@ -100,11 +112,25 @@ addTodo.addEventListener('click', () => {
     addTodoDisplay.style.display = 'grid';
     addProject.classList.remove('clicked');
     addProjectDisplay.style.display = 'none';
-})
+});
 
 addProject.addEventListener('click', () => {
     addProject.classList.add('clicked');
     addProjectDisplay.style.display = 'grid';
     addTodo.classList.remove('clicked');
     addTodoDisplay.style.display = 'none';
-})
+});
+
+addTodoSubmit.addEventListener('submit', e => {
+    manageData.addTodo(e, todos, listContainer);
+    addNewCard.style.display = 'none';
+    contentContainer.classList.remove('blur');
+    addTodoDisplay.reset();
+    addProjectDisplay.reset();
+    addTodo.classList.add('clicked');
+    addTodoDisplay.style.display = 'grid';
+    addProject.classList.remove('clicked');
+    addProjectDisplay.style.display = 'none';
+});
+
+addProjectSubmit.addEventListener('')

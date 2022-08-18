@@ -77,7 +77,7 @@ export const manageData = (() => {
         localStorage.setItem("todos", JSON.stringify(todos));
     }
 
-    function addTodo(e, todoList, /*display, card, form*/) {
+    function addTodo(e, todos, listContainer) {
 
         e.preventDefault();
 
@@ -88,22 +88,15 @@ export const manageData = (() => {
         const todoProject = getSelectedProject();
 
         const newTodo = createTodo(todoTitle, todoDetails, todoDueDate, todoPriority, todoProject);
-        todoList[todoProject].push(newTodo);
+        todos[todoProject].push(newTodo);
 
         if (getSelectedProject() === 'all') {
-            changeDOM.renderAllTodos(todoList, /*display*/);
+            changeDOM.renderAllTodos(todos, listContainer);
         } else {
-            changeDOM.renderProjectTodos(todoList, /*display*/);
+            changeDOM.renderProjectTodos(todos, listContainer);
         }
 
-        changeDOM.renderProjectList(todoList, /*display*/);
-
-        const toggleBlur = document.getElementById('content');
-        toggleBlur.classList.remove('blur');
-
-        card.style.display = 'none';
-
-        window.setTimeout(() => form.reset(), 300);
+        changeDOM.renderProjectList(todos, listContainer);
     }
 
     function editTodo(e, todoList, /*display, card, form*/) {
@@ -189,7 +182,7 @@ export const manageData = (() => {
             }
         }
     }
-    
+
     return {
         setSelectedProject,
         getSelectedProject,
