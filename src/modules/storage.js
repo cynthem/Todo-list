@@ -29,67 +29,52 @@ export const manageData = (() => {
         const newProject = (document.querySelector('#add-project')).value;
 
         if (newProject && !(newProject.toLowerCase() in todos)) {
-            todos[newProject] = [];
-            /*// render project names in sidebar
-            domManipulator.renderProjectNames(todos, display);
-            
-            // sets the current folder variable to nav item that was clicked
-            toDosManager.changeCurrentProject(newProject);
-            console.log("you are in folder", toDosManager.getCurrentProject());
 
-            // render all to-dos from all projects if on the home page. otherwise
-            // only render the relevent to-do items
-            if (toDosManager.getCurrentProject() === 'home') {
-                domManipulator.renderAllToDos(todos, display);
+            todos[newProject] = [];
+            changeDOM.renderProjectList(todos, /*display*/);
+            setSelectedProject(newProject);
+
+            if (getSelectedProject() === 'all') {
+                changeDOM.renderAllTodos(todos, /*display*/);
             } else {
-                domManipulator.renderToDos(todos, display);
+                changeDOM.renderProjectTodos(todos, /*display*/);
             }
 
-            // sets nav active status to newly created project
-            const navItems = document.querySelectorAll('.nav__item--link');
-            navItems.forEach(item => {
-                item.classList.remove("nav__selected");
-            })
-            document.querySelector('.projects').lastChild.classList.add('nav__selected');
+            const filterBtns = document.querySelectorAll('.filters-btn');
+            const projectBtns = document.querySelectorAll('.projects-name');
 
-            // scrolls to bottom of custom projects div
-            domManipulator.projectNamesScrollBottom();*/
+            filterBtns.forEach(btn => {
+                btn.classList.remove('clicked');
+            });
+
+            projectBtns.forEach(btn => {
+                btn.classList.remove('clicked');
+            });
+
+            projectBtns[-1].classList.add('clicked');
+
         } else if (newProject && (newProject.toLowerCase() in todos)) {
             if (newProject.toLowerCase() === 'all') {
-                /*console.log(`${newProject} already exists. changing folder to ${newProject}`);
-                changeCurrentProject(newProject.toLowerCase());
-                domManipulator.renderAllToDos(todos, display);*/
+                setSelectedProject(newProject.toLowerCase());
+                changeDOM.renderAllTodos(todos, /*display*/);
             } else {
-                /*console.log(`${newProject} already exists. changing folder to ${newProject}`);
-                changeCurrentProject(newProject.toLowerCase());
-                domManipulator.renderToDos(todos, display);*/
+                setSelectedProject(newProject.toLowerCase());
+                changeDOM.renderProjectTodos(todos, /*display*/);
             }
         }
 
-        /*// closes the form and removes the overlay after submission
-        overlay.classList.toggle('overlay-new-invisible');
-        form.classList.toggle('create-new-open');
+        const toggleBlur = document.getElementById('content');
+        toggleBlur.classList.remove('blur');
 
+        card.style.display = 'none';
 
-        // I want the form to fade out before the input is reset
-        const sleep = (milliseconds) => {
-            return new Promise(resolve => setTimeout(resolve, milliseconds))
-        }
-        
-        sleep(300).then(() => {
-            // clear input after form closes 
+        window.setTimeout(() => {
             form.reset();
-            // reset add new form to show add todo
-            document.querySelector('#new-project-menu').style.display = "none";
-        
-            document.querySelector('#new-todo-menu').style.display = "flex";
-        })
+            document.querySelector('.add-project-form').style.display = 'none';
+            document.querySelector('.add-todo-form').style.display = 'grid';
+        }, 300);
 
-        // show a placeholder screen after a new empty project has been created
-        domManipulator.renderEmptyProjectPlaceholder(todos, display);
-
-        //update local storage
-        localStorage.setItem("todos", JSON.stringify(todos));*/
+        localStorage.setItem("todos", JSON.stringify(todos));
     }
 
     function addTodo(e, todoList, /*display, card, form*/) {
@@ -151,53 +136,57 @@ export const manageData = (() => {
         let project;
 
         if (e.target.tagName === 'button') {
-            /*item = e.target.parentElement.dataset.index;
-            project = e.target.parentElement.dataset.project;*/
+            item = e.target.parentElement.parentElement.dataset.index;
+            project = e.target.parentElement.parentElement.dataset.project;
         } else if (e.target.tagName === 'i') {
-            /*item = e.target.parentElement.parentElement.dataset.index;
-            project = e.target.parentElement.parentElement.dataset.project;*/
+            item = e.target.parentElement.parentElement.parentElement.dataset.index;
+            project = e.target.parentElement.parentElement.parentElement.dataset.project;
         }
 
         if (getSelectedProject() === 'all') {
             todoList[project].splice(item, 1);
-            /*domManipulator.renderAllToDos(toDoList, display);*/
+            changeDOM.renderAllToDos(todoList, /*display*/);
         } else {
-            todoList[manageData.getSelectedProject()].splice(item, 1);
-            /*domManipulator.renderToDos(toDoList, display);*/
+            todoList[getSelectedProject()].splice(item, 1);
+            changeDOM.renderToDos(todoList, /*display*/);
         }
 
         checkIfProjectEmpty(todoList, /*display*/);
 
-        /*localStorage.setItem("todos", JSON.stringify(toDoList));
-        // update project name counter 
-        domManipulator.renderProjectNames(toDoList, display);*/
+        localStorage.setItem("todos", JSON.stringify(todoList));
+
+        changeDOM.renderProjectList(todoList, /*display*/);
     }
 
     function checkIfProjectEmpty(todos, /*display*/) {
 
-        /*// get an object of only the custom projects
         const projectsObject = Object.assign({}, todos);
-        delete projectsObject.home;
+        delete projectsObject.all;
         delete projectsObject.today;
         delete projectsObject.week;
 
-        // only delete empty custom projects
-        if (!['home', 'week', 'today'].includes(getCurrentProject())) {
-            // deletes only the current empty project
-            if (projectsObject[getCurrentProject()].length < 1) {
+        if (!['all', 'week', 'today'].includes(getSelectedProject())) {
+            if (projectsObject[getSelectedProject()].length < 1) {
                 
-                delete todos[getCurrentProject()];
-                domManipulator.renderProjectNames(todos, display);
+                delete todos[getSelectedProject()];
+                changeDOM.renderProjectList(todos, /*display*/);
                 
-                // change folder to home
-                
-                changeCurrentProject('home');
-                domManipulator.renderAllToDos(todos, display);
+                setSelectedProject('all');
+                changeDOM.renderAllTodos(todos, /*display*/);
 
-                // update nave link to show home active
-                document.querySelector('.nav').children.item(0).classList.add('nav__selected');
-                console.log(document.querySelector('.nav').children.item(0));
-            }*/
+                const filterBtns = document.querySelectorAll('.filters-btn');
+                const projectBtns = document.querySelectorAll('.projects-name');
+
+                filterBtns.forEach(btn => {
+                    btn.classList.remove('clicked');
+                });
+
+                projectBtns.forEach(btn => {
+                    btn.classList.remove('clicked');
+                });
+
+                filterBtns[0].classList.add('clicked');
+            }
     }
 
     return {
@@ -210,4 +199,5 @@ export const manageData = (() => {
         deleteTodo,
         checkIfProjectEmpty
     }
+
 })();
