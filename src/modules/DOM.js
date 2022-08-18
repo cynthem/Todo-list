@@ -4,9 +4,6 @@ import { el } from 'date-fns/locale';
 
 export const changeDOM = (() => {
 
-    todoList
-    todoProject
-
     function renderProjectList(todos, listContainer) {
 
         const projectContainer = document.querySelector('.projects-list');
