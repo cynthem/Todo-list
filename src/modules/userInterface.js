@@ -127,10 +127,16 @@ addTodoSubmit.addEventListener('submit', e => {
     contentContainer.classList.remove('blur');
     addTodoDisplay.reset();
     addProjectDisplay.reset();
+});
+
+addProjectSubmit.addEventListener('submit', e => {
+    manageData.addProject(e, todos, listContainer);
+    addNewCard.style.display = 'none';
+    contentContainer.classList.remove('blur');
+    addTodoDisplay.reset();
+    addProjectDisplay.reset();
     addTodo.classList.add('clicked');
     addTodoDisplay.style.display = 'grid';
     addProject.classList.remove('clicked');
     addProjectDisplay.style.display = 'none';
-});
-
-addProjectSubmit.addEventListener('')
+})

@@ -24,20 +24,20 @@ export const manageData = (() => {
         };
     }
 
-    function addProject(e, todos, /*overlay, form, display*/) {
+    function addProject(e, todos, listContainer /*overlay, form*/) {
 
         const newProject = (document.querySelector('#add-project')).value;
 
         if (newProject && !(newProject.toLowerCase() in todos)) {
 
             todos[newProject] = [];
-            changeDOM.renderProjectList(todos, /*display*/);
+            changeDOM.renderProjectList(todos, listContainer);
             setSelectedProject(newProject);
 
             if (getSelectedProject() === 'all') {
-                changeDOM.renderAllTodos(todos, /*display*/);
+                changeDOM.renderAllTodos(todos, listContainer);
             } else {
-                changeDOM.renderProjectTodos(todos, /*display*/);
+                changeDOM.renderProjectTodos(todos, listContainer);
             }
 
             const filterBtns = document.querySelectorAll('.filters-btn');
@@ -56,25 +56,14 @@ export const manageData = (() => {
         } else if (newProject && (newProject.toLowerCase() in todos)) {
             if (newProject.toLowerCase() === 'all') {
                 setSelectedProject(newProject.toLowerCase());
-                changeDOM.renderAllTodos(todos, /*display*/);
+                changeDOM.renderAllTodos(todos, listContainer);
             } else {
                 setSelectedProject(newProject.toLowerCase());
-                changeDOM.renderProjectTodos(todos, /*display*/);
+                changeDOM.renderProjectTodos(todos, listContainer);
             }
         }
 
-        const toggleBlur = document.getElementById('content');
-        toggleBlur.classList.remove('blur');
-
-        card.style.display = 'none';
-
-        window.setTimeout(() => {
-            form.reset();
-            document.querySelector('.add-project-form').style.display = 'none';
-            document.querySelector('.add-todo-form').style.display = 'grid';
-        }, 300);
-
-        localStorage.setItem("todos", JSON.stringify(todos));
+        localStorage.setItem('todos', JSON.stringify(todos));
     }
 
     function addTodo(e, todos, listContainer) {
@@ -97,6 +86,8 @@ export const manageData = (() => {
         }
 
         changeDOM.renderProjectList(todos, listContainer);
+
+        localStorage.setItem('todos', JSON.stringify(todos));
     }
 
     function editTodo(e, todoList, /*display, card, form*/) {
