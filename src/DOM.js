@@ -357,6 +357,7 @@ export const changeDOM = (() => {
         const notesDueDate = document.querySelector('.notes-date');
         const notesPriority = document.querySelector('.notes-priority');
         const notesDetails = document.querySelector('.notes-details');
+        const contentContainer = document.getElementById('content');
 
         notesTitle.innerHTML = '';
         notesProject.innerHTML = '';
@@ -375,6 +376,7 @@ export const changeDOM = (() => {
         notesDetails.textContent = todos[item].details;
 
         notesCard.style.display = 'flex';
+        contentContainer.classList.add('blur');
     }
 
     function renderEditCard(e, todos) {

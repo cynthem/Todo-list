@@ -19,11 +19,6 @@ const itemEdit = document.querySelector('.item-edit');
 const itemDelete = document.querySelector('.item-delete');
 // Popup card buttons
 const allExit = document.querySelector('fa-xmark');
-    // Empty project card
-const emptyCard = document.querySelector('.empty-project-card');
-const emptyExit = document.getElementById('empty-cancel');
-const emptyAdd = document.querySelector('.empty-add');
-const emptyDelete = document.querySelector('.empty-delete');
     // Add-new card
 const addNewCard = document.querySelector('.add-new-card');
 const addExit = document.querySelector('.add-cancel');
@@ -78,9 +73,6 @@ allExit.addEventListener('click', () => {
         addTodoDisplay.style.display = 'grid';
         addProject.classList.remove('clicked');
         addProjectDisplay.style.display = 'none';
-    } else if (allExit.parentElement.classList.contains('empty-project-card')) {
-        emptyCard.style.display = 'none';
-        contentContainer.classList.remove('blur');
     } else if (allExit.parentElement.classList.contains('notes-cancel')) {
         notesCard.style.display = 'none';
         contentContainer.classList.remove('blur');
@@ -89,29 +81,6 @@ allExit.addEventListener('click', () => {
         contentContainer.classList.remove('blur');
     }
 });
-
-emptyExit.addEventListener('click', () => {
-    emptyCard.style.display = 'none';
-    contentContainer.classList.remove('blur');
-})
-
-emptyAdd.addEventListener('click', () => {
-    emptyCard.style.display = 'none';
-    addNewCard.style.display = 'grid';
-})
-
-emptyDelete.addEventListener('click', () => {
-    delete todos[manageData.getSelectedProject()];
-    localStorage.setItem('todos', JSON.stringify(todos));
-    changeDOM.renderProjectList(todos, listContainer);
-    changeDOM.renderAllTodos(todos, listContainer);
-
-    const allProjects = document.querySelector('.all-btn');
-    allProjects.classList.add('clicked');
-
-    emptyCard.style.display = 'none';
-    contentContainer.classList.remove('blur');
-})
 
 addNew.addEventListener('click', () => {
     contentContainer.classList.add('blur');
@@ -161,6 +130,16 @@ addProjectSubmit.addEventListener('submit', e => {
     addTodoDisplay.style.display = 'grid';
     addProject.classList.remove('clicked');
     addProjectDisplay.style.display = 'none';
+});
+
+notesExit.addEventListener('click', () => {
+    notesCard.style.display = 'none';
+    contentContainer.classList.remove('blur');
+});
+
+editExit.addEventListener('click', () => {
+    editCard.style.display = 'none';
+    contentContainer.classList.remove('blur');
 });
 
 editSubmit.addEventListener('submit', e => {
