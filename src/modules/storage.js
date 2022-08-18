@@ -111,45 +111,38 @@ export const manageData = (() => {
             changeDOM.renderProjectTodos(todoList, /*display*/);
         }
 
+        changeDOM.renderProjectList(todoList, /*display*/);
+
+        const toggleBlur = document.getElementById('content');
+        toggleBlur.classList.remove('blur');
+
         card.style.display = 'none';
 
-
-        /*// I want the form to fade out before the inputs are reset
-        const sleep = (milliseconds) => {
-            return new Promise(resolve => setTimeout(resolve, milliseconds))
-          }
-        sleep(300).then(() => {
-            // clear inputs after submission 
-            form.reset();
-            // removes active status from all buttons
-            domManipulator.removeActivePriority();
-        })*/
-
-        /*// update project name counter 
-        domManipulator.renderProjectNames(toDoList, display);*/
+        window.setTimeout(() => form.reset(), 300);
     }
 
-    function editTodo(e, todoList, /*display, overlay, form*/) {
+    function editTodo(e, todoList, /*display, card, form*/) {
 
         e.preventDefault();
 
-        /*const item = e.target.firstElementChild.dataset.index;
+        const item = e.target.firstElementChild.dataset.index;
         const project = e.target.firstElementChild.dataset.project;
 
         todoList[project][item].title = (document.querySelector('.edit-name')).value;
         todoList[project][item].details = (document.querySelector('.edit-details')).value;
         todoList[project][item].dueDate = (document.querySelector('#edit-date')).value;
-        todoList[project][item].priority = (document.querySelector('[name="edit-todo-priority"]:checked')).value;*/
+        todoList[project][item].priority = (document.querySelector('[name="edit-todo-priority"]:checked')).value;
 
         if (getSelectedProject() === 'all') {
-            /*domManipulator.renderAllToDos(toDoList, display);
-            console.log(toDoList);*/
+            changeDOM.renderAllTodos(todoList, /*display*/);
         } else {
-            /*domManipulator.renderToDos(toDoList, display);*/
+            changeDOM.renderProjectTodos(todoList, /*display*/);
         }
 
-        /*overlay.classList.toggle('overlay-edit-invisible');
-        form.classList.toggle('edit-popup-open');*/
+        const toggleBlur = document.getElementById('content');
+        toggleBlur.classList.remove('blur');
+
+        card.style.display = 'none';
     }
 
     function deleteTodo(e, todoList, /*display*/) {
