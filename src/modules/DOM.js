@@ -76,8 +76,26 @@ export const changeDOM = (() => {
         emptyTitle.innerHTML = '';
         emptyTitle.textContent = e.target.textContent;
 
-        const emptyContainer = document.querySelector('.empty-project');
-        emptyContainer.style.display = 
+        const emptyContainer = document.querySelector('.empty-project-card');
+        emptyContainer.style.display = 'flex';
+
+        const addTodo = document.querySelector('.empty-add');
+        addTodo.addEventListener('click', () => {
+            /*render add new todo card*/
+            emptyContainer.style.display = 'none';
+        });
+
+        const deleteProject = document.querySelector('.empty-delete');
+        deleteProject.addEventListener('click', () => {
+
+            delete todos[manageData.getSelectedProject()];
+            /*localStorage.setItem('todos', JSON.stringify(todos));
+            renderProjectList(todos, display);*/
+            renderAllTodos(todos /*display*/);
+
+            const allProjects = document.querySelector('.all-btn');
+            allProjects.classList.add('clicked');
+        });
     }
 
     function manageTodosRender(e, todos, /*display*/) {
