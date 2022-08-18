@@ -1,5 +1,5 @@
-import { changeDOM } from "./DOM";
-import { manageData } from "./storage";
+import { changeDOM } from "./modules/DOM";
+import { manageData } from "./modules/storage";
 
 // All content container
 const contentContainer = document.getElementById('content');
