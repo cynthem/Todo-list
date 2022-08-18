@@ -1,4 +1,3 @@
-import { add } from "date-fns";
 import { changeDOM } from "./DOM";
 import { manageData } from "./storage";
 
@@ -143,4 +142,4 @@ addProjectSubmit.addEventListener('submit', e => {
 
 editSubmit.addEventListener('submit', e => {
     manageData.editTodo(e, todos, listContainer);
-})
+});

@@ -90,28 +90,23 @@ export const manageData = (() => {
         localStorage.setItem('todos', JSON.stringify(todos));
     }
 
-    function editTodo(e, todoList, /*display, card, form*/) {
+    function editTodo(e, todos, listContainer) {
 
         e.preventDefault();
 
         const item = e.target.firstElementChild.dataset.index;
         const project = e.target.firstElementChild.dataset.project;
 
-        todoList[project][item].title = (document.querySelector('.edit-name')).value;
-        todoList[project][item].details = (document.querySelector('.edit-details')).value;
-        todoList[project][item].dueDate = (document.querySelector('#edit-date')).value;
-        todoList[project][item].priority = (document.querySelector('[name="edit-todo-priority"]:checked')).value;
+        todos[project][item].title = (document.querySelector('.edit-name')).value;
+        todos[project][item].details = (document.querySelector('.edit-details')).value;
+        todos[project][item].dueDate = (document.querySelector('#edit-date')).value;
+        todos[project][item].priority = (document.querySelector('[name="edit-todo-priority"]:checked')).value;
 
         if (getSelectedProject() === 'all') {
-            changeDOM.renderAllTodos(todoList, /*display*/);
+            changeDOM.renderAllTodos(todos, listContainer);
         } else {
-            changeDOM.renderProjectTodos(todoList, /*display*/);
+            changeDOM.renderProjectTodos(todos, listContainer);
         }
-
-        const toggleBlur = document.getElementById('content');
-        toggleBlur.classList.remove('blur');
-
-        card.style.display = 'none';
     }
 
     function deleteTodo(e, todoList, /*display*/) {
