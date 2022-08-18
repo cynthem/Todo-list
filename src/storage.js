@@ -1,4 +1,4 @@
-import changeDOM from './DOM';
+import { changeDOM } from './DOM';
 
 export const manageData = (() => {
 

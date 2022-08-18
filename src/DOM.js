@@ -1,4 +1,4 @@
-import manageData from './storage';
+import { manageData } from './storage';
 import { format } from 'date-fns';
 import { el } from 'date-fns/locale';
 
