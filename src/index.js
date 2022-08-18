@@ -63,7 +63,7 @@ filterBtns.forEach(button => {
 });
 
 hamburgerMenu.addEventListener('click', () => {
-
+    dashboard.style.display = dashboard.style.display === 'none' ? 'grid' : 'none';
 })
 
 allExit.addEventListener('click', () => {
