@@ -445,16 +445,28 @@ export const changeDOM = (() => {
         editLow.addEventListener('click', () => {
             editPriorityLow.classList.remove('low');
             editPriorityLow.classList.add('low-checked');
+            editPriorityMedium.classList.remove('medium-checked');
+            editPriorityMedium.classList.add('medium');
+            editPriorityHigh.classList.remove('high-checked');
+            editPriorityHigh.classList.add('high');
         });
 
         editMedium.addEventListener('click', () => {
             editPriorityMedium.classList.remove('medium');
             editPriorityMedium.classList.add('medium-checked');
+            editPriorityHigh.classList.remove('high-checked');
+            editPriorityHigh.classList.add('high');
+            editPriorityLow.classList.remove('low-checked');
+            editPriorityLow.classList.add('low');
         });
 
         editHigh.addEventListener('click', () => {
             editPriorityHigh.classList.remove('high');
             editPriorityHigh.classList.add('high-checked');
+            editPriorityLow.classList.remove('low-checked');
+            editPriorityLow.classList.add('low');
+            editPriorityMedium.classList.remove('medium-checked');
+            editPriorityMedium.classList.add('medium');
         });
     }
 

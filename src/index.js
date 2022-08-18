@@ -31,6 +31,9 @@ const addProjectDisplay = document.querySelector('.add-project-form');
 const addLowPriority = document.getElementById('new-low');
 const addMediumPriority = document.getElementById('new-medium');
 const addHighPriority = document.getElementById('new-high');
+const addLow = document.getElementById('new-low');
+const addMedium = document.getElementById('new-medium');
+const addHigh = document.getElementById('new-high');
 const addTodoSubmit = document.querySelector('.new-todo-submit');
 const addProjectSubmit = document.querySelector('.new-project-submit');
     // Notes card
@@ -114,6 +117,14 @@ addProject.addEventListener('click', () => {
     addTodo.classList.remove('clicked');
     addTodoDisplay.style.display = 'none';
 });
+
+addLowPriority.addEventListener('click', () => {
+    if (addLow.classList.contains('low')) {
+        addLow.classList.remove('low');
+        addLow.classList.add('low-checked');
+    }
+    
+})
 
 addTodoSubmit.addEventListener('submit', e => {
     manageData.addTodo(e, todos, listContainer);

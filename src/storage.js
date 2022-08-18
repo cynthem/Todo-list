@@ -78,7 +78,7 @@ export const manageData = (() => {
         const newTodo = createTodo(todoTitle, todoDetails, todoDueDate, todoPriority, todoProject);
         todos[todoProject].push(newTodo);
 
-        if (getSelectedProject() === 'all') {
+        if (manageData.getSelectedProject() === 'all') {
             changeDOM.renderAllTodos(todos, listContainer);
         } else {
             changeDOM.renderProjectTodos(todos, listContainer);
