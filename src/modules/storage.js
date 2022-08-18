@@ -1,4 +1,3 @@
-import { compareDesc } from 'date-fns';
 import changeDOM from './DOM';
 
 export const manageData = (() => {
