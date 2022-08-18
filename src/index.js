@@ -90,6 +90,20 @@ allExit.addEventListener('click', () => {
     }
 });
 
+emptyExit.addEventListener('click', () => {
+    emptyCard.style.display = 'none';
+    contentContainer.classList.remove('blur');
+})
+
+emptyAdd.addEventListener('click', () => {
+    emptyCard.style.display = 'none';
+    addNewCard.style.display = 'grid';
+})
+
+emptyDelete.addEventListener('click', () => {
+    
+})
+
 addNew.addEventListener('click', () => {
     contentContainer.classList.add('blur');
     addNewCard.style.display = 'flex';
