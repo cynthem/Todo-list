@@ -1,3 +1,4 @@
+import { changeDOM } from "./DOM";
 import { manageData } from "./storage";
 
 // Hamburger menu
@@ -53,4 +54,5 @@ if (!localStorage.getItem('todos')) {
     todos.all.push(manageData.createTodo('Finish book for book club', 'let Angela borrow afterward', '2022-08-24', 'high', 'all', true));
 }
 
-
+changeDOM.renderAllTodos(todos, listContainer);
+changeDOM.renderProjectList(todos, listContainer);

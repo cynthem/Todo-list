@@ -132,9 +132,9 @@ export const changeDOM = (() => {
         }*/
     }
 
-    function renderAllTodos(todoObject, element) {
+    function renderAllTodos(todoObject, listContainer) {
 
-        element.innerHTML = '';
+        listContainer.innerHTML = '';
 
         for (const project in todoObject) {
             todoObject[project].forEach((todo, i) => {
@@ -150,11 +150,11 @@ export const changeDOM = (() => {
 
                 const checkboxBtn = document.createElement('button');
                 checkboxBtn.classList.add('item-check');
-                checkboxBtn.addEventListener('click', e => toggleTodoCheckbox(e, todos, element));
+                checkboxBtn.addEventListener('click', e => toggleTodoCheckbox(e, todoObject, listContainer));
 
                 const checkboxIcon = document.createElement('i');
                 checkboxIcon.classList.add('fa-regular', 'fa-square');
-                checkboxIcon.addEventListener('click', e => toggleTodoCheckbox(e, todos, element));
+                checkboxIcon.addEventListener('click', e => toggleTodoCheckbox(e, todoObject, listContainer));
                 checkboxBtn.appendChild(checkboxIcon);
 
                 const itemName = document.createElement('p');
@@ -169,7 +169,7 @@ export const changeDOM = (() => {
                 const notesBtn = document.createElement('button');
                 notesBtn.classList.add('item-notes');
                 notesBtn.textContent = 'NOTES';
-                notesBtn.addEventListener('click', e => renderNotesCard(e, todoList));
+                notesBtn.addEventListener('click', e => renderNotesCard(e, todoObject[project]));
 
                 const dateText = document.createElement('p');
                 dateText.classList.add('item-date');
@@ -180,20 +180,20 @@ export const changeDOM = (() => {
 
                 const editBtn = document.createElement('button');
                 editBtn.classList.add('item-edit');
-                editBtn.addEventListener('click', e => renderEditCard(e, todoList, element));
+                editBtn.addEventListener('click', e => renderEditCard(e, todoObject[project], listContainer));
 
                 const editIcon = document.createElement('i');
                 editIcon.classList.add('fa-solid', 'fa-pen-to-square');
-                editIcon.addEventListener('click', e => renderEditCard(e, todoList, element));
+                editIcon.addEventListener('click', e => renderEditCard(e, todoObject[project], listContainer));
                 editBtn.appendChild(editIcon);
 
                 const deleteBtn = document.createElement('button');
                 deleteBtn.classList.add('item-delete');
-                deleteBtn.addEventListener('click', e => manageData.deleteTodo(e, todos, element));
+                deleteBtn.addEventListener('click', e => manageData.deleteTodo(e, todoObject, listContainer));
 
                 const deleteIcon = document.createElement('i');
                 deleteIcon.classList.add('fa-solid', 'fa-trash-can');
-                deleteIcon.addEventListener('click', e => manageData.deleteTodo(e, todos, element));
+                deleteIcon.addEventListener('click', e => manageData.deleteTodo(e, todoObject, listContainer));
                 deleteBtn.appendChild(deleteIcon);
                 itemRight.appendChild(notesBtn);
                 itemRight.appendChild(dateText);
@@ -207,10 +207,10 @@ export const changeDOM = (() => {
                     toggleTodoCheckbox(todoItem);
                 };
                 
-                element.appendChild(todoItem);
+                listContainer.appendChild(todoItem);
             });
         }
-        /*localStorage.setItem("todos", JSON.stringify(toDoObject));*/
+        localStorage.setItem("todos", JSON.stringify(todoObject));
     }
 
     function renderProjectTodos(todos, element) {
