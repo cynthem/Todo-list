@@ -99,6 +99,11 @@ body {
     display: grid;
     grid-template-rows: 12% 88%;
     height: 100vh;
+    z-index: -1;
+}
+
+.blur {
+    filter: blur(10px);
 }
 
 .header {
@@ -434,7 +439,8 @@ h2 {
     border-radius: 25px;
     display: flex;
     flex-direction: column;
-    display: none;
+    z-index: 2;    
+    backdrop-filter: blur(10px);
 }
 
 #empty-cancel {
@@ -533,6 +539,8 @@ h2 {
     border-radius: 25px;
     display: flex;
     flex-direction: column;
+    z-index: 2;    
+    backdrop-filter: blur(10px);
     display: none;
 }
 
@@ -778,6 +786,8 @@ input[type="radio"] {
     display: flex;
     flex-direction: column;
     padding-bottom: 1%;
+    z-index: 2;    
+    backdrop-filter: blur(10px);
     display: none;
 }
 
@@ -842,6 +852,8 @@ input[type="radio"] {
     border-radius: 25px;
     display: flex;
     flex-direction: column;
+    z-index: 2;    
+    backdrop-filter: blur(10px);
     display: none;
 }
 

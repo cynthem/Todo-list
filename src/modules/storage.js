@@ -1,3 +1,4 @@
+import { compareDesc } from 'date-fns';
 import changeDOM from './DOM';
 
 export const manageData = (() => {
@@ -91,7 +92,7 @@ export const manageData = (() => {
         localStorage.setItem("todos", JSON.stringify(todos));*/
     }
 
-    function addTodo(e, todoList, /*display, overlay, form*/) {
+    function addTodo(e, todoList, /*display, card, form*/) {
 
         e.preventDefault();
 
@@ -102,17 +103,16 @@ export const manageData = (() => {
         const todoProject = getSelectedProject();
 
         const newTodo = createTodo(todoTitle, todoDetails, todoDueDate, todoPriority, todoProject);
-        //todoList[todoProject].push(newTodo);
+        todoList[todoProject].push(newTodo);
 
         if (getSelectedProject() === 'all') {
-            changeDOM/*.renderAllTodos(todoList, display);*/
+            changeDOM.renderAllTodos(todoList, /*display*/);
         } else {
-            changeDOM/*.renderProjectTodos(todoList, display);*/
+            changeDOM.renderProjectTodos(todoList, /*display*/);
         }
 
-        /*// closes the form and removes the overlay after submission
-        overlay.classList.toggle('overlay-new-invisible');
-        form.classList.toggle('create-new-open');*/
+        card.style.display = 'none';
+
 
         /*// I want the form to fade out before the inputs are reset
         const sleep = (milliseconds) => {
