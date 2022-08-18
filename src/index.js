@@ -4,7 +4,9 @@ import { manageData } from "./storage";
 // All content container
 const contentContainer = document.getElementById('content');
 // Hamburger menu
-const hamburgerMenu = document.querySelector('.header-menu');
+const hamburgerMenu = document.querySelector('.fa-bars');
+// Dashboard
+const dashboard = document.querySelector('.dashboard');
 // Filter buttons
 const filterBtns = document.querySelector('.filters-btn');
 const filterProject = document.querySelector('.projects-name');
@@ -59,6 +61,10 @@ changeDOM.renderProjectList(todos, listContainer);
 filterBtns.forEach(button => {
     button.addEventListener('click', e => changeDOM.manageTodosRender(e, todos, listContainer));
 });
+
+hamburgerMenu.addEventListener('click', () => {
+
+})
 
 allExit.addEventListener('click', () => {
     if (allExit.parentElement.classList.contains('add-cancel')) {
