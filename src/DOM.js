@@ -133,17 +133,17 @@ export const changeDOM = (() => {
         emptyTitle.innerHTML = '';
         emptyTitle.textContent = e.target.textContent;
 
-        emptyContainer.style.display = 'flex';
+        emptyContainer.style.visibility = 'visible';
         contentContainer.classList.add('blur');
 
         emptyExit.addEventListener('click', () => {
-            emptyContainer.style.display = 'none';
+            emptyContainer.style.visibility = 'hidden';
             contentContainer.classList.remove('blur');
         });
 
         emptyAdd.addEventListener('click', () => {
-            emptyContainer.style.display = 'none';
-            addNewCard.style.display = 'grid';
+            emptyContainer.style.visibility = 'hidden';
+            addNewCard.style.visibility = 'visible';
         })
 
         deleteProject.addEventListener('click', () => {
@@ -154,7 +154,7 @@ export const changeDOM = (() => {
             renderAllTodos(todos, listContainer);
             const allProjects = document.querySelector('.all-btn');
             allProjects.classList.add('clicked');
-            emptyContainer.style.display = 'none';
+            emptyContainer.style.visibility = 'hidden';
             contentContainer.classList.remove('blur');
         });
     }
@@ -799,7 +799,7 @@ export const changeDOM = (() => {
         notesPriority.textContent = todos[item].priority[0].toUpperCase() + todos[item].priority.slice(1);
         notesDetails.textContent = todos[item].details;
 
-        notesCard.style.display = 'flex';
+        notesCard.style.visibility = 'visible';
         contentContainer.classList.add('blur');
     }
 
@@ -866,7 +866,7 @@ export const changeDOM = (() => {
             editPriorityHigh.classList.add('high-checked');
         }
 
-        editCard.style.display = 'flex';
+        editCard.style.visibility = 'visible';
 
         editLow.addEventListener('click', () => {
             if (editPriorityLow.classList.contains('low')) {
