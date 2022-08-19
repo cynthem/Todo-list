@@ -51,11 +51,26 @@ const month = format(dateObject, 'MM');
 const day = format(dateObject, 'dd');
 const year = format(dateObject, 'yyyy');
 const today = `${month}-${day}-${year}`;
+const weekPast = new Date(dateObject.getFullYear(), dateObject.getMonth(), dateObject.getDate() - 7);
+const weekAgoMonth = format(weekPast, 'MM');
+const weekAgoDay = format(weekPast, 'dd');
+const weekAgoYear = format(weekPast, 'yyyy');
+const weekAgo = `${weekAgoMonth}-${weekAgoDay}-${weekAgoYear}`;
+const weekFuture = new Date(dateObject.getFullYear(), dateObject.getMonth(), dateObject.getDate() + 5);
+const weekFutureMonth = format(weekFuture, 'MM');
+const weekFutureDay = format(weekFuture, 'dd');
+const weekFutureYear = format(weekFuture, 'yyyy');
+const weekNext = `${weekFutureMonth}-${weekFutureDay}-${weekFutureYear}`;
+const monthFuture = new Date(dateObject.getFullYear(), dateObject.getMonth(), dateObject.getDate() + 32);
+const monthFutureMonth = format(monthFuture, 'MM');
+const monthFutureDay = format(monthFuture, 'dd');
+const monthFutureYear = format(monthFuture, 'yyyy');
+const monthNext = `${monthFutureMonth}-${monthFutureDay}-${monthFutureYear}`;
 
 if (!localStorage.getItem('todos')) {
-    todos['Kitchen renovation'].push(manageData.createTodo('Remove vinyl floor', 'replace with subfloor', '08-14-2022', 'high', 'Kitchen renovation'));
-    todos['Kitchen renovation'].push(manageData.createTodo('Build cabinets', 'pre-painted cabinets only', '08-26-2022', 'low', 'Kitchen renovation', true));
-    todos['Kitchen renovation'].push(manageData.createTodo('Install countertop', 'leave room for butcher block', '09-18-2022', 'medium', 'Kitchen renovation'));
+    todos['Kitchen renovation'].push(manageData.createTodo('Remove vinyl floor', 'replace with subfloor', weekNext, 'high', 'Kitchen renovation'));
+    todos['Kitchen renovation'].push(manageData.createTodo('Build cabinets', 'pre-painted cabinets only', weekAgo, 'low', 'Kitchen renovation', true));
+    todos['Kitchen renovation'].push(manageData.createTodo('Install countertop', 'leave room for butcher block', monthNext, 'medium', 'Kitchen renovation'));
     todos.all.push(manageData.createTodo('Finish book for book club', 'let Angela borrow afterward', today, 'high', 'all'));
 };
 
