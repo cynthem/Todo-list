@@ -77,14 +77,30 @@ export const changeDOM = (() => {
                             todayUncheckedTodos++;
                         }
                     }
-            })
+            });
         }
         todayCount.textContent = todayUncheckedTodos;
 
         const weekCount = document.querySelector('.week');
-        const weekUncheckedTodos = todos.week.reduce((total, value) => {
+        let weekUncheckedTodos;
+        weekUncheckedTodos = todos.week.reduce((total, value) => {
             return total + !value.checked;
-        }, 0)
+        }, 0);
+        const projectsObjectThree = Object.assign({}, todos);
+        delete projectsObjectThree.week;
+        for (const projectThree in projectsObjectThree) {
+            projectsObjectThree[projectThree].forEach(todo => {
+                const today = new Date();
+                const todoDate = new Date(todo.dueDate);
+                const msDifference = Math.abs(today.getTime() - todoDate.getTime());
+                const dayDifference = msDifference / (24*60*60*1000);
+                if (dayDifference <= 7) {
+                    if (!todo.checked) {
+                        weekUncheckedTodos++;
+                    }
+                }
+            });
+        }
         weekCount.textContent = weekUncheckedTodos;
     }
 
