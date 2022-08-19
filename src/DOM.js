@@ -66,7 +66,7 @@ export const changeDOM = (() => {
         const weekCount = document.querySelector('.week');
         const weekUncheckedTodos = todos.week.reduce((total, value) => {
             return total + !value.checked;
-        })
+        }, 0)
         weekCount.textContent = weekUncheckedTodos;
     }
 
