@@ -28,6 +28,7 @@ const addTodo = document.querySelector('.add-btn-todo');
 const addTodoDisplay = document.querySelector('.add-todo-form');
 const addProject = document.querySelector('.add-btn-project');
 const addProjectDisplay = document.querySelector('.add-project-form');
+const addPriorityBtns = document.querySelectorAll('[name="new-priority"]');
 const addLowPriority = document.getElementById('new-low');
 const addMediumPriority = document.getElementById('new-medium');
 const addHighPriority = document.getElementById('new-high');
@@ -119,12 +120,13 @@ addProject.addEventListener('click', () => {
 });
 
 addLowPriority.addEventListener('click', () => {
-    if (addLow.classList.contains('low')) {
-        addLow.classList.remove('low');
-        addLow.classList.add('low-checked');
-    }
-    
-})
+    addLow.classList.remove('low');
+    addLow.classList.add('low-checked');
+    addMedium.classList.remove('medium-checked');
+    addMedium.classList.add('medium');
+    addHigh.classList.remove('high-checked');
+    addHigh.classList.add('high');
+});
 
 addTodoSubmit.addEventListener('submit', e => {
     manageData.addTodo(e, todos, listContainer);
