@@ -113,30 +113,48 @@ addProject.addEventListener('click', () => {
 });
 
 addLowPriority.addEventListener('click', () => {
-    addLow.classList.remove('low');
-    addLow.classList.add('low-checked');
-    addMedium.classList.remove('medium-checked');
-    addMedium.classList.add('medium');
-    addHigh.classList.remove('high-checked');
-    addHigh.classList.add('high');
+    if (addLow.classList.contains('low')) {
+        addLow.classList.remove('low');
+        addLow.classList.add('low-checked');
+    }
+    if (addMedium.classList.contains('medium-checked')) {
+        addMedium.classList.remove('medium-checked');
+        addMedium.classList.add('medium');
+    }
+    if (addHigh.classList.contains('high-checked')) {
+        addHigh.classList.remove('high-checked');
+        addHigh.classList.add('high');
+    }
 });
 
 addMediumPriority.addEventListener('click', () => {
-    addLow.classList.remove('low-checked');
-    addLow.classList.add('low');
-    addMedium.classList.remove('medium');
-    addMedium.classList.add('medium-checked');
-    addHigh.classList.remove('high-checked');
-    addHigh.classList.add('high');
+    if (addLow.classList.contains('low-checked')) {
+        addLow.classList.remove('low-checked');
+        addLow.classList.add('low');
+    }
+    if (addMedium.classList.contains('medium')) {
+        addMedium.classList.remove('medium');
+        addMedium.classList.add('medium-checked');
+    }
+    if (addHigh.classList.contains('high-checked')) {
+        addHigh.classList.remove('high-checked');
+        addHigh.classList.add('high');
+    }
 });
 
 addHighPriority.addEventListener('click', () => {
-    addLow.classList.remove('low-checked');
-    addLow.classList.add('low');
-    addMedium.classList.remove('medium-checked');
-    addMedium.classList.add('medium');
-    addHigh.classList.remove('high');
-    addHigh.classList.add('high-checked');
+    if (addLow.classList.contains('low-checked')) {
+        addLow.classList.remove('low-checked');
+        addLow.classList.add('low');
+    }
+    if (addMedium.classList.contains('medium-checked')) {
+        addMedium.classList.remove('medium-checked');
+        addMedium.classList.add('medium');
+    }
+    if (addHigh.classList.contains('high')) {
+        addHigh.classList.remove('high');
+        addHigh.classList.add('high-checked');
+    }
 });
 
 addTodoSubmit.addEventListener('submit', e => {
