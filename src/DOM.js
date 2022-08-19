@@ -332,11 +332,11 @@ export const changeDOM = (() => {
 
         const todoItems = checkedTodo.children;
         const itemsLeft = todoItems[0];
-        const itemTitle = itemsLeft[1];
         const itemsRight = todoItems[1];
-        const itemNotes = itemsRight[0];
-        const itemDate = itemsRight[1];
-        const itemEdit = itemsRight[2];
+        const itemTitle = itemsLeft.children[1];
+        const itemNotes = itemsRight.children[0];
+        const itemDate = itemsRight.children[1];
+        const itemEdit = itemsRight.children[2];
 
         if (checkbox.classList.contains('fa-square')) {
             checkbox.classList.remove('fa-square');
@@ -366,12 +366,12 @@ export const changeDOM = (() => {
 
         const todoItems = todoItem.children;
         const itemsLeft = todoItems[0];
-        const checkbox = itemsLeft.children[0].children[0];
-        const itemTitle = itemsLeft[1];
         const itemsRight = todoItems[1];
-        const itemNotes = itemsRight[0];
-        const itemDate = itemsRight[1];
-        const itemEdit = itemsRight[2]; 
+        const checkbox = itemsLeft.children[0].children[0];
+        const itemTitle = itemsLeft.children[1];
+        const itemNotes = itemsRight.children[0];
+        const itemDate = itemsRight.children[1];
+        const itemEdit = itemsRight.children[2]; 
 
         if (checkbox.classList.contains('fa-square')) {
             checkbox.classList.remove('fa-square');
