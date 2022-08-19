@@ -9,16 +9,10 @@ const hamburgerMenu = document.querySelector('.fa-bars');
 const dashboard = document.querySelector('.dashboard');
 // Filter buttons
 const filterBtns = document.querySelector('.filters-btn');
-const filterProject = document.querySelector('.projects-name');
 // Add-new button
 const addNew = document.querySelector('.projects-btn');
 // Todos list container
 const listContainer = document.querySelector('.list');
-// Todos list item buttons
-const itemCheckbox = document.querySelector('.item-check');
-const itemNotes = document.querySelector('.item-notes');
-const itemEdit = document.querySelector('.item-edit');
-const itemDelete = document.querySelector('.item-delete');
 // Popup card buttons
 const allExit = document.querySelector('fa-xmark');
     // Add-new card
@@ -28,8 +22,6 @@ const addTodo = document.querySelector('.add-btn-todo');
 const addTodoDisplay = document.querySelector('.add-todo-form');
 const addProject = document.querySelector('.add-btn-project');
 const addProjectDisplay = document.querySelector('.add-project-form');
-const addPriorityBtns = document.querySelectorAll('[name="new-priority"]');
-const addPriorityLabels = document.querySelectorAll('#add-priority');
 const addLowPriority = document.getElementById('new-low');
 const addMediumPriority = document.getElementById('new-medium');
 const addHighPriority = document.getElementById('new-high');
@@ -69,7 +61,7 @@ filterBtns.forEach(button => {
 
 hamburgerMenu.addEventListener('click', () => {
     dashboard.style.display = dashboard.style.display === 'none' ? 'grid' : 'none';
-})
+});
 
 allExit.addEventListener('click', () => {
     if (allExit.parentElement.classList.contains('add-cancel')) {
@@ -93,7 +85,7 @@ allExit.addEventListener('click', () => {
 addNew.addEventListener('click', () => {
     contentContainer.classList.add('blur');
     addNewCard.style.display = 'flex';
-})
+});
 
 addExit.addEventListener('click', () => {
     addNewCard.style.display = 'none';
@@ -104,7 +96,7 @@ addExit.addEventListener('click', () => {
     addTodoDisplay.style.display = 'grid';
     addProject.classList.remove('clicked');
     addProjectDisplay.style.display = 'none';
-})
+});
 
 addTodo.addEventListener('click', () => {
     addTodo.classList.add('clicked');
