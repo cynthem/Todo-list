@@ -57,14 +57,15 @@ export const changeDOM = (() => {
         allCount.textContent = allUncheckedTodos;
 
         const todayCount = document.querySelector('.today');
-        const todayUncheckedTodos = todos.today.reduce((total, value) => {
+        let todayUncheckedTodos;
+        todayUncheckedTodos = todos.today.reduce((total, value) => {
             return total + !value.checked;
         }, 0);
         
         const projectsObjectTwo = Object.assign({}, todos);
         delete projectsObjectTwo.today;
-        for (const project in projectsObjectTwo) {
-            projectsObjectTwo[project].forEach(todo => {
+        for (const projectTwo in projectsObjectTwo) {
+            projectsObjectTwo[projectTwo].forEach(todo => {
                     const today = new Date();
                     const todoDate = new Date(todo.dueDate);
                     if (
