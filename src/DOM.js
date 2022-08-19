@@ -1,6 +1,5 @@
 import { manageData } from './storage';
 import { format } from 'date-fns';
-import { el } from 'date-fns/locale';
 
 export const changeDOM = (() => {
 
