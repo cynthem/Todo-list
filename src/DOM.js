@@ -366,7 +366,7 @@ export const changeDOM = (() => {
 
         const todoItems = todoItem.children;
         const itemsLeft = todoItems[0];
-        const checkbox = itemsLeft[0].children[0];
+        const checkbox = itemsLeft.children[0].children;
         const itemTitle = itemsLeft[1];
         const itemsRight = todoItems[1];
         const itemNotes = itemsRight[0];
