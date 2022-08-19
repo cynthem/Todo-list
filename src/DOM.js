@@ -338,8 +338,8 @@ export const changeDOM = (() => {
         itemDate.classList.toggle('selected');
         itemEdit.classList.toggle('selected');
 
-        const item = checkbox.dataset.index;
-        const project = checkbox.dataset.project;
+        const item = checkedTodo.dataset.index;
+        const project = checkedTodo.dataset.project;
 
         todos[project][item].checked = !todos[project][item].checked;
 
