@@ -242,7 +242,7 @@ export const changeDOM = (() => {
             
             if (project !== 'today') {
 
-                todos[project].forEach(todo => {
+                todos[project].forEach((todo, i) => {
 
                     const today = new Date();
                     const todoDate = new Date(todo.dueDate);
