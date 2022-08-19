@@ -441,7 +441,7 @@ h2 {
     flex-direction: column;
     z-index: 2;    
     backdrop-filter: blur(10px);
-    display: none;
+    visibility: hidden;
 }
 
 #empty-cancel {
@@ -542,7 +542,7 @@ h2 {
     flex-direction: column;
     z-index: 2;    
     backdrop-filter: blur(10px);
-    display: none;
+    visibility: hidden;
 }
 
 .add-cancel {
@@ -640,6 +640,8 @@ input[type="submit"] {
     column-gap: 3%;
     row-gap: 10%;
     padding: 0 2% 0 5%;
+    transform: scale(1);
+    transition: all .3s;
 }
 
 .add-text {
@@ -789,7 +791,7 @@ input[type="radio"] {
     padding-bottom: 1%;
     z-index: 2;    
     backdrop-filter: blur(10px);
-    display: none;
+    visibility: hidden;
 }
 
 .notes-cancel {
@@ -855,7 +857,7 @@ input[type="radio"] {
     flex-direction: column;
     z-index: 2;    
     backdrop-filter: blur(10px);
-    display: none;
+    visibility: hidden;
 }
 
 .edit-cancel {
@@ -1012,7 +1014,7 @@ input[type="radio"] {
         right: 3%;
         width: 30vw;
         height: 84vh;
-        display: none;
+        visibility: hidden;
     }
     .dashboard-filters,
     .dashboard-projects {
