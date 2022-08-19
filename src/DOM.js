@@ -60,6 +60,24 @@ export const changeDOM = (() => {
         const todayUncheckedTodos = todos.today.reduce((total, value) => {
             return total + !value.checked;
         }, 0);
+        
+        const projectsObjectTwo = Object.assign({}, todos);
+        delete projectsObjectTwo.today;
+        for (const project in projectsObjectTwo) {
+            projectsObjectTwo[project].forEach(todo => {
+                    const today = new Date();
+                    const todoDate = new Date(todo.dueDate);
+                    if (
+                        today.getDate() === todoDate.getDate() &&
+                        today.getMonth() === todoDate.getMonth() &&
+                        today.getFullYear() === todoDate.getFullYear()
+                    ) {
+                        if (!todo.checked) {
+                            todayUncheckedTodos++;
+                        }
+                    }
+            })
+        }
         todayCount.textContent = todayUncheckedTodos;
 
         const weekCount = document.querySelector('.week');

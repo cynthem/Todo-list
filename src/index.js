@@ -49,7 +49,7 @@ if (!localStorage.getItem('todos')) {
     todos['Kitchen renovation'].push(manageData.createTodo('Remove vinyl floor', 'replace with subfloor', '08-19-2022', 'high', 'Kitchen renovation'));
     todos['Kitchen renovation'].push(manageData.createTodo('Build cabinets', 'pre-painted cabinets only', '08-26-2022', 'low', 'Kitchen renovation', true));
     todos['Kitchen renovation'].push(manageData.createTodo('Install countertop', 'leave room for butcher block', '09-18-2022', 'medium', 'Kitchen renovation'));
-    todos.all.push(manageData.createTodo('Finish book for book club', 'let Angela borrow afterward', '08-24-2022', 'high', 'all', true));
+    todos.all.push(manageData.createTodo('Finish book for book club', 'let Angela borrow afterward', '08-24-2022', 'high', 'all'));
 };
 
 changeDOM.renderAllTodos(todos, listContainer);
