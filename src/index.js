@@ -1,5 +1,6 @@
 import { changeDOM } from "./DOM";
 import { manageData } from "./storage";
+import { format } from 'date-fns';
 
 // All content container
 const contentContainer = document.getElementById('content');
@@ -45,11 +46,17 @@ const todos = JSON.parse(localStorage.getItem('todos')) || {
     'Kitchen renovation': []
 };
 
+const dateObject = new Date();
+const month = format(dateObject, 'MM');
+const day = format(dateObject, 'dd');
+const year = format(dateObject, 'yyyy');
+const today = `${month}-${day}-${year}`;
+
 if (!localStorage.getItem('todos')) {
-    todos['Kitchen renovation'].push(manageData.createTodo('Remove vinyl floor', 'replace with subfloor', '08-19-2022', 'high', 'Kitchen renovation'));
+    todos['Kitchen renovation'].push(manageData.createTodo('Remove vinyl floor', 'replace with subfloor', '08-14-2022', 'high', 'Kitchen renovation'));
     todos['Kitchen renovation'].push(manageData.createTodo('Build cabinets', 'pre-painted cabinets only', '08-26-2022', 'low', 'Kitchen renovation', true));
     todos['Kitchen renovation'].push(manageData.createTodo('Install countertop', 'leave room for butcher block', '09-18-2022', 'medium', 'Kitchen renovation'));
-    todos.all.push(manageData.createTodo('Finish book for book club', 'let Angela borrow afterward', '08-24-2022', 'high', 'all'));
+    todos.all.push(manageData.createTodo('Finish book for book club', 'let Angela borrow afterward', today, 'high', 'all'));
 };
 
 changeDOM.renderAllTodos(todos, listContainer);
