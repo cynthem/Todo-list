@@ -159,6 +159,9 @@ export const changeDOM = (() => {
         } else if (manageData.getSelectedProject() === 'today') {
             renderTodayTodos(todos, listContainer);
             highlightSelectedFilter(e);
+        } else if (manageData.getSelectedProject() === 'week') {
+            renderWeekTodos(todos, listContainer);
+            highlightSelectedFilter(e);
         } else {
             renderProjectTodos(todos, listContainer);
             highlightSelectedFilter(e);
