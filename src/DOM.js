@@ -192,7 +192,7 @@ export const changeDOM = (() => {
                 const dateText = document.createElement('p');
                 dateText.classList.add('item-date');
                 const dateObject = new Date(todo.dueDate);
-                const month = format(dateObject, 'Mmm');
+                const month = format(dateObject, 'MMM');
                 const day = format(dateObject, 'do');
                 dateText.textContent = `${month} ${day}`;
 
