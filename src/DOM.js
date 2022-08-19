@@ -38,6 +38,11 @@ export const changeDOM = (() => {
 
             projectItem.appendChild(projectTitle);
             projectItem.appendChild(projectCounter);
+            projectContainer.appendChild(projectItem);
+
+            if (manageData.getSelectedProject() === project) {
+                projectTitle.classList.add('clicked');
+            }
         };
 
         let allUncheckedTodos = 0;
@@ -119,7 +124,13 @@ export const changeDOM = (() => {
 
     function manageTodosRender(e, todos, listContainer) {
 
-        manageData.setSelectedProject(e.target.textContent.toLowerCase());
+        if (['All', 'Today'].includes(e.target.textContent)) {
+            manageData.setSelectedProject(e.target.textContent.toLowerCase());
+        } else if (['This week'].includes(e.target.textContent)) {
+            manageData.setSelectedProject('week');
+        } else {
+            manageData.setSelectedProject(e.target.textContent);
+        }
 
         if (manageData.getSelectedProject() === 'all') {
             renderAllTodos(todos, listContainer);
@@ -129,7 +140,7 @@ export const changeDOM = (() => {
             highlightSelectedFilter(e);
         }
 
-        if (!['all', 'week', 'today'].includes(manageData.getSelectedProject())) {
+        if (!['all', 'today', 'week'].includes(manageData.getSelectedProject())) {
             if (todos[manageData.getSelectedProject()].length < 1) {
                 renderEmptyProject(todos, listContainer);
             }
