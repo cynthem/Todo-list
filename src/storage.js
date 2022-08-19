@@ -113,10 +113,10 @@ export const manageData = (() => {
         let item;
         let project;
 
-        if (e.target.tagName === 'button') {
+        if (e.target.tagName === 'BUTTON') {
             item = e.target.parentElement.parentElement.dataset.index;
             project = e.target.parentElement.parentElement.dataset.project;
-        } else if (e.target.tagName === 'i') {
+        } else if (e.target.tagName === 'I') {
             item = e.target.parentElement.parentElement.parentElement.dataset.index;
             project = e.target.parentElement.parentElement.parentElement.dataset.project;
         }

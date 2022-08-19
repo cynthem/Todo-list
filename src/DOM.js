@@ -208,7 +208,7 @@ export const changeDOM = (() => {
                 todoItem.appendChild(itemRight);
 
                 if (todo.checked) {
-                    toggleTodoCheckbox(todoItem);
+                    toggleTodoReload(todoItem);
                 };
                 
                 listContainer.appendChild(todoItem);
@@ -264,7 +264,7 @@ export const changeDOM = (() => {
             const dateText = document.createElement('p');
             dateText.classList.add('item-date');
             const dateObject = new Date(todo.dueDate);
-            const month = format(dateObject, 'Mmm');
+            const month = format(dateObject, 'MMM');
             const day = format(dateObject, 'do');
             dateText.textContent = `${month} ${day}`;
 
@@ -294,7 +294,7 @@ export const changeDOM = (() => {
             todoItem.appendChild(itemRight);
 
             if (todo.checked) {
-                toggleTodoCheckbox(todoItem);
+                toggleTodoReload(todoItem);
             };
 
             listContainer.appendChild(todoItem);
@@ -308,10 +308,10 @@ export const changeDOM = (() => {
         let checkedTodo;
         let checkbox;
 
-        if (e.target.tagName === 'button') {
+        if (e.target.tagName === 'BUTTON') {
             checkedTodo = e.target.parentElement.parentElement;
             checkbox = e.target.children[0];
-        } else if (e.target.tagName === 'i') {
+        } else if (e.target.tagName === 'I') {
             checkedTodo = e.target.parentElement.parentElement.parentElement;
             checkbox = e.target;
         }
@@ -348,6 +348,8 @@ export const changeDOM = (() => {
         renderProjectList(todos, listContainer);
     }
 
+    function toggleTodoReload()
+
     function renderNotesCard(e, todos) {
         
         const item = e.target.parentElement.dataset.index;
@@ -372,7 +374,7 @@ export const changeDOM = (() => {
 
         notesTitle.textContent = todos[item].title;
         notesProject.textContent = todos[item].project;
-        notesPriority.textContent = todos[item].priority;
+        notesPriority.textContent = todos[item].priority[0].toUpperCase() + todos[item].priority.slice(1);
         notesDetails.textContent = todos[item].details;
 
         notesCard.style.display = 'flex';
@@ -384,10 +386,10 @@ export const changeDOM = (() => {
         let item;
         let project;
 
-        if (e.target.tagName === 'button') {
+        if (e.target.tagName === 'BUTTON') {
             item = element.parentElement.dataset.index;
             project = element.parentElement.dataset.project;
-        } else if (e.target.tagName === 'i') {
+        } else if (e.target.tagName === 'I') {
             item = element.parentElement.parentElement.dataset.index;
             project = element.parentElement.parentElement.dataset.project;
         }
@@ -411,6 +413,8 @@ export const changeDOM = (() => {
 
         editTitle.textContent = todos[item].title;
         editDetails.textContent = todos[item].details;
+
+        editDueDate.removeAttribute('value');
         editDueDate.setAttribute('value', todos[item].dueDate);
 
         if (editPriorityLow.classList.contains('low-checked')) {
@@ -443,30 +447,48 @@ export const changeDOM = (() => {
         editCard.style.display = 'flex';
 
         editLow.addEventListener('click', () => {
-            editPriorityLow.classList.remove('low');
-            editPriorityLow.classList.add('low-checked');
-            editPriorityMedium.classList.remove('medium-checked');
-            editPriorityMedium.classList.add('medium');
-            editPriorityHigh.classList.remove('high-checked');
-            editPriorityHigh.classList.add('high');
+            if (editPriorityLow.classList.contains('low')) {
+                editPriorityLow.classList.remove('low');
+                editPriorityLow.classList.add('low-checked');
+            }
+            if (editPriorityMedium.classList.contains('medium-checked')) {
+                editPriorityMedium.classList.remove('medium-checked');
+                editPriorityMedium.classList.add('medium');
+            }
+            if (editPriorityHigh.classList.contains('high-checked')) {
+                editPriorityHigh.classList.remove('high-checked');
+                editPriorityHigh.classList.add('high');
+            }
         });
 
         editMedium.addEventListener('click', () => {
-            editPriorityMedium.classList.remove('medium');
-            editPriorityMedium.classList.add('medium-checked');
-            editPriorityHigh.classList.remove('high-checked');
-            editPriorityHigh.classList.add('high');
-            editPriorityLow.classList.remove('low-checked');
-            editPriorityLow.classList.add('low');
+            if (editPriorityLow.classList.contains('low-checked')) {
+                editPriorityLow.classList.remove('low-checked');
+                editPriorityLow.classList.add('low');
+            }
+            if (editPriorityMedium.classList.contains('medium')) {
+                editPriorityMedium.classList.remove('medium');
+                editPriorityMedium.classList.add('medium-checked');
+            }
+            if (editPriorityHigh.classList.contains('high-checked')) {
+                editPriorityHigh.classList.remove('high-checked');
+                editPriorityHigh.classList.add('high');
+            }
         });
 
         editHigh.addEventListener('click', () => {
-            editPriorityHigh.classList.remove('high');
-            editPriorityHigh.classList.add('high-checked');
-            editPriorityLow.classList.remove('low-checked');
-            editPriorityLow.classList.add('low');
-            editPriorityMedium.classList.remove('medium-checked');
-            editPriorityMedium.classList.add('medium');
+            if (editPriorityLow.classList.contains('low-checked')) {
+                editPriorityLow.classList.remove('low-checked');
+                editPriorityLow.classList.add('low');
+            }
+            if (editPriorityMedium.classList.contains('medium-checked')) {
+                editPriorityMedium.classList.remove('medium-checked');
+                editPriorityMedium.classList.add('medium');
+            }
+            if (editPriorityHigh.classList.contains('high')) {
+                editPriorityHigh.classList.remove('high');
+                editPriorityHigh.classList.add('high-checked');
+            }
         });
     }
 
