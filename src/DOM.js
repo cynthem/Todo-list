@@ -31,7 +31,7 @@ export const changeDOM = (() => {
                     uncheckedTodos++;
                 }
             });
-
+            
             const projectCounter = document.createElement('p');
             projectCounter.classList.add('projects-counter');
             projectCounter.textContent = uncheckedTodos;
@@ -44,7 +44,7 @@ export const changeDOM = (() => {
                 projectTitle.classList.add('clicked');
             }
         };
-
+        
         let allUncheckedTodos = 0;
         for (const todoList in todos) {
             todos[todoList].forEach(todo => {
@@ -53,7 +53,7 @@ export const changeDOM = (() => {
                 }
             })
         };
-
+        
         const allCount = document.querySelector('.all');
         allCount.textContent = allUncheckedTodos;
 

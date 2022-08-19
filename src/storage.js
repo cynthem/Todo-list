@@ -162,7 +162,7 @@ export const manageData = (() => {
                 projectBtns.forEach(btn => {
                     btn.classList.remove('clicked');
                 });
-
+                
                 filterBtns[0].classList.add('clicked');
             }
         }

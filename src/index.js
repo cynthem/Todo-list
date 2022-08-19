@@ -8,13 +8,13 @@ const hamburgerMenu = document.querySelector('.fa-bars');
 // Dashboard
 const dashboard = document.querySelector('.dashboard');
 // Filter buttons
-const filterBtns = document.querySelector('.filters-btn');
+const filterBtns = document.querySelectorAll('.filters-btn');
 // Add-new button
 const addNew = document.querySelector('.projects-btn');
 // Todos list container
 const listContainer = document.querySelector('.list');
 // Popup card buttons
-const allExit = document.querySelector('fa-xmark');
+const allExit = document.querySelectorAll('fa-xmark');
     // Add-new card
 const addNewCard = document.querySelector('.add-new-card');
 const addExit = document.querySelector('.add-cancel');
@@ -55,31 +55,33 @@ if (!localStorage.getItem('todos')) {
 changeDOM.renderAllTodos(todos, listContainer);
 changeDOM.renderProjectList(todos, listContainer);
 
-filterBtns.forEach(button => {
-    button.addEventListener('click', e => changeDOM.manageTodosRender(e, todos, listContainer));
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', e => changeDOM.manageTodosRender(e, todos, listContainer));
 });
 
 hamburgerMenu.addEventListener('click', () => {
     dashboard.style.display = dashboard.style.display === 'none' ? 'grid' : 'none';
 });
 
-allExit.addEventListener('click', () => {
-    if (allExit.parentElement.classList.contains('add-cancel')) {
-        addNewCard.style.display = 'none';
-        contentContainer.classList.remove('blur');
-        addTodoDisplay.reset();
-        addProjectDisplay.reset();
-        addTodo.classList.add('clicked');
-        addTodoDisplay.style.display = 'grid';
-        addProject.classList.remove('clicked');
-        addProjectDisplay.style.display = 'none';
-    } else if (allExit.parentElement.classList.contains('notes-cancel')) {
-        notesCard.style.display = 'none';
-        contentContainer.classList.remove('blur');
-    } else if (allExit.parentElement.classList.contains('edit-cancel')) {
-        editCard.style.display = 'none';
-        contentContainer.classList.remove('blur');
-    }
+allExit.forEach(btn => {
+    btn.addEventListener('click', () => {
+        if (btn.parentElement.classList.contains('add-cancel')) {
+            addNewCard.style.display = 'none';
+            contentContainer.classList.remove('blur');
+            addTodoDisplay.reset();
+            addProjectDisplay.reset();
+            addTodo.classList.add('clicked');
+            addTodoDisplay.style.display = 'grid';
+            addProject.classList.remove('clicked');
+            addProjectDisplay.style.display = 'none';
+        } else if (btn.parentElement.classList.contains('notes-cancel')) {
+            notesCard.style.display = 'none';
+            contentContainer.classList.remove('blur');
+        } else if (btn.parentElement.classList.contains('edit-cancel')) {
+            editCard.style.display = 'none';
+            contentContainer.classList.remove('blur');
+        }
+    });
 });
 
 addNew.addEventListener('click', () => {
