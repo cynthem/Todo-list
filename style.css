@@ -436,10 +436,6 @@ h2 {
 
 /* POP-UP CARDS */
 
-.pop-in {
-    animation: enter .3s linear forwards;
-}
-
 /* EMPTY PROJECT CARD */
 
 .empty-project-card {
@@ -454,8 +450,6 @@ h2 {
     border-radius: 25px;
     display: flex;
     flex-direction: column;
-    z-index: 2;    
-    backdrop-filter: blur(10px);
     visibility: hidden;
 }
 
@@ -555,6 +549,22 @@ h2 {
     border-radius: 25px;
     display: flex;
     flex-direction: column;
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all .3s;
+}
+
+.enter {
+    transform: scale(1);
+    visibility: visible;
+    opacity: 1;
+    transform: translate(-50%, -50%);
+}
+
+.exit {
+    transform: scale(0.5);
+    opacity: 0;
     visibility: hidden;
 }
 
