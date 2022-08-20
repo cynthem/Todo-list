@@ -108,11 +108,14 @@ allExit.forEach(btn => {
 
 addNew.addEventListener('click', () => {
     contentContainer.classList.add('blur');
-    addNewCard.style.visibility = 'visible';
+    //addNewCard.style.visibility = 'visible';
+    addNewCard.classList.add('enter');
 });
 
 addExit.addEventListener('click', () => {
-    addNewCard.style.visibility = 'hidden';
+    //addNewCard.style.visibility = 'hidden';
+    addNewCard.classList.remove('enter');
+    addNewCard.classList.add('exit');
     contentContainer.classList.remove('blur');
     addTodoDisplay.reset();
     addProjectDisplay.reset();
