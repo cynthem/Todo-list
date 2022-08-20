@@ -108,12 +108,11 @@ allExit.forEach(btn => {
 
 addNew.addEventListener('click', () => {
     contentContainer.classList.add('blur');
-    //addNewCard.style.visibility = 'visible';
-    addNewCard.classList.add('enter');
+    addNewCard.style.visibility = 'visible';
 });
 
 addExit.addEventListener('click', () => {
-    //addNewCard.style.visibility = 'hidden';
+    addNewCard.style.visibility = 'hidden';
     addNewCard.classList.remove('enter');
     addNewCard.classList.add('exit');
     contentContainer.classList.remove('blur');
