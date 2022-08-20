@@ -82,13 +82,13 @@ filterBtns.forEach(btn => {
 });
 
 hamburgerMenu.addEventListener('click', () => {
-    dashboard.style.display = dashboard.style.display === 'none' ? 'grid' : 'none';
+    dashboard.style.visibility = dashboard.style.visibility === 'hidden' ? 'visible' : 'hidden';
 });
 
 allExit.forEach(btn => {
     btn.addEventListener('click', () => {
         if (btn.parentElement.classList.contains('add-cancel')) {
-            addNewCard.style.display = 'none';
+            addNewCard.style.visibility = 'hidden';
             contentContainer.classList.remove('blur');
             addTodoDisplay.reset();
             addProjectDisplay.reset();
@@ -97,10 +97,10 @@ allExit.forEach(btn => {
             addProject.classList.remove('clicked');
             addProjectDisplay.style.display = 'none';
         } else if (btn.parentElement.classList.contains('notes-cancel')) {
-            notesCard.style.display = 'none';
+            notesCard.style.visibility = 'hidden';
             contentContainer.classList.remove('blur');
         } else if (btn.parentElement.classList.contains('edit-cancel')) {
-            editCard.style.display = 'none';
+            editCard.style.visibility = 'hidden';
             contentContainer.classList.remove('blur');
         }
     });
@@ -108,11 +108,11 @@ allExit.forEach(btn => {
 
 addNew.addEventListener('click', () => {
     contentContainer.classList.add('blur');
-    addNewCard.style.display = 'flex';
+    addNewCard.style.visibility = 'visible';
 });
 
 addExit.addEventListener('click', () => {
-    addNewCard.style.display = 'none';
+    addNewCard.style.visibility = 'hidden';
     contentContainer.classList.remove('blur');
     addTodoDisplay.reset();
     addProjectDisplay.reset();
@@ -183,7 +183,7 @@ addHighPriority.addEventListener('click', () => {
 
 addTodoSubmit.addEventListener('submit', e => {
     manageData.addTodo(e, todos, listContainer);
-    addNewCard.style.display = 'none';
+    addNewCard.style.visibility = 'hidden';
     contentContainer.classList.remove('blur');
     addTodoDisplay.reset();
     addProjectDisplay.reset();
@@ -191,7 +191,7 @@ addTodoSubmit.addEventListener('submit', e => {
 
 addProjectSubmit.addEventListener('submit', e => {
     manageData.addProject(e, todos, listContainer);
-    addNewCard.style.display = 'none';
+    addNewCard.style.visibility = 'hidden';
     contentContainer.classList.remove('blur');
     addTodoDisplay.reset();
     addProjectDisplay.reset();
@@ -202,17 +202,17 @@ addProjectSubmit.addEventListener('submit', e => {
 });
 
 notesExit.addEventListener('click', () => {
-    notesCard.style.display = 'none';
+    notesCard.style.visibility = 'hidden';
     contentContainer.classList.remove('blur');
 });
 
 editExit.addEventListener('click', () => {
-    editCard.style.display = 'none';
+    editCard.style.visibility = 'hidden';
     contentContainer.classList.remove('blur');
 });
 
 editSubmit.addEventListener('submit', e => {
     manageData.editTodo(e, todos, listContainer);
-    editCard.style.display = 'none';
+    editCard.style.visibility = 'hidden';
     contentContainer.classList.remove('blur');
 });
