@@ -1,4 +1,5 @@
 import { changeDOM } from './DOM';
+import { format } from 'date-fns';
 
 export const manageData = (() => {
 
@@ -71,13 +72,16 @@ export const manageData = (() => {
         
         const todoTitle = (document.querySelector('.add-input')).value;
         const todoDetails = (document.querySelector('.add-textarea')).value;
-        const todoDueDate = (document.querySelector('#new-date')).value;
+        const todoDate = (document.querySelector('#new-date')).value;
+        const todoDay = todoDate.slice(5, 10);
+        const todoYear = todoDate.slice(0, 4);
+        const todoDueDate = `${todoDay}-${todoYear}`;
         const todoPriority = (document.querySelector('[name="new-priority"]:checked')).value;
         const todoProject = getSelectedProject();
 
         const newTodo = createTodo(todoTitle, todoDetails, todoDueDate, todoPriority, todoProject);
         todos[todoProject].push(newTodo);
-        
+
         if (manageData.getSelectedProject() === 'all') {
             changeDOM.renderAllTodos(todos, listContainer);
         } else if (manageData.getSelectedProject() === 'today') {
