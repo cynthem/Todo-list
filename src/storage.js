@@ -89,8 +89,6 @@ export const manageData = (() => {
         }
 
         changeDOM.renderProjectList(todos, listContainer);
-
-        localStorage.setItem('todos', JSON.stringify(todos));
     }
 
     function editTodo(e, todos, listContainer) {
