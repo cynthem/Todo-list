@@ -23,6 +23,7 @@ const addTodo = document.querySelector('.add-btn-todo');
 const addTodoDisplay = document.querySelector('.add-todo-form');
 const addProject = document.querySelector('.add-btn-project');
 const addProjectDisplay = document.querySelector('.add-project-form');
+const addDate = document.getElementById('new-date');
 const addLowPriority = document.getElementById('new-low');
 const addMediumPriority = document.getElementById('new-medium');
 const addHighPriority = document.getElementById('new-high');
@@ -96,6 +97,7 @@ allExit.forEach(btn => {
             addTodoDisplay.style.display = 'grid';
             addProject.classList.remove('clicked');
             addProjectDisplay.style.display = 'none';
+            addDate.removeAttribute('value');
         } else if (btn.parentElement.classList.contains('notes-cancel')) {
             notesCard.style.visibility = 'hidden';
             contentContainer.classList.remove('blur');
@@ -106,9 +108,12 @@ allExit.forEach(btn => {
     });
 });
 
+const currentDay = `${year}-${month}-${day}`;
+
 addNew.addEventListener('click', () => {
     contentContainer.classList.add('blur');
     addNewCard.style.visibility = 'visible';
+    addDate.setAttribute('value', currentDay);
 });
 
 addExit.addEventListener('click', () => {
@@ -122,6 +127,7 @@ addExit.addEventListener('click', () => {
     addTodoDisplay.style.display = 'grid';
     addProject.classList.remove('clicked');
     addProjectDisplay.style.display = 'none';
+    addDate.removeAttribute('value');
 });
 
 addTodo.addEventListener('click', () => {
@@ -189,6 +195,7 @@ addTodoSubmit.addEventListener('submit', e => {
     contentContainer.classList.remove('blur');
     addTodoDisplay.reset();
     addProjectDisplay.reset();
+    addDate.removeAttribute('value');
 });
 
 addProjectSubmit.addEventListener('submit', e => {
@@ -201,6 +208,7 @@ addProjectSubmit.addEventListener('submit', e => {
     addTodoDisplay.style.display = 'grid';
     addProject.classList.remove('clicked');
     addProjectDisplay.style.display = 'none';
+    addDate.removeAttribute('value');
 });
 
 notesExit.addEventListener('click', () => {
