@@ -30,8 +30,7 @@ const addHighPriority = document.getElementById('new-high');
 const addLow = document.querySelector('.low');
 const addMedium = document.querySelector('.medium');
 const addHigh = document.querySelector('.high');
-const addTodoSubmit = document.querySelector('.new-todo-submit');
-const addProjectSubmit = document.querySelector('.new-project-submit');
+//const addProjectSubmit = document.querySelector('.new-project-submit');
     // Notes card
 const notesCard = document.querySelector('.notes-card');
 const notesExit = document.querySelector('.notes-cancel');
@@ -198,7 +197,7 @@ addTodoForm.addEventListener('submit', e => {
     addDate.removeAttribute('value');
 });
 
-addProjectSubmit.addEventListener('submit', e => {
+addProjectForm.addEventListener('submit', e => {
     manageData.addProject(e, todos, listContainer);
     addNewCard.style.visibility = 'hidden';
     contentContainer.classList.remove('blur');
