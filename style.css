@@ -738,6 +738,7 @@ input[type="radio"] {
 }
 
 .medium-checked {
+    padding: 5px 4px 2px;
     background-color: #99728c;
     color: #EBF5EE;
 }
