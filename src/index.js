@@ -19,7 +19,7 @@ const allExit = document.querySelectorAll('fa-xmark');
     // Add-new card
 const addNewCard = document.querySelector('.add-new-card');
 const addExit = document.querySelector('.add-cancel');
-const addTodo = document.querySelector('.add-btn-todo');
+const addTodoBtn = document.querySelector('.add-btn-todo');
 const addTodoDisplay = document.querySelector('.add-todo-form');
 const addProject = document.querySelector('.add-btn-project');
 const addProjectDisplay = document.querySelector('.add-project-form');
@@ -93,7 +93,7 @@ allExit.forEach(btn => {
             contentContainer.classList.remove('blur');
             addTodoDisplay.reset();
             addProjectDisplay.reset();
-            addTodo.classList.add('clicked');
+            addTodoBtn.classList.add('clicked');
             addTodoDisplay.style.display = 'grid';
             addProject.classList.remove('clicked');
             addProjectDisplay.style.display = 'none';
@@ -123,15 +123,15 @@ addExit.addEventListener('click', () => {
     contentContainer.classList.remove('blur');
     addTodoDisplay.reset();
     addProjectDisplay.reset();
-    addTodo.classList.add('clicked');
+    addTodoBtn.classList.add('clicked');
     addTodoDisplay.style.display = 'grid';
     addProject.classList.remove('clicked');
     addProjectDisplay.style.display = 'none';
     addDate.removeAttribute('value');
 });
 
-addTodo.addEventListener('click', () => {
-    addTodo.classList.add('clicked');
+addTodoBtn.addEventListener('click', () => {
+    addTodoBtn.classList.add('clicked');
     addTodoDisplay.style.display = 'grid';
     addProject.classList.remove('clicked');
     addProjectDisplay.style.display = 'none';
@@ -140,7 +140,7 @@ addTodo.addEventListener('click', () => {
 addProject.addEventListener('click', () => {
     addProject.classList.add('clicked');
     addProjectDisplay.style.display = 'grid';
-    addTodo.classList.remove('clicked');
+    addTodoBtn.classList.remove('clicked');
     addTodoDisplay.style.display = 'none';
 });
 
@@ -204,7 +204,7 @@ addProjectSubmit.addEventListener('submit', e => {
     contentContainer.classList.remove('blur');
     addTodoDisplay.reset();
     addProjectDisplay.reset();
-    addTodo.classList.add('clicked');
+    addTodoBtn.classList.add('clicked');
     addTodoDisplay.style.display = 'grid';
     addProject.classList.remove('clicked');
     addProjectDisplay.style.display = 'none';
