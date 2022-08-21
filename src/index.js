@@ -30,7 +30,6 @@ const addHighPriority = document.getElementById('new-high');
 const addLow = document.querySelector('.low');
 const addMedium = document.querySelector('.medium');
 const addHigh = document.querySelector('.high');
-//const addProjectSubmit = document.querySelector('.new-project-submit');
     // Notes card
 const notesCard = document.querySelector('.notes-card');
 const notesExit = document.querySelector('.notes-cancel');
