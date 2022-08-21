@@ -34,31 +34,6 @@ export const manageData = (() => {
             todos[newProject] = [];
             changeDOM.renderProjectList(todos, listContainer);
             changeDOM.renderAllTodos(todos, listContainer);
-            
-            /*setSelectedProject(newProject);
-
-            if (getSelectedProject() === 'all') {
-                changeDOM.renderAllTodos(todos, listContainer);
-            } else if (getSelectedProject() === 'today') {
-                changeDOM.renderTodayTodos(todos, listContainer);
-            } else if (getSelectedProject() === 'week') {
-                changeDOM.renderWeekTodos(todos, listContainer);
-            } else {
-                changeDOM.renderProjectTodos(todos, listContainer);
-            }
-
-            const filterBtns = document.querySelectorAll('.filters-btn');
-            const projectBtns = document.querySelectorAll('.projects-name');
-
-            filterBtns.forEach(btn => {
-                btn.classList.remove('clicked');
-            });
-
-            projectBtns.forEach(btn => {
-                btn.classList.remove('clicked');
-            });
-
-            document.querySelector('.projects-list').lastChild.classList.add('clicked');*/
 
         } else if (newProject && (newProject.toLowerCase() === 'this week')) {
             setSelectedProject('week');
