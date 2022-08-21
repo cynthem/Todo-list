@@ -66,9 +66,9 @@ export const manageData = (() => {
     }
 
     function addTodo(e, todos, listContainer) {
-
+        
         e.preventDefault();
-
+        
         const todoTitle = (document.querySelector('.add-input')).value;
         const todoDetails = (document.querySelector('.add-textarea')).value;
         const todoDueDate = (document.querySelector('#new-date')).value;
@@ -77,7 +77,7 @@ export const manageData = (() => {
 
         const newTodo = createTodo(todoTitle, todoDetails, todoDueDate, todoPriority, todoProject);
         todos[todoProject].push(newTodo);
-
+        
         if (manageData.getSelectedProject() === 'all') {
             changeDOM.renderAllTodos(todos, listContainer);
         } else if (manageData.getSelectedProject() === 'today') {
@@ -87,7 +87,7 @@ export const manageData = (() => {
         } else {
             changeDOM.renderProjectTodos(todos, listContainer);
         }
-
+        
         changeDOM.renderProjectList(todos, listContainer);
     }
 

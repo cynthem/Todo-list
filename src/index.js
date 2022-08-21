@@ -20,9 +20,9 @@ const allExit = document.querySelectorAll('fa-xmark');
 const addNewCard = document.querySelector('.add-new-card');
 const addExit = document.querySelector('.add-cancel');
 const addTodoBtn = document.querySelector('.add-btn-todo');
-const addTodoDisplay = document.querySelector('.add-todo-form');
+const addTodoForm = document.querySelector('.add-todo-form');
 const addProject = document.querySelector('.add-btn-project');
-const addProjectDisplay = document.querySelector('.add-project-form');
+const addProjectForm = document.querySelector('.add-project-form');
 const addDate = document.getElementById('new-date');
 const addLowPriority = document.getElementById('new-low');
 const addMediumPriority = document.getElementById('new-medium');
@@ -91,12 +91,12 @@ allExit.forEach(btn => {
         if (btn.parentElement.classList.contains('add-cancel')) {
             addNewCard.style.visibility = 'hidden';
             contentContainer.classList.remove('blur');
-            addTodoDisplay.reset();
-            addProjectDisplay.reset();
+            addTodoForm.reset();
+            addProjectForm.reset();
             addTodoBtn.classList.add('clicked');
-            addTodoDisplay.style.display = 'grid';
+            addTodoForm.style.display = 'grid';
             addProject.classList.remove('clicked');
-            addProjectDisplay.style.display = 'none';
+            addProjectForm.style.display = 'none';
             addDate.removeAttribute('value');
         } else if (btn.parentElement.classList.contains('notes-cancel')) {
             notesCard.style.visibility = 'hidden';
@@ -121,27 +121,27 @@ addExit.addEventListener('click', () => {
     addNewCard.classList.remove('enter');
     addNewCard.classList.add('exit');
     contentContainer.classList.remove('blur');
-    addTodoDisplay.reset();
-    addProjectDisplay.reset();
+    addTodoForm.reset();
+    addProjectForm.reset();
     addTodoBtn.classList.add('clicked');
-    addTodoDisplay.style.display = 'grid';
+    addTodoForm.style.display = 'grid';
     addProject.classList.remove('clicked');
-    addProjectDisplay.style.display = 'none';
+    addProjectForm.style.display = 'none';
     addDate.removeAttribute('value');
 });
 
 addTodoBtn.addEventListener('click', () => {
     addTodoBtn.classList.add('clicked');
-    addTodoDisplay.style.display = 'grid';
+    addTodoForm.style.display = 'grid';
     addProject.classList.remove('clicked');
-    addProjectDisplay.style.display = 'none';
+    addProjectForm.style.display = 'none';
 });
 
 addProject.addEventListener('click', () => {
     addProject.classList.add('clicked');
-    addProjectDisplay.style.display = 'grid';
+    addProjectForm.style.display = 'grid';
     addTodoBtn.classList.remove('clicked');
-    addTodoDisplay.style.display = 'none';
+    addTodoForm.style.display = 'none';
 });
 
 addLowPriority.addEventListener('click', () => {
@@ -189,12 +189,12 @@ addHighPriority.addEventListener('click', () => {
     }
 });
 
-addTodoSubmit.addEventListener('submit', e => {
+addTodoForm.addEventListener('submit', e => {
     manageData.addTodo(e, todos, listContainer);
     addNewCard.style.visibility = 'hidden';
     contentContainer.classList.remove('blur');
-    addTodoDisplay.reset();
-    addProjectDisplay.reset();
+    addTodoForm.reset();
+    addProjectForm.reset();
     addDate.removeAttribute('value');
 });
 
@@ -202,12 +202,12 @@ addProjectSubmit.addEventListener('submit', e => {
     manageData.addProject(e, todos, listContainer);
     addNewCard.style.visibility = 'hidden';
     contentContainer.classList.remove('blur');
-    addTodoDisplay.reset();
-    addProjectDisplay.reset();
+    addTodoForm.reset();
+    addProjectForm.reset();
     addTodoBtn.classList.add('clicked');
-    addTodoDisplay.style.display = 'grid';
+    addTodoForm.style.display = 'grid';
     addProject.classList.remove('clicked');
-    addProjectDisplay.style.display = 'none';
+    addProjectForm.style.display = 'none';
     addDate.removeAttribute('value');
 });
 
