@@ -27,9 +27,9 @@ const addDate = document.getElementById('new-date');
 const addLowPriority = document.getElementById('new-low');
 const addMediumPriority = document.getElementById('new-medium');
 const addHighPriority = document.getElementById('new-high');
-const addLow = document.getElementById('new-low');
-const addMedium = document.getElementById('new-medium');
-const addHigh = document.getElementById('new-high');
+const addLow = document.querySelector('.low');
+const addMedium = document.querySelector('.medium');
+const addHigh = document.querySelector('.high');
 const addTodoSubmit = document.querySelector('.new-todo-submit');
 const addProjectSubmit = document.querySelector('.new-project-submit');
     // Notes card
