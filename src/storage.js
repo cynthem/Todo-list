@@ -1,5 +1,4 @@
 import { changeDOM } from './DOM';
-import { format } from 'date-fns';
 
 export const manageData = (() => {
 
@@ -26,9 +25,11 @@ export const manageData = (() => {
 
     function addProject(e, todos, listContainer) {
 
+        e.preventDefault();
+
         const newProject = (document.querySelector('#add-project')).value;
 
-        if (newProject && !(newProject.toLowerCase() in todos)) {
+        if (newProject && (newProject.toLowerCase() !== 'this week') && !(newProject.toLowerCase() in todos)) {
 
             todos[newProject] = [];
             changeDOM.renderProjectList(todos, listContainer);
@@ -59,22 +60,24 @@ export const manageData = (() => {
 
             document.querySelector('.projects-list').lastChild.classList.add('clicked');*/
 
+        } else if (newProject && (newProject.toLowerCase() === 'this week')) {
+            setSelectedProject('week');
+            changeDOM.renderWeekTodos(todos, listContainer);
         } else if (newProject && (newProject.toLowerCase() in todos)) {
             if (newProject.toLowerCase() === 'all') {
                 setSelectedProject(newProject.toLowerCase());
                 changeDOM.renderAllTodos(todos, listContainer);
-            } else if (getSelectedProject() === 'today') {
+            } else if (newProject.toLowerCase() === 'today') {
                 setSelectedProject(newProject.toLowerCase());
                 changeDOM.renderTodayTodos(todos, listContainer);
-            } else if (getSelectedProject() === 'week') {
-                setSelectedProject(newProject.toLowerCase());
+            } else if (newProject.toLowerCase() === 'week') {
+                setSelectedProject('week');
                 changeDOM.renderWeekTodos(todos, listContainer);
             } else {
                 setSelectedProject(newProject.toLowerCase());
                 changeDOM.renderProjectTodos(todos, listContainer);
             }
         }
-
         localStorage.setItem('todos', JSON.stringify(todos));
     }
 

@@ -447,7 +447,7 @@ export const changeDOM = (() => {
     }
 
     function renderWeekTodos(todos, listContainer) {
-
+        
         listContainer.innerHTML = '';
 
         for (const project in todos) {
@@ -921,6 +921,7 @@ export const changeDOM = (() => {
         manageTodosRender,
         renderAllTodos,
         renderTodayTodos,
+        renderWeekTodos,
         renderProjectTodos,
         toggleTodoCheckbox,
         renderNotesCard,
