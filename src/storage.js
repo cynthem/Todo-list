@@ -80,6 +80,10 @@ export const manageData = (() => {
 
         if (manageData.getSelectedProject() === 'all') {
             changeDOM.renderAllTodos(todos, listContainer);
+        } else if (manageData.getSelectedProject() === 'today') {
+            changeDOM.renderTodayTodos(todos, listContainer);
+        } else if (manageData.getSelectedProject() === 'week') {
+            changeDOM.renderWeekTodos(todos, listContainer); 
         } else {
             changeDOM.renderProjectTodos(todos, listContainer);
         }
