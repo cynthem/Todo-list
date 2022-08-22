@@ -180,6 +180,5 @@ export const manageData = (() => {
         editTodo,
         deleteTodo,
         checkIfProjectEmpty
-    }
-
+    };
 })();
