@@ -41,11 +41,11 @@ export const changeDOM = (() => {
 
             const allBtn = document.querySelector('.all-btn');
 
-            if (manageData.getSelectedProject() === project) {
+            /*if (manageData.getSelectedProject() === project) {
                 projectTitle.classList.add('clicked');
             } else {
                 allBtn.classList.add('clicked');
-            }
+            }*/
         };
         
         let allUncheckedTodos = 0;
@@ -56,16 +56,13 @@ export const changeDOM = (() => {
                 }
             })
         };
-        
         const allCount = document.querySelector('.all');
         allCount.textContent = allUncheckedTodos;
 
-        const todayCount = document.querySelector('.today');
         let todayUncheckedTodos;
         todayUncheckedTodos = todos.today.reduce((total, value) => {
             return total + !value.checked;
         }, 0);
-        
         const projectsObjectTwo = Object.assign({}, todos);
         delete projectsObjectTwo.today;
         for (const projectTwo in projectsObjectTwo) {
@@ -83,9 +80,9 @@ export const changeDOM = (() => {
                     }
             });
         }
+        const todayCount = document.querySelector('.today');
         todayCount.textContent = todayUncheckedTodos;
 
-        const weekCount = document.querySelector('.week');
         let weekUncheckedTodos;
         weekUncheckedTodos = todos.week.reduce((total, value) => {
             return total + !value.checked;
@@ -105,6 +102,7 @@ export const changeDOM = (() => {
                 }
             });
         }
+        const weekCount = document.querySelector('.week');
         weekCount.textContent = weekUncheckedTodos;
     }
 
@@ -206,7 +204,30 @@ export const changeDOM = (() => {
 
     function manageTodosRender(e, todos, listContainer) {
 
-        if (['All', 'Today'].includes(e.target.textContent)) {
+        if (e.target.textContent === 'All') {
+            manageData.setSelectedProject('all');
+            renderAllTodos(todos, listContainer);
+            highlightSelectedFilter(e);
+        } else if (e.target.textContent === 'Today') {
+            manageData.setSelectedProject('today');
+            renderTodayTodos(todos, listContainer);
+            highlightSelectedFilter(e);
+        } else if (e.target.textContent === 'This week') {
+            manageData.setSelectedProject('week');
+            renderWeekTodos(todos, listContainer);
+            highlightSelectedFilter(e);
+        } else {
+            if (todos[e.target.textContent].length < 1) {
+                manageData.setSelectedProject(e.target.textContent);
+                renderEmptyProject(e, todos, listContainer);
+            } else {
+                manageData.setSelectedProject(e.target.textContent);
+                renderProjectTodos(todos, listContainer);
+                highlightSelectedFilter(e);
+            }
+        }
+
+        /*if (['All', 'Today'].includes(e.target.textContent)) {
             manageData.setSelectedProject(e.target.textContent.toLowerCase());
         } else if (['This week'].includes(e.target.textContent)) {
             manageData.setSelectedProject('week');
@@ -231,7 +252,7 @@ export const changeDOM = (() => {
         } else {
             renderProjectTodos(todos, listContainer);
             highlightSelectedFilter(e);
-        }
+        }*/
     }
 
     function renderAllTodos(todos, listContainer) {

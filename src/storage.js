@@ -49,6 +49,7 @@ export const manageData = (() => {
             } else {
                 todos[newProject] = [];
                 setSelectedProject('all');
+                changeDOM.highlightReloadedFilter(getSelectedProject());
                 changeDOM.renderProjectList(todos, listContainer);
                 changeDOM.renderAllTodos(todos, listContainer);
             }
