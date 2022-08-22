@@ -124,7 +124,6 @@ export const changeDOM = (() => {
 
         const filterBtns = document.querySelectorAll('.filters-btn');
         const projectBtns = document.querySelectorAll('.projects-name');
-        const currentProject = manageData.getSelectedProject();
 
         filterBtns.forEach(item => {
             item.classList.remove('clicked');
@@ -145,7 +144,7 @@ export const changeDOM = (() => {
         });
 
         projectBtns.forEach(btn => {
-            if (btn.textContent.toLowerCase() === projectName) {
+            if (btn.textContent === projectName) {
                 btn.classList.add('clicked');
             }
         })

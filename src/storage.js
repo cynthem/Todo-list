@@ -29,12 +29,14 @@ export const manageData = (() => {
 
         const newProject = (document.querySelector('#add-project')).value;
 
-        if (newProject && (newProject.toLowerCase() !== 'this week') && !(newProject.toLowerCase() in todos)) {
-
+        if (newProject && (newProject in todos)) {
+            setSelectedProject(newProject);
+            changeDOM.renderProjectTodos(todos, listContainer);
+            changeDOM.highlightReloadedFilter(getSelectedProject());
+        } else if (newProject && (newProject.toLowerCase() !== 'this week') && !(newProject.toLowerCase() in todos)) {
             todos[newProject] = [];
             changeDOM.renderProjectList(todos, listContainer);
             changeDOM.renderAllTodos(todos, listContainer);
-
         } else if (newProject && (newProject.toLowerCase() === 'this week')) {
             setSelectedProject('week');
             changeDOM.renderWeekTodos(todos, listContainer);
@@ -53,9 +55,9 @@ export const manageData = (() => {
                 changeDOM.renderWeekTodos(todos, listContainer);
                 changeDOM.highlightReloadedFilter('week');
             } else {
-                setSelectedProject(newProject.toLowerCase());
+                setSelectedProject(newProject);
                 changeDOM.renderProjectTodos(todos, listContainer);
-                changeDOM.highlightReloadedFilter(getSelectedProject().toLowerCase());
+                changeDOM.highlightReloadedFilter(getSelectedProject());
             }
         }
         localStorage.setItem('todos', JSON.stringify(todos));
