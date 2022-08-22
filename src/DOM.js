@@ -151,7 +151,7 @@ export const changeDOM = (() => {
         })
     }
 
-    function renderEmptyProject(todos, listContainer) {
+    function renderEmptyProject(e, todos, listContainer) {
 
         const contentContainer = document.getElementById('content');
         const emptyContainer = document.querySelector('.empty-project-card');
@@ -160,10 +160,10 @@ export const changeDOM = (() => {
         const emptyAdd = document.querySelector('.empty-add');
         const deleteProject = document.querySelector('.empty-delete');
         const addNewCard = document.querySelector('.add-new-card');
-
+        console.log(e)
         emptyTitle.innerHTML = '';
         emptyTitle.textContent = e.target.textContent;
-
+        
         emptyContainer.style.visibility = 'visible';
         contentContainer.classList.add('blur');
 
@@ -204,7 +204,7 @@ export const changeDOM = (() => {
             if (todos[manageData.getSelectedProject()].length < 1) {
                 renderAllTodos(todos, listContainer);
                 highlightSelectedFilter(e);
-                renderEmptyProject(todos, listContainer);
+                renderEmptyProject(e, todos, listContainer);
             }
         }
 
