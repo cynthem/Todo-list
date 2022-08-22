@@ -143,6 +143,12 @@ export const changeDOM = (() => {
                 btn.classList.add('clicked');
             }
         });
+
+        projectBtns.forEach(btn => {
+            if (btn.textContent.toLowerCase() === projectName) {
+                btn.classList.add('clicked');
+            }
+        })
     }
 
     function renderEmptyProject(todos, listContainer) {
