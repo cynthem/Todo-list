@@ -35,6 +35,7 @@ export const manageData = (() => {
             changeDOM.highlightReloadedFilter(getSelectedProject());
         } else if (newProject && (newProject.toLowerCase() !== 'this week') && !(newProject.toLowerCase() in todos)) {
             todos[newProject] = [];
+            setSelectedProject('all');
             changeDOM.renderProjectList(todos, listContainer);
             changeDOM.renderAllTodos(todos, listContainer);
         } else if (newProject && (newProject.toLowerCase() === 'this week')) {

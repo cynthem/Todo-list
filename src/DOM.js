@@ -22,7 +22,7 @@ export const changeDOM = (() => {
             projectTitle.classList.add('projects-name');
             projectTitle.textContent = project;
             projectTitle.addEventListener('click', e => manageTodosRender(e, todos, listContainer));
-            projectTitle.addEventListener('click', e => highlightSelectedFilter(e, todos, listContainer));
+            projectTitle.addEventListener('click', e => highlightSelectedFilter(e));
 
             let uncheckedTodos = 0;
             projectsObject[project].forEach(todo => {
@@ -104,11 +104,10 @@ export const changeDOM = (() => {
         weekCount.textContent = weekUncheckedTodos;
     }
 
-    function highlightSelectedFilter(e, todos, listContainer) {
+    function highlightSelectedFilter(e) {
 
         const filterBtns = document.querySelectorAll('.filters-btn');
         const projectBtns = document.querySelectorAll('.projects-name');
-        const allBtn = document.querySelector('.all-btn');
 
         filterBtns.forEach(item => {
             item.classList.remove('clicked');
@@ -118,12 +117,7 @@ export const changeDOM = (() => {
             item.classList.remove('clicked');
         });
 
-        if (todos[e.target.textContent].length < 1) {
-            allBtn.classList.add('clicked');
-            renderAllTodos(todos, listContainer);
-        } else {
-            e.target.classList.add('clicked'); 
-        }
+        e.target.classList.add('clicked');
     }
 
     function highlightReloadedFilter(projectName) {
@@ -164,8 +158,14 @@ export const changeDOM = (() => {
         const emptyTitle = document.querySelector('.empty-name');
         const emptyAdd = document.querySelector('.empty-add');
         const deleteProject = document.querySelector('.empty-delete');
-        const addNewCard = document.querySelector('.add-new-card');
         const allBtn = document.querySelector('.all-btn');
+        const addNewCard = document.querySelector('.add-new-card');
+        const addNewDate = document.getElementById('new-date');
+        const dateObject = new Date();
+        const month = format(dateObject, 'MM');
+        const day = format(dateObject, 'dd');
+        const year = format(dateObject, 'yyyy');
+        const currentDay = `${year}-${month}-${day}`;
         
         emptyTitle.innerHTML = '';
         emptyTitle.textContent = e.target.textContent;
@@ -177,14 +177,16 @@ export const changeDOM = (() => {
             renderAllTodos(todos, listContainer);
             e.target.classList.remove('clicked');
             allBtn.classList.add('clicked');
+            manageData.setSelectedProject('all');
             emptyContainer.style.visibility = 'hidden';
             contentContainer.classList.remove('blur');
         });
 
         emptyAdd.addEventListener('click', () => {
+            addNewDate.setAttribute('value', currentDay);
             emptyContainer.style.visibility = 'hidden';
             addNewCard.style.visibility = 'visible';
-        })
+        });
 
         deleteProject.addEventListener('click', () => {
             delete todos[manageData.getSelectedProject()];
@@ -207,6 +209,7 @@ export const changeDOM = (() => {
             manageData.setSelectedProject('week');
         } else if (!['all', 'today', 'week'].includes(e.target.textContent)) {
             if (todos[e.target.textContent].length < 1) {
+                manageData.setSelectedProject(e.target.textContent);
                 renderEmptyProject(e, todos, listContainer);
             }
         } else {
@@ -215,16 +218,16 @@ export const changeDOM = (() => {
 
         if (manageData.getSelectedProject() === 'all') {
             renderAllTodos(todos, listContainer);
-            highlightSelectedFilter(e, todos, listContainer);
+            highlightSelectedFilter(e);
         } else if (manageData.getSelectedProject() === 'today') {
             renderTodayTodos(todos, listContainer);
-            highlightSelectedFilter(e, todos, listContainer);
+            highlightSelectedFilter(e);
         } else if (manageData.getSelectedProject() === 'week') {
             renderWeekTodos(todos, listContainer);
-            highlightSelectedFilter(e, todos, listContainer);
+            highlightSelectedFilter(e);
         } else {
             renderProjectTodos(todos, listContainer);
-            highlightSelectedFilter(e, todos, listContainer);
+            highlightSelectedFilter(e);
         }
     }
 
