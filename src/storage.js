@@ -29,38 +29,31 @@ export const manageData = (() => {
 
         const newProject = (document.querySelector('#add-project')).value;
 
-        if (newProject && (newProject in todos)) {
-            setSelectedProject(newProject);
-            changeDOM.renderProjectTodos(todos, listContainer);
-            changeDOM.highlightReloadedFilter(getSelectedProject());
-        } else if (newProject && (newProject.toLowerCase() !== 'this week') && !(newProject.toLowerCase() in todos)) {
-            todos[newProject] = [];
-            setSelectedProject('all');
-            changeDOM.renderProjectList(todos, listContainer);
-            changeDOM.renderAllTodos(todos, listContainer);
-        } else if (newProject && (newProject.toLowerCase() === 'this week')) {
-            setSelectedProject('week');
-            changeDOM.renderWeekTodos(todos, listContainer);
-            changeDOM.highlightReloadedFilter('week');
-        } else if (newProject && (newProject.toLowerCase() in todos)) {
-            if (newProject.toLowerCase() === 'all') {
-                setSelectedProject(newProject.toLowerCase());
+        if (newProject) {
+            if (newProject.toLowerCase === 'all') {
+                setSelectedProject('all');
                 changeDOM.highlightReloadedFilter('all');
                 changeDOM.renderAllTodos(todos, listContainer);
             } else if (newProject.toLowerCase() === 'today') {
-                setSelectedProject(newProject.toLowerCase());
+                setSelectedProject('today');
                 changeDOM.renderTodayTodos(todos, listContainer);
                 changeDOM.highlightReloadedFilter('today');
-            } else if (newProject.toLowerCase() === 'week') {
+            } else if ((newProject.toLowerCase() === 'week') || (newProject.toLowerCase() === 'this week')) {
                 setSelectedProject('week');
                 changeDOM.renderWeekTodos(todos, listContainer);
                 changeDOM.highlightReloadedFilter('week');
-            } else {
+            } else if (newProject in todos) {
                 setSelectedProject(newProject);
                 changeDOM.renderProjectTodos(todos, listContainer);
                 changeDOM.highlightReloadedFilter(getSelectedProject());
+            } else {
+                todos[newProject] = [];
+                setSelectedProject('all');
+                changeDOM.renderProjectList(todos, listContainer);
+                changeDOM.renderAllTodos(todos, listContainer);
             }
         }
+
         localStorage.setItem('todos', JSON.stringify(todos));
     }
 

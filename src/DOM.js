@@ -39,8 +39,12 @@ export const changeDOM = (() => {
             projectItem.appendChild(projectCounter);
             projectContainer.appendChild(projectItem);
 
+            const allBtn = document.querySelector('.all-btn');
+
             if (manageData.getSelectedProject() === project) {
                 projectTitle.classList.add('clicked');
+            } else {
+                allBtn.classList.add('clicked');
             }
         };
         
