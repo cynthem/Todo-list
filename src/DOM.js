@@ -194,8 +194,7 @@ export const changeDOM = (() => {
             renderProjectList(todos, listContainer);
             manageData.setSelectedProject('all');
             renderAllTodos(todos, listContainer);
-            const allProjects = document.querySelector('.all-btn');
-            allProjects.classList.add('clicked');
+            allBtn.classList.add('clicked');
             emptyContainer.style.visibility = 'hidden';
             contentContainer.classList.remove('blur');
         });
