@@ -134,11 +134,15 @@ export const changeDOM = (() => {
             item.classList.remove('clicked');
         });
 
-        for (filter in filterBtns) {
-            if (filter.classList.contains('all') && projectName === 'all') {
-                filter.classList.add('clicked');
+        filterBtns.forEach(btn => {
+            if (projectName === 'all' && btn.classList.contains('all-btn')) {
+                btn.classList.add('clicked');
+            } else if (projectName === 'today' && btn.classList.contains('today-btn')) {
+                btn.classList.add('clicked');
+            } else if (projectName === 'week' && btn.classList.contains('week-btn')) {
+                btn.classList.add('clicked');
             }
-        }
+        });
     }
 
     function renderEmptyProject(todos, listContainer) {

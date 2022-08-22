@@ -38,16 +38,20 @@ export const manageData = (() => {
         } else if (newProject && (newProject.toLowerCase() === 'this week')) {
             setSelectedProject('week');
             changeDOM.renderWeekTodos(todos, listContainer);
+            changeDOM.highlightReloadedFilter('week');
         } else if (newProject && (newProject.toLowerCase() in todos)) {
             if (newProject.toLowerCase() === 'all') {
                 setSelectedProject(newProject.toLowerCase());
+                changeDOM.highlightReloadedFilter('all');
                 changeDOM.renderAllTodos(todos, listContainer);
             } else if (newProject.toLowerCase() === 'today') {
                 setSelectedProject(newProject.toLowerCase());
                 changeDOM.renderTodayTodos(todos, listContainer);
+                changeDOM.highlightReloadedFilter('today');
             } else if (newProject.toLowerCase() === 'week') {
                 setSelectedProject('week');
                 changeDOM.renderWeekTodos(todos, listContainer);
+                changeDOM.highlightReloadedFilter('week');
             } else {
                 setSelectedProject(newProject.toLowerCase());
                 changeDOM.renderProjectTodos(todos, listContainer);
