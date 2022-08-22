@@ -153,6 +153,8 @@ export const changeDOM = (() => {
 
     function renderEmptyProject(e, todos, listContainer) {
 
+        renderAllTodos(todos, listContainer);
+
         const contentContainer = document.getElementById('content');
         const emptyContainer = document.querySelector('.empty-project-card');
         const emptyExit = document.getElementById('empty-cancel');
@@ -160,7 +162,7 @@ export const changeDOM = (() => {
         const emptyAdd = document.querySelector('.empty-add');
         const deleteProject = document.querySelector('.empty-delete');
         const addNewCard = document.querySelector('.add-new-card');
-        console.log(e)
+        
         emptyTitle.innerHTML = '';
         emptyTitle.textContent = e.target.textContent;
         
@@ -168,6 +170,7 @@ export const changeDOM = (() => {
         contentContainer.classList.add('blur');
 
         emptyExit.addEventListener('click', () => {
+            renderAllTodos(todos, listContainer);
             emptyContainer.style.visibility = 'hidden';
             contentContainer.classList.remove('blur');
         });
@@ -196,16 +199,13 @@ export const changeDOM = (() => {
             manageData.setSelectedProject(e.target.textContent.toLowerCase());
         } else if (['This week'].includes(e.target.textContent)) {
             manageData.setSelectedProject('week');
-        } else {
-            manageData.setSelectedProject(e.target.textContent);
-        }
-
-        if (!['all', 'today', 'week'].includes(manageData.getSelectedProject())) {
-            if (todos[manageData.getSelectedProject()].length < 1) {
-                renderAllTodos(todos, listContainer);
+        } else if (!['all', 'today', 'week'].includes(e.target.textContent)) {
+            if (todos[e.target.textContent].length < 1) {
                 highlightSelectedFilter(e);
                 renderEmptyProject(e, todos, listContainer);
             }
+        } else {
+            manageData.setSelectedProject(e.target.textContent);
         }
 
         if (manageData.getSelectedProject() === 'all') {
