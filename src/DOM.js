@@ -120,6 +120,27 @@ export const changeDOM = (() => {
         e.target.classList.add('clicked');
     }
 
+    function highlightReloadedFilter(projectName) {
+
+        const filterBtns = document.querySelectorAll('.filters-btn');
+        const projectBtns = document.querySelectorAll('.projects-name');
+        const currentProject = manageData.getSelectedProject();
+
+        filterBtns.forEach(item => {
+            item.classList.remove('clicked');
+        });
+
+        projectBtns.forEach(item => {
+            item.classList.remove('clicked');
+        });
+
+        for (filter in filterBtns) {
+            if (filter.classList.contains('all') && projectName === 'all') {
+                filter.classList.add('clicked');
+            }
+        }
+    }
+
     function renderEmptyProject(todos, listContainer) {
 
         const contentContainer = document.getElementById('content');
@@ -917,6 +938,7 @@ export const changeDOM = (() => {
     return {
         renderProjectList,
         highlightSelectedFilter,
+        highlightReloadedFilter,
         renderEmptyProject,
         manageTodosRender,
         renderAllTodos,
