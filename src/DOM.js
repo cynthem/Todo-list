@@ -116,8 +116,9 @@ export const changeDOM = (() => {
         projectBtns.forEach(item => {
             item.classList.remove('clicked');
         });
-
+        
         e.target.classList.add('clicked');
+        
     }
 
     function highlightReloadedFilter(projectName) {
@@ -199,6 +200,14 @@ export const changeDOM = (() => {
             manageData.setSelectedProject(e.target.textContent);
         }
 
+        if (!['all', 'today', 'week'].includes(manageData.getSelectedProject())) {
+            if (todos[manageData.getSelectedProject()].length < 1) {
+                renderAllTodos(todos, listContainer);
+                highlightSelectedFilter(e);
+                renderEmptyProject(todos, listContainer);
+            }
+        }
+
         if (manageData.getSelectedProject() === 'all') {
             renderAllTodos(todos, listContainer);
             highlightSelectedFilter(e);
@@ -211,12 +220,6 @@ export const changeDOM = (() => {
         } else {
             renderProjectTodos(todos, listContainer);
             highlightSelectedFilter(e);
-        }
-
-        if (!['all', 'today', 'week'].includes(manageData.getSelectedProject())) {
-            if (todos[manageData.getSelectedProject()].length < 1) {
-                renderEmptyProject(todos, listContainer);
-            }
         }
     }
 
