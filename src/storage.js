@@ -55,6 +55,7 @@ export const manageData = (() => {
             } else {
                 setSelectedProject(newProject.toLowerCase());
                 changeDOM.renderProjectTodos(todos, listContainer);
+                changeDOM.highlightReloadedFilter(getSelectedProject().toLowerCase());
             }
         }
         localStorage.setItem('todos', JSON.stringify(todos));
