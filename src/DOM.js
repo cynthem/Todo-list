@@ -955,6 +955,7 @@ export const changeDOM = (() => {
         renderWeekTodos,
         renderProjectTodos,
         toggleTodoCheckbox,
+        toggleTodoReload,
         renderNotesCard,
         renderEditCard
     };
