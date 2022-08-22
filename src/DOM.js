@@ -153,8 +153,6 @@ export const changeDOM = (() => {
 
     function renderEmptyProject(e, todos, listContainer) {
 
-        renderAllTodos(todos, listContainer);
-
         const contentContainer = document.getElementById('content');
         const emptyContainer = document.querySelector('.empty-project-card');
         const emptyExit = document.getElementById('empty-cancel');
@@ -162,6 +160,7 @@ export const changeDOM = (() => {
         const emptyAdd = document.querySelector('.empty-add');
         const deleteProject = document.querySelector('.empty-delete');
         const addNewCard = document.querySelector('.add-new-card');
+        const allBtn = document.querySelector('.all-btn');
         
         emptyTitle.innerHTML = '';
         emptyTitle.textContent = e.target.textContent;
@@ -171,6 +170,8 @@ export const changeDOM = (() => {
 
         emptyExit.addEventListener('click', () => {
             renderAllTodos(todos, listContainer);
+            e.target.classList.remove('clicked');
+            allBtn.classList.add('clicked');
             emptyContainer.style.visibility = 'hidden';
             contentContainer.classList.remove('blur');
         });
@@ -201,7 +202,6 @@ export const changeDOM = (() => {
             manageData.setSelectedProject('week');
         } else if (!['all', 'today', 'week'].includes(e.target.textContent)) {
             if (todos[e.target.textContent].length < 1) {
-                highlightSelectedFilter(e);
                 renderEmptyProject(e, todos, listContainer);
             }
         } else {
