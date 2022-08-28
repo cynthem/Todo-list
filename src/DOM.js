@@ -41,11 +41,13 @@ export const changeDOM = (() => {
 
             const allBtn = document.querySelector('.all-btn');
 
-            /*if (manageData.getSelectedProject() === project) {
-                projectTitle.classList.add('clicked');
+            console.log(manageData.getSelectedProject())
+
+            if (manageData.getSelectedProject() === project) {
+                highlightReloadedFilter(project);
             } else {
-                allBtn.classList.add('clicked');
-            }*/
+                highlightReloadedFilter('all');
+            }
         };
         
         let allUncheckedTodos = 0;
