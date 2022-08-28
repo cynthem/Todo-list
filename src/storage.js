@@ -134,42 +134,10 @@ export const manageData = (() => {
                 changeDOM.renderProjectTodos(todos, listContainer);
             }
         }
-        
+
         localStorage.setItem('todos', JSON.stringify(todos));
 
         changeDOM.renderProjectList(todos, listContainer);
-    }
-
-    function checkIfProjectEmpty(todos, listContainer) {
-
-        const projectsObject = Object.assign({}, todos);
-        delete projectsObject.all;
-        delete projectsObject.today;
-        delete projectsObject.week;
-
-        if (!['all', 'week', 'today'].includes(getSelectedProject())) {
-            if (projectsObject[getSelectedProject()].length < 1) {
-                
-                delete todos[getSelectedProject()];
-                changeDOM.renderProjectList(todos, listContainer);
-                
-                setSelectedProject('all');
-                changeDOM.renderAllTodos(todos, listContainer);
-
-                const filterBtns = document.querySelectorAll('.filters-btn');
-                const projectBtns = document.querySelectorAll('.projects-name');
-
-                filterBtns.forEach(btn => {
-                    btn.classList.remove('clicked');
-                });
-
-                projectBtns.forEach(btn => {
-                    btn.classList.remove('clicked');
-                });
-                
-                filterBtns[0].classList.add('clicked');
-            }
-        }
     }
 
     return {
@@ -179,7 +147,6 @@ export const manageData = (() => {
         addProject,
         addTodo,
         editTodo,
-        deleteTodo,
-        checkIfProjectEmpty
+        deleteTodo
     };
 })();
