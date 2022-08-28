@@ -39,10 +39,6 @@ export const changeDOM = (() => {
             projectItem.appendChild(projectCounter);
             projectContainer.appendChild(projectItem);
 
-            const allBtn = document.querySelector('.all-btn');
-
-            console.log(manageData.getSelectedProject())
-
             if (manageData.getSelectedProject() === project) {
                 highlightReloadedFilter(project);
             } else {
@@ -274,49 +270,50 @@ export const changeDOM = (() => {
                 const itemLeft = document.createElement('div');
                 itemLeft.classList.add('item-left');
 
-                const checkboxBtn = document.createElement('button');
+                /*const checkboxBtn = document.createElement('button');
                 checkboxBtn.classList.add('item-check');
-                checkboxBtn.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));
-
+                checkboxBtn.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));*/
+                
                 const checkboxIcon = document.createElement('i');
                 checkboxIcon.classList.add('fa-regular', 'fa-square');
-                checkboxIcon.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));
-                checkboxBtn.appendChild(checkboxIcon);
-
+                //checkboxIcon.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));
+                /*checkboxBtn.appendChild(checkboxIcon);*/
+                
                 const itemName = document.createElement('p');
                 itemName.classList.add('item-description');
                 itemName.textContent = todo.title;
-                itemLeft.appendChild(checkboxBtn);
+                //itemLeft.appendChild(checkboxBtn);
+                itemLeft.appendChild(checkboxIcon);
                 itemLeft.appendChild(itemName);
-
+             
                 const itemRight = document.createElement('div');
                 itemRight.classList.add('item-right');
-
+               
                 const notesBtn = document.createElement('button');
                 notesBtn.classList.add('item-notes');
                 notesBtn.textContent = 'NOTES';
                 notesBtn.addEventListener('click', e => renderNotesCard(e, todos[project]));
-
+             
                 const dateText = document.createElement('p');
                 dateText.classList.add('item-date');
                 const dateObject = new Date(todo.dueDate);
                 const month = format(dateObject, 'MMM');
                 const day = format(dateObject, 'do');
                 dateText.textContent = `${month} ${day}`;
-
+             
                 const editBtn = document.createElement('button');
                 editBtn.classList.add('item-edit');
                 editBtn.addEventListener('click', e => renderEditCard(e, todos[project], listContainer));
-
+             
                 const editIcon = document.createElement('i');
                 editIcon.classList.add('fa-solid', 'fa-pen-to-square');
                 editIcon.addEventListener('click', e => renderEditCard(e, todos[project], listContainer));
                 editBtn.appendChild(editIcon);
-
+           
                 const deleteBtn = document.createElement('button');
                 deleteBtn.classList.add('item-delete');
                 deleteBtn.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
-
+          
                 const deleteIcon = document.createElement('i');
                 deleteIcon.classList.add('fa-solid', 'fa-trash-can');
                 deleteIcon.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
@@ -332,7 +329,7 @@ export const changeDOM = (() => {
                 if (todo.checked) {
                     toggleTodoReload(todoItem);
                 };
-                
+              
                 listContainer.appendChild(todoItem);
             });
         }
@@ -366,19 +363,20 @@ export const changeDOM = (() => {
                         const itemLeft = document.createElement('div');
                         itemLeft.classList.add('item-left');
 
-                        const checkboxBtn = document.createElement('button');
+                        /*const checkboxBtn = document.createElement('button');
                         checkboxBtn.classList.add('item-check');
-                        checkboxBtn.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));
+                        checkboxBtn.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));*/
 
                         const checkboxIcon = document.createElement('i');
                         checkboxIcon.classList.add('fa-regular', 'fa-square');
-                        checkboxIcon.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));
-                        checkboxBtn.appendChild(checkboxIcon);
+                        //checkboxIcon.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));
+                        /*checkboxBtn.appendChild(checkboxIcon);*/
 
                         const itemName = document.createElement('p');
                         itemName.classList.add('item-description');
                         itemName.textContent = todo.title;
-                        itemLeft.appendChild(checkboxBtn);
+                        //itemLeft.appendChild(checkboxBtn);
+                        itemLeft.appendChild(checkboxIcon);
                         itemLeft.appendChild(itemName);
 
                         const itemRight = document.createElement('div');
@@ -448,19 +446,20 @@ export const changeDOM = (() => {
             const itemLeft = document.createElement('div');
             itemLeft.classList.add('item-left');
 
-            const checkboxBtn = document.createElement('button');
+            /*const checkboxBtn = document.createElement('button');
             checkboxBtn.classList.add('item-check');
-            checkboxBtn.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));
+            checkboxBtn.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));*/
 
             const checkboxIcon = document.createElement('i');
             checkboxIcon.classList.add('fa-regular', 'fa-square');
-            checkboxIcon.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));
-            checkboxBtn.appendChild(checkboxIcon);
+            //checkboxIcon.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));
+            /*checkboxBtn.appendChild(checkboxIcon);*/
 
             const itemName = document.createElement('p');
             itemName.classList.add('item-description');
             itemName.textContent = todo.title;
-            itemLeft.appendChild(checkboxBtn);
+            //itemLeft.appendChild(checkboxBtn);
+            itemLeft.appendChild(checkboxIcon);
             itemLeft.appendChild(itemName);
 
             const itemRight = document.createElement('div');
@@ -538,19 +537,20 @@ export const changeDOM = (() => {
                         const itemLeft = document.createElement('div');
                         itemLeft.classList.add('item-left');
 
-                        const checkboxBtn = document.createElement('button');
+                        /*const checkboxBtn = document.createElement('button');
                         checkboxBtn.classList.add('item-check');
-                        checkboxBtn.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));
+                        checkboxBtn.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));*/
 
                         const checkboxIcon = document.createElement('i');
                         checkboxIcon.classList.add('fa-regular', 'fa-square');
-                        checkboxIcon.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));
-                        checkboxBtn.appendChild(checkboxIcon);
+                        //checkboxIcon.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));
+                        /*checkboxBtn.appendChild(checkboxIcon);*/
 
                         const itemName = document.createElement('p');
                         itemName.classList.add('item-description');
                         itemName.textContent = todo.title;
-                        itemLeft.appendChild(checkboxBtn);
+                        //itemLeft.appendChild(checkboxBtn);
+                        itemLeft.appendChild(checkboxIcon);
                         itemLeft.appendChild(itemName);
 
                         const itemRight = document.createElement('div');
@@ -620,19 +620,20 @@ export const changeDOM = (() => {
             const itemLeft = document.createElement('div');
             itemLeft.classList.add('item-left');
 
-            const checkboxBtn = document.createElement('button');
+            /*const checkboxBtn = document.createElement('button');
             checkboxBtn.classList.add('item-check');
-            checkboxBtn.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));
+            checkboxBtn.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));*/
 
             const checkboxIcon = document.createElement('i');
             checkboxIcon.classList.add('fa-regular', 'fa-square');
-            checkboxIcon.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));
-            checkboxBtn.appendChild(checkboxIcon);
+            //checkboxIcon.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));
+            /*checkboxBtn.appendChild(checkboxIcon);*/
 
             const itemName = document.createElement('p');
             itemName.classList.add('item-description');
             itemName.textContent = todo.title;
-            itemLeft.appendChild(checkboxBtn);
+            //itemLeft.appendChild(checkboxBtn);
+            itemLeft.appendChild(checkboxIcon);
             itemLeft.appendChild(itemName);
 
             const itemRight = document.createElement('div');
@@ -706,19 +707,20 @@ export const changeDOM = (() => {
             const itemLeft = document.createElement('div');
             itemLeft.classList.add('item-left');
 
-            const checkboxBtn = document.createElement('button');
+            /*const checkboxBtn = document.createElement('button');
             checkboxBtn.classList.add('item-check');
-            checkboxBtn.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));
+            checkboxBtn.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));*/
 
             const checkboxIcon = document.createElement('i');
             checkboxIcon.classList.add('fa-regular', 'fa-square');
-            checkboxIcon.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));
-            checkboxBtn.appendChild(checkboxIcon);
+            //checkboxIcon.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));
+            /*checkboxBtn.appendChild(checkboxIcon);*/
 
             const itemName = document.createElement('p');
             itemName.classList.add('item-description');
             itemName.textContent = todo.title;
-            itemLeft.appendChild(checkboxBtn);
+            //itemLeft.appendChild(checkboxBtn);
+            itemLeft.appendChild(checkboxIcon);
             itemLeft.appendChild(itemName);
 
             const itemRight = document.createElement('div');
@@ -772,19 +774,31 @@ export const changeDOM = (() => {
     }
 
     function toggleTodoCheckbox(e, todos, listContainer) {
-        
-        let checkedTodo;
-        let checkbox;
-
-        if (e.target.tagName === 'BUTTON') {
+        //let checkedTodo;
+        //let checkbox;
+        const checkedTodo = e.target.parentElement.parentElement;
+        const checkbox = e.target.children[0];
+        console.log(checkedTodo)
+        console.log(checkbox)
+        /*if (e.target.tagName === 'BUTTON') {
             checkedTodo = e.target.parentElement.parentElement;
             checkbox = e.target.children[0];
         } else if (e.target.tagName === 'I') {
             checkedTodo = e.target.parentElement.parentElement.parentElement;
             checkbox = e.target;
-        }
+        }*/
 
-        const todoItems = checkedTodo.children;
+        //checkbox.classList.toggle('fa-square');
+        //checkbox.classList.toggle('fa-square-check');
+        /*if (checkbox.classList.contains('fa-square')) {
+            checkbox.classList.remove('fa-square');
+            checkbox.classList.add('fa-square-check');
+        } else if (checkbox.classList.contains('fa-square-check')) {
+            checkbox.classList.remove('fa-square-check');
+            checkbox.classList.add('fa-square');
+        }*/
+        
+        /*const todoItems = checkedTodo.children;
         const itemsLeft = todoItems[0];
         const itemsRight = todoItems[1];
         const itemTitle = itemsLeft.children[1];
@@ -792,46 +806,34 @@ export const changeDOM = (() => {
         const itemDate = itemsRight.children[1];
         const itemEdit = itemsRight.children[2];
 
-        if (checkbox.classList.contains('fa-square')) {
-            checkbox.classList.remove('fa-square');
-            checkbox.classList.add('fa-square-check');
-        } else if (checkbox.classList.contains('fa-square-check')) {
-            checkbox.classList.remove('fa-square-check');
-            checkbox.classList.add('fa-square');
-        }
-
         itemTitle.classList.toggle('selected');
         itemTitle.classList.toggle('strike');
         itemNotes.classList.toggle('done');
         itemDate.classList.toggle('selected');
-        itemEdit.classList.toggle('selected');
-
+        itemEdit.classList.toggle('selected');*/
+        
         const item = checkedTodo.dataset.index;
         const project = checkedTodo.dataset.project;
-
         todos[project][item].checked = !todos[project][item].checked;
-
+        console.log(todos[project][item].checked)
         localStorage.setItem('todos', JSON.stringify(todos));
-
+        
         renderProjectList(todos, listContainer);
     }
 
     function toggleTodoReload(todoItem) {
-
+    
         const todoItems = todoItem.children;
         const itemsLeft = todoItems[0];
         const itemsRight = todoItems[1];
-        const checkbox = itemsLeft.children[0].children[0];
+        const checkbox = itemsLeft.children[0];
         const itemTitle = itemsLeft.children[1];
         const itemNotes = itemsRight.children[0];
         const itemDate = itemsRight.children[1];
         const itemEdit = itemsRight.children[2]; 
-
-        if (checkbox.classList.contains('fa-square')) {
-            checkbox.classList.remove('fa-square');
-            checkbox.classList.add('fa-square-check');
-        } 
-
+       
+        checkbox.classList.remove('fa-square');
+        checkbox.classList.add('fa-square-check');
         itemTitle.classList.toggle('selected');
         itemTitle.classList.toggle('strike');
         itemNotes.classList.toggle('done');
