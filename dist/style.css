@@ -96,25 +96,24 @@ body {
     font-size: 1.75vw;
 }
 
-.fa-thumbtack {
+.fa-thumbtack,
+.header-menu {
     color: #EBF5EE;
+    cursor: pointer;
 }
 
 .fa-thumbtack:hover {
-    cursor: pointer;
     transform: scale(1.1);
 }
 
-h1:hover,
-h2:hover {
+h1,
+h2 {
     cursor: default;
 }
 
 .header-menu {
     display: none;
     padding-right: 3%;
-    color: #EBF5EE;
-    cursor: pointer;
     font-size: 3vw;
 }
 
@@ -388,16 +387,15 @@ h2 {
 
 /* POP-UP CARDS */
 
-/* EMPTY PROJECT CARD */
-
-.empty-project-card {
+.empty-project-card,
+.add-new-card,
+.notes-card,
+.edit-card {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #EBF5EE;
-    width: 45vw;
-    height: 50vh;
     box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.3);
     border-radius: 25px;
     display: flex;
@@ -405,19 +403,43 @@ h2 {
     visibility: hidden;
 }
 
-#empty-cancel {
-    color: #542344;
-    padding: 4% 0 0 3%;
-    width: 8%;
-    height: 8%;
+.add-cancel,
+.notes-cancel,
+.edit-cancel {
+    display: flex;
+    justify-content: flex-end;
 }
 
-#empty-cancel:hover {
+.add-cancel > .fa-xmark,
+.notes-cancel > .fa-xmark,
+.edit-cancel > .fa-xmark {
+    height: 100%;
+    color: #542344;
     cursor: pointer;
 }
 
-#empty-cancel:active {
+.fa-xmark:active,
+#empty-cancel:active,
+.notes-cancel:active,
+.edit-cancel:active {
     color: yellow;
+}
+
+
+
+/* EMPTY PROJECT CARD */
+
+.empty-project-card {
+    width: 45vw;
+    height: 50vh;
+}
+
+#empty-cancel {
+    color: #542344;
+    cursor: pointer;
+    padding: 4% 0 0 3%;
+    width: 8%;
+    height: 8%;
 }
 
 .empty-text {
@@ -490,35 +512,13 @@ h2 {
 /* CREATE-NEW CARD */
 
 .add-new-card {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #EBF5EE;
     width: 50vw;
     height: 60vh;
-    box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.3);
-    border-radius: 25px;
-    display: flex;
-    flex-direction: column;
-    transition: all .3s;
-    visibility: hidden;
 }
 
 .add-cancel {
-    display: flex;
-    justify-content: flex-end;
-    color: #542344;
     padding: 3% 3% 0 0;
-}
-
-.add-cancel:hover,
-.fa-xmark:hover {
-    cursor: pointer;
-}
-
-.add-cancel:active {
-    color: yellow;
+    height: 10%;
 }
 
 .add-container {
@@ -526,7 +526,7 @@ h2 {
     grid-template-rows: 1fr 4fr;
     height: 100%;
     row-gap: 10%;
-    padding: 2% 5% 3%;
+    padding: 0 5% 3%;
 }
 
 .add-type {
@@ -738,38 +738,14 @@ input[type="radio"] {
 /* NOTES CARD */
 
 .notes-card {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #EBF5EE;
     width: 40vw;
-    height: 30vh;
-    box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.3);
-    border-radius: 25px;
-    display: flex;
-    flex-direction: column;
+    height: 35vh;
     padding-bottom: 1%;
-    z-index: 2;    
-    backdrop-filter: blur(10px);
-    visibility: hidden;
 }
 
 .notes-cancel {
-    display: flex;
-    justify-content: flex-end;
-    color: #542344;
     padding: 4% 4% 0 0;
-    cursor: pointer;
-}
-
-.notes-cancel:hover,
-.fa-xmark:hover {
-    cursor: pointer;
-}
-
-.notes-cancel:active {
-    color: yellow;
+    height: 15%;
 }
 
 .notes-info {
@@ -777,7 +753,7 @@ input[type="radio"] {
     height: 100%;
     grid-template-rows: 20% 50%;
     row-gap: 30%;
-    padding: 1% 6% 3%;
+    padding: 0 6% 1%;
 }
 
 .notes-title {
@@ -805,31 +781,13 @@ input[type="radio"] {
 /* EDIT CARD */
 
 .edit-card {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #EBF5EE;
     width: 45vw;
     height: 45vh;
-    box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.3);
-    border-radius: 25px;
-    display: flex;
-    flex-direction: column;
-    z-index: 2;    
-    backdrop-filter: blur(10px);
-    visibility: hidden;
 }
 
 .edit-cancel {
-    display: flex;
-    justify-content: flex-end;
-    color: #542344;
     padding: 4% 4% 0 0;
-}
-
-.edit-cancel:active {
-    color: yellow;
+    height: 10%;
 }
 
 .edit-form {
