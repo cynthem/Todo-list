@@ -282,20 +282,14 @@ export const changeDOM = (() => {
                 editIcon.classList.add('fa-solid', 'fa-pen-to-square');
                 editIcon.addEventListener('click', e => renderEditCard(e, todos[project], listContainer));
                 editBtn.appendChild(editIcon);
-           
-                const deleteBtn = document.createElement('button');
-                deleteBtn.classList.add('item-delete');
-                deleteBtn.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
           
                 const deleteIcon = document.createElement('i');
                 deleteIcon.classList.add('fa-solid', 'fa-trash-can');
                 deleteIcon.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
-                deleteBtn.appendChild(deleteIcon);
                 itemRight.appendChild(notesBtn);
                 itemRight.appendChild(dateText);
                 itemRight.appendChild(editBtn);
-                itemRight.appendChild(deleteBtn);
-
+                itemRight.appendChild(deleteIcon);
                 todoItem.appendChild(itemLeft);
                 todoItem.appendChild(itemRight);
 
@@ -371,18 +365,13 @@ export const changeDOM = (() => {
                         editIcon.addEventListener('click', e => renderEditCard(e, todos[project], listContainer));
                         editBtn.appendChild(editIcon);
 
-                        const deleteBtn = document.createElement('button');
-                        deleteBtn.classList.add('item-delete');
-                        deleteBtn.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
-
                         const deleteIcon = document.createElement('i');
                         deleteIcon.classList.add('fa-solid', 'fa-trash-can');
                         deleteIcon.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
-                        deleteBtn.appendChild(deleteIcon);
                         itemRight.appendChild(notesBtn);
                         itemRight.appendChild(dateText);
                         itemRight.appendChild(editBtn);
-                        itemRight.appendChild(deleteBtn);
+                        itemRight.appendChild(deleteIcon);
                         todoItem.appendChild(itemLeft);
                         todoItem.appendChild(itemRight);
                         listContainer.appendChild(todoItem);
@@ -444,18 +433,13 @@ export const changeDOM = (() => {
                 editIcon.addEventListener('click', e => renderEditCard(e, todoList, listContainer));
                 editBtn.appendChild(editIcon);
 
-                const deleteBtn = document.createElement('button');
-                deleteBtn.classList.add('item-delete');
-                deleteBtn.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
-
                 const deleteIcon = document.createElement('i');
                 deleteIcon.classList.add('fa-solid', 'fa-trash-can');
                 deleteIcon.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
-                deleteBtn.appendChild(deleteIcon);
                 itemRight.appendChild(notesBtn);
                 itemRight.appendChild(dateText);
                 itemRight.appendChild(editBtn);
-                itemRight.appendChild(deleteBtn);
+                itemRight.appendChild(deleteIcon);
                 todoItem.appendChild(itemLeft);
                 todoItem.appendChild(itemRight);
                 listContainer.appendChild(todoItem);
@@ -524,18 +508,13 @@ export const changeDOM = (() => {
                         editIcon.addEventListener('click', e => renderEditCard(e, todos[project], listContainer));
                         editBtn.appendChild(editIcon);
 
-                        const deleteBtn = document.createElement('button');
-                        deleteBtn.classList.add('item-delete');
-                        deleteBtn.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
-
                         const deleteIcon = document.createElement('i');
                         deleteIcon.classList.add('fa-solid', 'fa-trash-can');
                         deleteIcon.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
-                        deleteBtn.appendChild(deleteIcon);
                         itemRight.appendChild(notesBtn);
                         itemRight.appendChild(dateText);
                         itemRight.appendChild(editBtn);
-                        itemRight.appendChild(deleteBtn);
+                        itemRight.appendChild(deleteIcon);
                         todoItem.appendChild(itemLeft);
                         todoItem.appendChild(itemRight);
                         listContainer.appendChild(todoItem);
@@ -597,18 +576,13 @@ export const changeDOM = (() => {
                 editIcon.addEventListener('click', e => renderEditCard(e, todoList, listContainer));
                 editBtn.appendChild(editIcon);
 
-                const deleteBtn = document.createElement('button');
-                deleteBtn.classList.add('item-delete');
-                deleteBtn.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
-
                 const deleteIcon = document.createElement('i');
                 deleteIcon.classList.add('fa-solid', 'fa-trash-can');
                 deleteIcon.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
-                deleteBtn.appendChild(deleteIcon);
                 itemRight.appendChild(notesBtn);
                 itemRight.appendChild(dateText);
                 itemRight.appendChild(editBtn);
-                itemRight.appendChild(deleteBtn);
+                itemRight.appendChild(deleteIcon);
                 todoItem.appendChild(itemLeft);
                 todoItem.appendChild(itemRight);
                 listContainer.appendChild(todoItem);
@@ -674,18 +648,13 @@ export const changeDOM = (() => {
                 editIcon.addEventListener('click', e => renderEditCard(e, todoList, listContainer));
                 editBtn.appendChild(editIcon);
 
-                const deleteBtn = document.createElement('button');
-                deleteBtn.classList.add('item-delete');
-                deleteBtn.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
-
                 const deleteIcon = document.createElement('i');
                 deleteIcon.classList.add('fa-solid', 'fa-trash-can');
                 deleteIcon.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
-                deleteBtn.appendChild(deleteIcon);
                 itemRight.appendChild(notesBtn);
                 itemRight.appendChild(dateText);
                 itemRight.appendChild(editBtn);
-                itemRight.appendChild(deleteBtn);
+                itemRight.appendChild(deleteIcon);
                 todoItem.appendChild(itemLeft);
                 todoItem.appendChild(itemRight);
                 listContainer.appendChild(todoItem);
