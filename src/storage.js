@@ -133,15 +133,8 @@ export const manageData = (() => {
             } else {
                 changeDOM.renderProjectTodos(todos, listContainer);
             }
-            /*if (todos[project].length < 1) {
-                changeDOM.renderEmptyProject(e, todos, listContainer);
-            } else {
-                changeDOM.renderProjectTodos(todos, listContainer);
-            }*/
         }
-
-        //checkIfProjectEmpty(todos, listContainer);
-
+        
         localStorage.setItem('todos', JSON.stringify(todos));
 
         changeDOM.renderProjectList(todos, listContainer);
