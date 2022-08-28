@@ -747,7 +747,7 @@ export const changeDOM = (() => {
 
     function renderNotesCard(e, todos) {
         
-        const item = e.target.parentElement.dataset.index;
+        const item = e.target.parentElement.parentElement.dataset.index;
         const notesCard = document.querySelector('.notes-card');
         const notesTitle = document.querySelector('.notes-header');
         const notesProject = document.querySelector('.notes-todo');
@@ -755,7 +755,7 @@ export const changeDOM = (() => {
         const notesPriority = document.querySelector('.notes-priority');
         const notesDetails = document.querySelector('.notes-details');
         const contentContainer = document.getElementById('content');
-
+        
         notesTitle.innerHTML = '';
         notesProject.innerHTML = '';
         notesDueDate.innerHTML = '';
