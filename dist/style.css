@@ -348,15 +348,6 @@ h2 {
     gap: 25px;
 }
 
-/*.item-edit {
-    border: none;
-    outline: none;
-    background-color: #e8e6e7;
-    font-size: 1.5vw;
-    display: flex;
-    align-items: center;
-}*/
-
 .fa-pen-to-square,
 .fa-trash-can {
     font-size: 1.25vw;
