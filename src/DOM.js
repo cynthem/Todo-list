@@ -230,35 +230,6 @@ export const changeDOM = (() => {
                 highlightSelectedFilter(e);
             }
         }
-
-        console.log(manageData.getSelectedProject())
-
-        /*if (['All', 'Today'].includes(e.target.textContent)) {
-            manageData.setSelectedProject(e.target.textContent.toLowerCase());
-        } else if (['This week'].includes(e.target.textContent)) {
-            manageData.setSelectedProject('week');
-        } else if (!['all', 'today', 'week'].includes(e.target.textContent)) {
-            if (todos[e.target.textContent].length < 1) {
-                manageData.setSelectedProject(e.target.textContent);
-                renderEmptyProject(e, todos, listContainer);
-            }
-        } else {
-            manageData.setSelectedProject(e.target.textContent);
-        }
-
-        if (manageData.getSelectedProject() === 'all') {
-            renderAllTodos(todos, listContainer);
-            highlightSelectedFilter(e);
-        } else if (manageData.getSelectedProject() === 'today') {
-            renderTodayTodos(todos, listContainer);
-            highlightSelectedFilter(e);
-        } else if (manageData.getSelectedProject() === 'week') {
-            renderWeekTodos(todos, listContainer);
-            highlightSelectedFilter(e);
-        } else {
-            renderProjectTodos(todos, listContainer);
-            highlightSelectedFilter(e);
-        }*/
     }
 
     function renderAllTodos(todos, listContainer) {
@@ -412,14 +383,8 @@ export const changeDOM = (() => {
                         itemRight.appendChild(dateText);
                         itemRight.appendChild(editBtn);
                         itemRight.appendChild(deleteBtn);
-
                         todoItem.appendChild(itemLeft);
                         todoItem.appendChild(itemRight);
-
-                        if (todo.checked) {
-                            toggleTodoReload(todoItem);
-                        };
-
                         listContainer.appendChild(todoItem);
                     }
                 });
@@ -495,9 +460,6 @@ export const changeDOM = (() => {
                 todoItem.appendChild(itemRight);
                 listContainer.appendChild(todoItem);
             }
-           /* if (todo.checked) {
-                toggleTodoReload(todoItem);
-            };*/
         });
         localStorage.setItem('todos', JSON.stringify(todos));
     }
@@ -517,7 +479,8 @@ export const changeDOM = (() => {
                     const msDifference = Math.abs(today.getTime() - todoDate.getTime());
                     const dayDifference = msDifference / (24*60*60*1000);
 
-                    if (dayDifference <= 7) {
+                    if (!todo.checked && dayDifference <= 7) {
+
                         const todoItem = document.createElement('div');
                         todoItem.classList.add('list-item');
                         todoItem.classList.add(`${todo.priority}-priority`);
@@ -573,14 +536,8 @@ export const changeDOM = (() => {
                         itemRight.appendChild(dateText);
                         itemRight.appendChild(editBtn);
                         itemRight.appendChild(deleteBtn);
-
                         todoItem.appendChild(itemLeft);
                         todoItem.appendChild(itemRight);
-
-                        if (todo.checked) {
-                            toggleTodoReload(todoItem);
-                        };
-
                         listContainer.appendChild(todoItem);
                     }
                 });
@@ -595,72 +552,68 @@ export const changeDOM = (() => {
 
         todoList.forEach((todo, i) => {
 
-            const todoItem = document.createElement('div');
-            todoItem.classList.add('list-item');
-            todoItem.classList.add(`${todo.priority}-priority`);
-            todoItem.setAttribute('data-index', i);
-            todoItem.setAttribute('data-project', `${todo.project}`);
+            if (!todo.checked) {
 
-            const itemLeft = document.createElement('div');
-            itemLeft.classList.add('item-left');
+                const todoItem = document.createElement('div');
+                todoItem.classList.add('list-item');
+                todoItem.classList.add(`${todo.priority}-priority`);
+                todoItem.setAttribute('data-index', i);
+                todoItem.setAttribute('data-project', `${todo.project}`);
 
-            const checkboxIcon = document.createElement('i');
-            checkboxIcon.classList.add('fa-regular', 'fa-square');
-            checkboxIcon.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));
+                const itemLeft = document.createElement('div');
+                itemLeft.classList.add('item-left');
 
-            const itemName = document.createElement('p');
-            itemName.classList.add('item-description');
-            itemName.textContent = todo.title;
-            itemLeft.appendChild(checkboxIcon);
-            itemLeft.appendChild(itemName);
+                const checkboxIcon = document.createElement('i');
+                checkboxIcon.classList.add('fa-regular', 'fa-square');
+                checkboxIcon.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));
 
-            const itemRight = document.createElement('div');
-            itemRight.classList.add('item-right');
+                const itemName = document.createElement('p');
+                itemName.classList.add('item-description');
+                itemName.textContent = todo.title;
+                itemLeft.appendChild(checkboxIcon);
+                itemLeft.appendChild(itemName);
 
-            const notesBtn = document.createElement('button');
-            notesBtn.classList.add('item-notes');
-            notesBtn.textContent = 'NOTES';
-            notesBtn.addEventListener('click', e => renderNotesCard(e, todoList));
+                const itemRight = document.createElement('div');
+                itemRight.classList.add('item-right');
 
-            const dateText = document.createElement('p');
-            dateText.classList.add('item-date');
-            const dateObject = new Date(todo.dueDate);
-            const month = format(dateObject, 'MMM');
-            const day = format(dateObject, 'do');
-            dateText.textContent = `${month} ${day}`;
+                const notesBtn = document.createElement('button');
+                notesBtn.classList.add('item-notes');
+                notesBtn.textContent = 'NOTES';
+                notesBtn.addEventListener('click', e => renderNotesCard(e, todoList));
 
-            const editBtn = document.createElement('button');
-            editBtn.classList.add('item-edit');
-            editBtn.addEventListener('click', e => renderEditCard(e, todoList, listContainer));
+                const dateText = document.createElement('p');
+                dateText.classList.add('item-date');
+                const dateObject = new Date(todo.dueDate);
+                const month = format(dateObject, 'MMM');
+                const day = format(dateObject, 'do');
+                dateText.textContent = `${month} ${day}`;
 
-            const editIcon = document.createElement('i');
-            editIcon.classList.add('fa-solid', 'fa-pen-to-square');
-            editIcon.addEventListener('click', e => renderEditCard(e, todoList, listContainer));
-            editBtn.appendChild(editIcon);
+                const editBtn = document.createElement('button');
+                editBtn.classList.add('item-edit');
+                editBtn.addEventListener('click', e => renderEditCard(e, todoList, listContainer));
 
-            const deleteBtn = document.createElement('button');
-            deleteBtn.classList.add('item-delete');
-            deleteBtn.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
+                const editIcon = document.createElement('i');
+                editIcon.classList.add('fa-solid', 'fa-pen-to-square');
+                editIcon.addEventListener('click', e => renderEditCard(e, todoList, listContainer));
+                editBtn.appendChild(editIcon);
 
-            const deleteIcon = document.createElement('i');
-            deleteIcon.classList.add('fa-solid', 'fa-trash-can');
-            deleteIcon.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
-            deleteBtn.appendChild(deleteIcon);
-            itemRight.appendChild(notesBtn);
-            itemRight.appendChild(dateText);
-            itemRight.appendChild(editBtn);
-            itemRight.appendChild(deleteBtn);
+                const deleteBtn = document.createElement('button');
+                deleteBtn.classList.add('item-delete');
+                deleteBtn.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
 
-            todoItem.appendChild(itemLeft);
-            todoItem.appendChild(itemRight);
-
-            if (todo.checked) {
-                toggleTodoReload(todoItem);
-            };
-
-            listContainer.appendChild(todoItem);
+                const deleteIcon = document.createElement('i');
+                deleteIcon.classList.add('fa-solid', 'fa-trash-can');
+                deleteIcon.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
+                deleteBtn.appendChild(deleteIcon);
+                itemRight.appendChild(notesBtn);
+                itemRight.appendChild(dateText);
+                itemRight.appendChild(editBtn);
+                itemRight.appendChild(deleteBtn);
+                todoItem.appendChild(itemLeft);
+                todoItem.appendChild(itemRight);
+                listContainer.appendChild(todoItem);
+            }
         });
-
         localStorage.setItem('todos', JSON.stringify(todos));
     }
 
@@ -676,72 +629,68 @@ export const changeDOM = (() => {
 
         todoList.forEach((todo, i) => {
 
-            const todoItem = document.createElement('div');
-            todoItem.classList.add('list-item');
-            todoItem.classList.add(`${todo.priority}-priority`);
-            todoItem.setAttribute('data-index', i);
-            todoItem.setAttribute('data-project', `${todo.project}`);
+            if (!todo.checked) {
 
-            const itemLeft = document.createElement('div');
-            itemLeft.classList.add('item-left');
+                const todoItem = document.createElement('div');
+                todoItem.classList.add('list-item');
+                todoItem.classList.add(`${todo.priority}-priority`);
+                todoItem.setAttribute('data-index', i);
+                todoItem.setAttribute('data-project', `${todo.project}`);
 
-            const checkboxIcon = document.createElement('i');
-            checkboxIcon.classList.add('fa-regular', 'fa-square');
-            checkboxIcon.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));
+                const itemLeft = document.createElement('div');
+                itemLeft.classList.add('item-left');
 
-            const itemName = document.createElement('p');
-            itemName.classList.add('item-description');
-            itemName.textContent = todo.title;
-            itemLeft.appendChild(checkboxIcon);
-            itemLeft.appendChild(itemName);
+                const checkboxIcon = document.createElement('i');
+                checkboxIcon.classList.add('fa-regular', 'fa-square');
+                checkboxIcon.addEventListener('click', e => toggleTodoCheckbox(e, todos, listContainer));
 
-            const itemRight = document.createElement('div');
-            itemRight.classList.add('item-right');
+                const itemName = document.createElement('p');
+                itemName.classList.add('item-description');
+                itemName.textContent = todo.title;
+                itemLeft.appendChild(checkboxIcon);
+                itemLeft.appendChild(itemName);
 
-            const notesBtn = document.createElement('button');
-            notesBtn.classList.add('item-notes');
-            notesBtn.textContent = 'NOTES';
-            notesBtn.addEventListener('click', e => renderNotesCard(e, todoList));
+                const itemRight = document.createElement('div');
+                itemRight.classList.add('item-right');
 
-            const dateText = document.createElement('p');
-            dateText.classList.add('item-date');
-            const dateObject = new Date(todo.dueDate);
-            const month = format(dateObject, 'MMM');
-            const day = format(dateObject, 'do');
-            dateText.textContent = `${month} ${day}`;
+                const notesBtn = document.createElement('button');
+                notesBtn.classList.add('item-notes');
+                notesBtn.textContent = 'NOTES';
+                notesBtn.addEventListener('click', e => renderNotesCard(e, todoList));
 
-            const editBtn = document.createElement('button');
-            editBtn.classList.add('item-edit');
-            editBtn.addEventListener('click', e => renderEditCard(e, todoList, listContainer));
+                const dateText = document.createElement('p');
+                dateText.classList.add('item-date');
+                const dateObject = new Date(todo.dueDate);
+                const month = format(dateObject, 'MMM');
+                const day = format(dateObject, 'do');
+                dateText.textContent = `${month} ${day}`;
 
-            const editIcon = document.createElement('i');
-            editIcon.classList.add('fa-solid', 'fa-pen-to-square');
-            editIcon.addEventListener('click', e => renderEditCard(e, todoList, listContainer));
-            editBtn.appendChild(editIcon);
+                const editBtn = document.createElement('button');
+                editBtn.classList.add('item-edit');
+                editBtn.addEventListener('click', e => renderEditCard(e, todoList, listContainer));
 
-            const deleteBtn = document.createElement('button');
-            deleteBtn.classList.add('item-delete');
-            deleteBtn.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
+                const editIcon = document.createElement('i');
+                editIcon.classList.add('fa-solid', 'fa-pen-to-square');
+                editIcon.addEventListener('click', e => renderEditCard(e, todoList, listContainer));
+                editBtn.appendChild(editIcon);
 
-            const deleteIcon = document.createElement('i');
-            deleteIcon.classList.add('fa-solid', 'fa-trash-can');
-            deleteIcon.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
-            deleteBtn.appendChild(deleteIcon);
-            itemRight.appendChild(notesBtn);
-            itemRight.appendChild(dateText);
-            itemRight.appendChild(editBtn);
-            itemRight.appendChild(deleteBtn);
+                const deleteBtn = document.createElement('button');
+                deleteBtn.classList.add('item-delete');
+                deleteBtn.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
 
-            todoItem.appendChild(itemLeft);
-            todoItem.appendChild(itemRight);
-
-            if (todo.checked) {
-                toggleTodoReload(todoItem);
-            };
-
-            listContainer.appendChild(todoItem);
+                const deleteIcon = document.createElement('i');
+                deleteIcon.classList.add('fa-solid', 'fa-trash-can');
+                deleteIcon.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
+                deleteBtn.appendChild(deleteIcon);
+                itemRight.appendChild(notesBtn);
+                itemRight.appendChild(dateText);
+                itemRight.appendChild(editBtn);
+                itemRight.appendChild(deleteBtn);
+                todoItem.appendChild(itemLeft);
+                todoItem.appendChild(itemRight);
+                listContainer.appendChild(todoItem);
+            }
         });
-
         localStorage.setItem('todos', JSON.stringify(todos));
     }
 
@@ -770,7 +719,7 @@ export const changeDOM = (() => {
         const item = checkedTodo.dataset.index;
         const project = checkedTodo.dataset.project;
         todos[project][item].checked = !todos[project][item].checked;
-        console.log(todos[project][item].checked)
+
         localStorage.setItem('todos', JSON.stringify(todos));
         
         renderProjectList(todos, listContainer);
