@@ -108,16 +108,8 @@ export const manageData = (() => {
 
     function deleteTodo(e, todos, listContainer) {
 
-        let item;
-        let project;
-
-        if (e.target.tagName === 'BUTTON') {
-            item = e.target.parentElement.parentElement.dataset.index;
-            project = e.target.parentElement.parentElement.dataset.project;
-        } else if (e.target.tagName === 'I') {
-            item = e.target.parentElement.parentElement.parentElement.dataset.index;
-            project = e.target.parentElement.parentElement.parentElement.dataset.project;
-        }
+        const item = e.target.parentElement.parentElement.dataset.index;
+        const project = e.target.parentElement.parentElement.dataset.project;
 
         if (getSelectedProject() === 'all') {
             todos[project].splice(item, 1);

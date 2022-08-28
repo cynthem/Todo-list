@@ -274,21 +274,16 @@ export const changeDOM = (() => {
                 const day = format(dateObject, 'do');
                 dateText.textContent = `${month} ${day}`;
              
-                const editBtn = document.createElement('button');
-                editBtn.classList.add('item-edit');
-                editBtn.addEventListener('click', e => renderEditCard(e, todos[project], listContainer));
-             
                 const editIcon = document.createElement('i');
                 editIcon.classList.add('fa-solid', 'fa-pen-to-square');
                 editIcon.addEventListener('click', e => renderEditCard(e, todos[project], listContainer));
-                editBtn.appendChild(editIcon);
           
                 const deleteIcon = document.createElement('i');
                 deleteIcon.classList.add('fa-solid', 'fa-trash-can');
                 deleteIcon.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
                 itemRight.appendChild(notesBtn);
                 itemRight.appendChild(dateText);
-                itemRight.appendChild(editBtn);
+                itemRight.appendChild(editIcon);
                 itemRight.appendChild(deleteIcon);
                 todoItem.appendChild(itemLeft);
                 todoItem.appendChild(itemRight);
@@ -356,21 +351,16 @@ export const changeDOM = (() => {
                         const day = format(dateObject, 'do');
                         dateText.textContent = `${month} ${day}`;
 
-                        const editBtn = document.createElement('button');
-                        editBtn.classList.add('item-edit');
-                        editBtn.addEventListener('click', e => renderEditCard(e, todos[project], listContainer));
-
                         const editIcon = document.createElement('i');
                         editIcon.classList.add('fa-solid', 'fa-pen-to-square');
                         editIcon.addEventListener('click', e => renderEditCard(e, todos[project], listContainer));
-                        editBtn.appendChild(editIcon);
-
+                
                         const deleteIcon = document.createElement('i');
                         deleteIcon.classList.add('fa-solid', 'fa-trash-can');
                         deleteIcon.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
                         itemRight.appendChild(notesBtn);
                         itemRight.appendChild(dateText);
-                        itemRight.appendChild(editBtn);
+                        itemRight.appendChild(editIcon);
                         itemRight.appendChild(deleteIcon);
                         todoItem.appendChild(itemLeft);
                         todoItem.appendChild(itemRight);
@@ -424,21 +414,16 @@ export const changeDOM = (() => {
                 const day = format(dateObject, 'do');
                 dateText.textContent = `${month} ${day}`;
 
-                const editBtn = document.createElement('button');
-                editBtn.classList.add('item-edit');
-                editBtn.addEventListener('click', e => renderEditCard(e, todoList, listContainer));
-
                 const editIcon = document.createElement('i');
                 editIcon.classList.add('fa-solid', 'fa-pen-to-square');
-                editIcon.addEventListener('click', e => renderEditCard(e, todoList, listContainer));
-                editBtn.appendChild(editIcon);
-
+                editIcon.addEventListener('click', e => renderEditCard(e, todos[project], listContainer));
+          
                 const deleteIcon = document.createElement('i');
                 deleteIcon.classList.add('fa-solid', 'fa-trash-can');
                 deleteIcon.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
                 itemRight.appendChild(notesBtn);
                 itemRight.appendChild(dateText);
-                itemRight.appendChild(editBtn);
+                itemRight.appendChild(editIcon);
                 itemRight.appendChild(deleteIcon);
                 todoItem.appendChild(itemLeft);
                 todoItem.appendChild(itemRight);
@@ -499,21 +484,16 @@ export const changeDOM = (() => {
                         const day = format(dateObject, 'do');
                         dateText.textContent = `${month} ${day}`;
 
-                        const editBtn = document.createElement('button');
-                        editBtn.classList.add('item-edit');
-                        editBtn.addEventListener('click', e => renderEditCard(e, todos[project], listContainer));
-
                         const editIcon = document.createElement('i');
                         editIcon.classList.add('fa-solid', 'fa-pen-to-square');
                         editIcon.addEventListener('click', e => renderEditCard(e, todos[project], listContainer));
-                        editBtn.appendChild(editIcon);
-
+                
                         const deleteIcon = document.createElement('i');
                         deleteIcon.classList.add('fa-solid', 'fa-trash-can');
                         deleteIcon.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
                         itemRight.appendChild(notesBtn);
                         itemRight.appendChild(dateText);
-                        itemRight.appendChild(editBtn);
+                        itemRight.appendChild(editIcon);
                         itemRight.appendChild(deleteIcon);
                         todoItem.appendChild(itemLeft);
                         todoItem.appendChild(itemRight);
@@ -567,21 +547,16 @@ export const changeDOM = (() => {
                 const day = format(dateObject, 'do');
                 dateText.textContent = `${month} ${day}`;
 
-                const editBtn = document.createElement('button');
-                editBtn.classList.add('item-edit');
-                editBtn.addEventListener('click', e => renderEditCard(e, todoList, listContainer));
-
                 const editIcon = document.createElement('i');
                 editIcon.classList.add('fa-solid', 'fa-pen-to-square');
-                editIcon.addEventListener('click', e => renderEditCard(e, todoList, listContainer));
-                editBtn.appendChild(editIcon);
-
+                editIcon.addEventListener('click', e => renderEditCard(e, todos[project], listContainer));
+          
                 const deleteIcon = document.createElement('i');
                 deleteIcon.classList.add('fa-solid', 'fa-trash-can');
                 deleteIcon.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
                 itemRight.appendChild(notesBtn);
                 itemRight.appendChild(dateText);
-                itemRight.appendChild(editBtn);
+                itemRight.appendChild(editIcon);
                 itemRight.appendChild(deleteIcon);
                 todoItem.appendChild(itemLeft);
                 todoItem.appendChild(itemRight);
@@ -639,21 +614,16 @@ export const changeDOM = (() => {
                 const day = format(dateObject, 'do');
                 dateText.textContent = `${month} ${day}`;
 
-                const editBtn = document.createElement('button');
-                editBtn.classList.add('item-edit');
-                editBtn.addEventListener('click', e => renderEditCard(e, todoList, listContainer));
-
                 const editIcon = document.createElement('i');
                 editIcon.classList.add('fa-solid', 'fa-pen-to-square');
-                editIcon.addEventListener('click', e => renderEditCard(e, todoList, listContainer));
-                editBtn.appendChild(editIcon);
-
+                editIcon.addEventListener('click', e => renderEditCard(e, todos[project], listContainer));
+          
                 const deleteIcon = document.createElement('i');
                 deleteIcon.classList.add('fa-solid', 'fa-trash-can');
                 deleteIcon.addEventListener('click', e => manageData.deleteTodo(e, todos, listContainer));
                 itemRight.appendChild(notesBtn);
                 itemRight.appendChild(dateText);
-                itemRight.appendChild(editBtn);
+                itemRight.appendChild(editIcon);
                 itemRight.appendChild(deleteIcon);
                 todoItem.appendChild(itemLeft);
                 todoItem.appendChild(itemRight);
