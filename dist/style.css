@@ -347,9 +347,8 @@ h2 {
 .item-right {
     gap: 25px;
 }
-/*fa-square??*/
-.item-edit,
-.item-delete {
+
+.item-edit {
     border: none;
     outline: none;
     background-color: #e8e6e7;
@@ -359,7 +358,7 @@ h2 {
 }
 
 .item-edit,
-.item-delete {
+.fa-trash-can {
     font-size: 1.25vw;
 }
 
@@ -373,7 +372,7 @@ h2 {
 .fa-square-check:hover,
 .fa-pen-to-square:hover,
 .fa-trash-can:hover {
-    color:#99728c;
+    color: #99728c;
     cursor: pointer;
 }
 
@@ -1050,7 +1049,7 @@ input[type="radio"] {
         font-size: 2vw;
     }
     .item-edit,
-    .item-delete {
+    .fa-trash-can {
         font-size: 2.5vw;
     }
     .add-new-card,
