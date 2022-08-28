@@ -220,11 +220,19 @@ export const changeDOM = (() => {
             renderWeekTodos(todos, listContainer);
             highlightSelectedFilter(e);
         } else {
-            if (todos[e.target.textContent].length < 1) {
-                manageData.setSelectedProject(e.target.textContent);
+            manageData.setSelectedProject(e.target.textContent);
+
+            let projectLength = todos[manageData.getSelectedProject()].length;
+
+            todos[manageData.getSelectedProject()].forEach(todo => {
+                if (todo.checked) {
+                    projectLength--;
+                }
+            });
+
+            if (projectLength < 1) {
                 renderEmptyProject(e, todos, listContainer);
             } else {
-                manageData.setSelectedProject(e.target.textContent);
                 renderProjectTodos(todos, listContainer);
                 highlightSelectedFilter(e);
             }
