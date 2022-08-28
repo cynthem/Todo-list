@@ -347,8 +347,7 @@ h2 {
 .item-right {
     gap: 25px;
 }
-
-.item-check,
+/*fa-square??*/
 .item-edit,
 .item-delete {
     border: none;
@@ -1041,7 +1040,8 @@ input[type="radio"] {
     .list {
         width: 95vw;
     }
-    .item-check,
+    .fa-square,
+    .fa-square-check,
     .item-description {
         font-size: 3vw;
     }
