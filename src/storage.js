@@ -111,15 +111,36 @@ export const manageData = (() => {
         const item = e.target.parentElement.parentElement.dataset.index;
         const project = e.target.parentElement.parentElement.dataset.project;
 
+        todos[project].splice(item, 1);
+        
         if (getSelectedProject() === 'all') {
-            todos[project].splice(item, 1);
-            changeDOM.renderAllToDos(todos, listContainer);
+            changeDOM.renderAllTodos(todos, listContainer);
+        } else if (getSelectedProject() === 'today') {
+            changeDOM.renderTodayTodos(todos, listContainer);
+        } else if (getSelectedProject() === 'week') {
+            changeDOM.renderWeekTodos(todos, listContainer);
         } else {
-            todos[getSelectedProject()].splice(item, 1);
-            changeDOM.renderToDos(todos, listContainer);
+            let projectLength = todos[project].length;
+
+            todos[project].forEach(todo => {
+                if (todo.checked) {
+                    projectLength--;
+                }
+            });
+
+            if (projectLength < 1) {
+                changeDOM.renderEmptyProject(e, todos, listContainer);
+            } else {
+                changeDOM.renderProjectTodos(todos, listContainer);
+            }
+            /*if (todos[project].length < 1) {
+                changeDOM.renderEmptyProject(e, todos, listContainer);
+            } else {
+                changeDOM.renderProjectTodos(todos, listContainer);
+            }*/
         }
 
-        checkIfProjectEmpty(todos, listContainer);
+        //checkIfProjectEmpty(todos, listContainer);
 
         localStorage.setItem('todos', JSON.stringify(todos));
 

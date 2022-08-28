@@ -174,16 +174,15 @@ export const changeDOM = (() => {
         const currentDay = `${year}-${month}-${day}`;
         
         emptyTitle.innerHTML = '';
-        emptyTitle.textContent = e.target.textContent;
+        emptyTitle.textContent = manageData.getSelectedProject();
         
         emptyContainer.style.visibility = 'visible';
         contentContainer.classList.add('blur');
 
         emptyExit.addEventListener('click', () => {
             renderAllTodos(todos, listContainer);
-            e.target.classList.remove('clicked');
-            allBtn.classList.add('clicked');
             manageData.setSelectedProject('all');
+            highlightReloadedFilter('all');
             emptyContainer.style.visibility = 'hidden';
             contentContainer.classList.remove('blur');
         });
