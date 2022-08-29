@@ -781,7 +781,7 @@ input[type="radio"] {
 /* EDIT CARD */
 
 .edit-card {
-    width: 45vw;
+    width: 50vw;
     height: 50vh;
 }
 
@@ -800,8 +800,8 @@ input[type="radio"] {
 
 .edit-info {
     display: grid;
-    grid-template-columns: 57% 40%;
-    column-gap: 3%;
+    grid-template-columns: 56% 40%;
+    column-gap: 4%;
     padding: 0 2% 0 5%;
 }
 
