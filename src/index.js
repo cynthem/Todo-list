@@ -15,10 +15,9 @@ const addNew = document.querySelector('.projects-btn');
 // Todos list container
 const listContainer = document.querySelector('.list');
 // Popup card buttons
-const allExit = document.querySelectorAll('fa-xmark');
     // Add-new card
 const addNewCard = document.querySelector('.add-new-card');
-const addExit = document.querySelector('.add-cancel');
+const addExit = document.querySelector('#add-exit');
 const addTodoBtn = document.querySelector('.add-btn-todo');
 const addTodoForm = document.querySelector('.add-todo-form');
 const addProject = document.querySelector('.add-btn-project');
@@ -32,10 +31,10 @@ const addMedium = document.querySelector('.medium');
 const addHigh = document.querySelector('.high');
     // Notes card
 const notesCard = document.querySelector('.notes-card');
-const notesExit = document.querySelector('.notes-cancel');
+const notesExit = document.querySelector('#notes-exit');
     // Edit card
 const editCard = document.querySelector('.edit-card');
-const editExit = document.querySelector('.edit-cancel');
+const editExit = document.querySelector('#edit-exit');
 const editSubmit = document.querySelector('.edit-submit');
 
 const todos = JSON.parse(localStorage.getItem('todos')) || {
@@ -82,28 +81,6 @@ filterBtns.forEach(btn => {
 
 hamburgerMenu.addEventListener('click', () => {
     dashboard.style.visibility = dashboard.style.visibility === 'hidden' ? 'visible' : 'hidden';
-});
-
-allExit.forEach(btn => {
-    btn.addEventListener('click', () => {
-        if (btn.parentElement.classList.contains('add-cancel')) {
-            addNewCard.style.visibility = 'hidden';
-            contentContainer.classList.remove('blur');
-            addTodoForm.reset();
-            addProjectForm.reset();
-            addTodoBtn.classList.add('clicked');
-            addTodoForm.style.display = 'grid';
-            addProject.classList.remove('clicked');
-            addProjectForm.style.display = 'none';
-            addDate.removeAttribute('value');
-        } else if (btn.parentElement.classList.contains('notes-cancel')) {
-            notesCard.style.visibility = 'hidden';
-            contentContainer.classList.remove('blur');
-        } else if (btn.parentElement.classList.contains('edit-cancel')) {
-            editCard.style.visibility = 'hidden';
-            contentContainer.classList.remove('blur');
-        }
-    });
 });
 
 const currentDay = `${year}-${month}-${day}`;
