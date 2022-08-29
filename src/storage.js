@@ -90,7 +90,7 @@ export const manageData = (() => {
     function editTodo(e, todos, listContainer) {
 
         e.preventDefault();
-        console.log(e.target.firstElementChild)
+        console.log('hello')
         const item = e.target.firstElementChild.dataset.index;
         const project = e.target.firstElementChild.dataset.project;
 
