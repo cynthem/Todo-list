@@ -727,7 +727,7 @@ export const changeDOM = (() => {
         const item = e.target.parentElement.parentElement.dataset.index;
         const project = e.target.parentElement.parentElement.dataset.project;
 
-        /*const editCard = document.querySelector('.edit-card');
+        const editCard = document.querySelector('.edit-card');
         const editTitle = document.querySelector('.edit-name');
         const editDetails = document.querySelector('.edit-details');
         const editDueDate = document.getElementById('edit-date');
@@ -737,6 +737,7 @@ export const changeDOM = (() => {
         const editLow = document.getElementById('edit-low');
         const editMedium = document.getElementById('edit-medium');
         const editHigh = document.getElementById('edit-high');
+        const contentContainer = document.getElementById('content');
 
         editTitle.dataset.index = item;
         editTitle.dataset.project = project;
@@ -778,6 +779,7 @@ export const changeDOM = (() => {
         }
 
         editCard.style.visibility = 'visible';
+        contentContainer.classList.add('blur');
 
         editLow.addEventListener('click', () => {
             if (editPriorityLow.classList.contains('low')) {
@@ -822,7 +824,7 @@ export const changeDOM = (() => {
                 editPriorityHigh.classList.remove('high');
                 editPriorityHigh.classList.add('high-checked');
             }
-        });*/
+        });
     }
 
     return {

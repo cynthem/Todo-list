@@ -782,7 +782,7 @@ input[type="radio"] {
 
 .edit-card {
     width: 45vw;
-    height: 45vh;
+    height: 50vh;
 }
 
 .edit-cancel {
@@ -807,15 +807,15 @@ input[type="radio"] {
 
 .edit-text {
     display: grid;
-    grid-template-rows: 15% 65%;
-    row-gap: 20%;
+    grid-template-rows: 20% 50%;
+    row-gap: 30%;
 }
 
 .edit-name {
     font-family: 'Fraunces', serif;
     color: #542344;
-    font-size: 2vw;
-    height: 2.5rem;
+    font-size: 1.75vw;
+    height: 4rem;
     border-bottom: 1px solid grey;
 }
 
