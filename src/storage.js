@@ -1,5 +1,4 @@
 import { changeDOM } from './DOM';
-import { format } from 'date-fns';
 
 export const manageData = (() => {
 
