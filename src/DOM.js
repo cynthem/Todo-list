@@ -283,7 +283,7 @@ export const changeDOM = (() => {
              
                 const editIcon = document.createElement('i');
                 editIcon.classList.add('fa-solid', 'fa-pen-to-square');
-                editIcon.addEventListener('click', e => renderEditCard(e, todos[project], listContainer));
+                editIcon.addEventListener('click', e => renderEditCard(e, todos[project]));
           
                 const deleteIcon = document.createElement('i');
                 deleteIcon.classList.add('fa-solid', 'fa-trash-can');
@@ -360,7 +360,7 @@ export const changeDOM = (() => {
 
                         const editIcon = document.createElement('i');
                         editIcon.classList.add('fa-solid', 'fa-pen-to-square');
-                        editIcon.addEventListener('click', e => renderEditCard(e, todos[project], listContainer));
+                        editIcon.addEventListener('click', e => renderEditCard(e, todos[project]));
                 
                         const deleteIcon = document.createElement('i');
                         deleteIcon.classList.add('fa-solid', 'fa-trash-can');
@@ -423,7 +423,7 @@ export const changeDOM = (() => {
 
                 const editIcon = document.createElement('i');
                 editIcon.classList.add('fa-solid', 'fa-pen-to-square');
-                editIcon.addEventListener('click', e => renderEditCard(e, todos[project], listContainer));
+                editIcon.addEventListener('click', e => renderEditCard(e, todos[project]));
           
                 const deleteIcon = document.createElement('i');
                 deleteIcon.classList.add('fa-solid', 'fa-trash-can');
@@ -493,7 +493,7 @@ export const changeDOM = (() => {
 
                         const editIcon = document.createElement('i');
                         editIcon.classList.add('fa-solid', 'fa-pen-to-square');
-                        editIcon.addEventListener('click', e => renderEditCard(e, todos[project], listContainer));
+                        editIcon.addEventListener('click', e => renderEditCard(e, todos[project]));
                 
                         const deleteIcon = document.createElement('i');
                         deleteIcon.classList.add('fa-solid', 'fa-trash-can');
@@ -556,7 +556,7 @@ export const changeDOM = (() => {
 
                 const editIcon = document.createElement('i');
                 editIcon.classList.add('fa-solid', 'fa-pen-to-square');
-                editIcon.addEventListener('click', e => renderEditCard(e, todos[project], listContainer));
+                editIcon.addEventListener('click', e => renderEditCard(e, todos[project]));
           
                 const deleteIcon = document.createElement('i');
                 deleteIcon.classList.add('fa-solid', 'fa-trash-can');
@@ -623,7 +623,7 @@ export const changeDOM = (() => {
 
                 const editIcon = document.createElement('i');
                 editIcon.classList.add('fa-solid', 'fa-pen-to-square');
-                editIcon.addEventListener('click', e => renderEditCard(e, todos[project], listContainer));
+                editIcon.addEventListener('click', e => renderEditCard(e, todos[project]));
           
                 const deleteIcon = document.createElement('i');
                 deleteIcon.classList.add('fa-solid', 'fa-trash-can');
@@ -722,7 +722,7 @@ export const changeDOM = (() => {
         contentContainer.classList.add('blur');
     }
 
-    function renderEditCard(e, todos, listContainer) {
+    function renderEditCard(e, todos) {
 
         const item = e.target.parentElement.parentElement.dataset.index;
         const project = e.target.parentElement.parentElement.dataset.project;
