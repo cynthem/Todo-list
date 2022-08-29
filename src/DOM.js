@@ -748,8 +748,14 @@ export const changeDOM = (() => {
         editTitle.textContent = todos[item].title;
         editDetails.textContent = todos[item].details;
 
+        const dateObject = new Date(todos[item].dueDate);
+        const month = format(dateObject, 'MM');
+        const day = format(dateObject, 'dd');
+        const year = format(dateObject, 'yyyy');
+        const currentDay = `${year}-${month}-${day}`;
+
         editDueDate.removeAttribute('value');
-        editDueDate.setAttribute('value', todos[item].dueDate);
+        editDueDate.setAttribute('value', currentDay);
 
         if (editPriorityLow.classList.contains('low-checked')) {
             editPriorityLow.classList.remove('low-checked');
