@@ -35,7 +35,7 @@ const notesExit = document.querySelector('#notes-exit');
     // Edit card
 const editCard = document.querySelector('.edit-card');
 const editExit = document.querySelector('#edit-exit');
-const editSubmit = document.querySelector('.edit-submit');
+const editSubmit = document.querySelector('#submit-edit');
 
 const todos = JSON.parse(localStorage.getItem('todos')) || {
     'all': [],
