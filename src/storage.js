@@ -1,4 +1,5 @@
 import { changeDOM } from './DOM';
+import { format } from 'date-fns';
 
 export const manageData = (() => {
 
@@ -88,22 +89,31 @@ export const manageData = (() => {
     }
 
     function editTodo(e, todos, listContainer) {
-
+        
         e.preventDefault();
-        console.log('hello')
-        const item = e.target.firstElementChild.dataset.index;
-        const project = e.target.firstElementChild.dataset.project;
+    
+        const item = e.target.firstElementChild.children[0].children[0].dataset.index;
+        const project = e.target.firstElementChild.children[0].children[0].dataset.project;
 
-        /*todos[project][item].title = (document.querySelector('.edit-name')).value;
+        const todoDate = (document.querySelector('#edit-date')).value;
+        const todoDay = todoDate.slice(5, 10);
+        const todoYear = todoDate.slice(0, 4);
+        const todoDueDate = `${todoDay}-${todoYear}`;
+
+        todos[project][item].title = (document.querySelector('.edit-name')).value;
         todos[project][item].details = (document.querySelector('.edit-details')).value;
-        todos[project][item].dueDate = (document.querySelector('#edit-date')).value;
+        todos[project][item].dueDate = todoDueDate;
         todos[project][item].priority = (document.querySelector('[name="edit-todo-priority"]:checked')).value;
 
         if (getSelectedProject() === 'all') {
             changeDOM.renderAllTodos(todos, listContainer);
+        } else if (getSelectedProject() === 'today') {
+            changeDOM.renderTodayTodos(todos, listContainer);
+        } else if (getSelectedProject() === 'week') {
+            changeDOM.renderWeekTodos(todos, listContainer);
         } else {
             changeDOM.renderProjectTodos(todos, listContainer);
-        }*/
+        }
     }
 
     function deleteTodo(e, todos, listContainer) {
