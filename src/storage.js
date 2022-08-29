@@ -90,11 +90,11 @@ export const manageData = (() => {
     function editTodo(e, todos, listContainer) {
 
         e.preventDefault();
-
+        console.log(e.target.firstElementChild)
         const item = e.target.firstElementChild.dataset.index;
         const project = e.target.firstElementChild.dataset.project;
 
-        todos[project][item].title = (document.querySelector('.edit-name')).value;
+        /*todos[project][item].title = (document.querySelector('.edit-name')).value;
         todos[project][item].details = (document.querySelector('.edit-details')).value;
         todos[project][item].dueDate = (document.querySelector('#edit-date')).value;
         todos[project][item].priority = (document.querySelector('[name="edit-todo-priority"]:checked')).value;
@@ -103,7 +103,7 @@ export const manageData = (() => {
             changeDOM.renderAllTodos(todos, listContainer);
         } else {
             changeDOM.renderProjectTodos(todos, listContainer);
-        }
+        }*/
     }
 
     function deleteTodo(e, todos, listContainer) {

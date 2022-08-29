@@ -771,15 +771,15 @@ export const changeDOM = (() => {
         }
 
         if (todos[item].priority === 'low') {
-            editPriorityLow.checked = true;
+            editLow.checked = true;
             editPriorityLow.classList.remove('low');
             editPriorityLow.classList.add('low-checked');
         } else if (todos[item].priority === 'medium') {
-            editPriorityMedium.checked = true;
+            editMedium.checked = true;
             editPriorityMedium.classList.remove('medium');
             editPriorityMedium.classList.add('medium-checked');
         } else if (todos[item].priority === 'high') {
-            editPriorityHigh.checked = true;
+            editHigh.checked = true;
             editPriorityHigh.classList.remove('high');
             editPriorityHigh.classList.add('high-checked');
         }
