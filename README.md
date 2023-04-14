@@ -1,7 +1,7 @@
 # To-Doing
 > A static page for organizing to-do lists and projects that uses JavaScript modules to handle adding and deleting to-dos and projects, filtering the to-do list by a specific project folder, checking off to-dos, editing to-dos, and more. Data is stored locally. Other technology used includes Webpack. This project was completed as part of The Odin Project's Full Stack Javascript curriculum.
 
-Live demo [_here_](https://doozles411.github.io/Todo-list/)
+Live demo [_here_](https://cynthem.github.io/Todo-list/)
 
 ## Room for Improvement
 To do:
